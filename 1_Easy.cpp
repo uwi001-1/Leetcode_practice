@@ -19,7 +19,7 @@ Input: nums = [1,3,5,6], target = 7
 Output: 4
 **************/
 
-//With O(n)
+// With O(n)
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
@@ -38,3 +38,7 @@ public:
         return size;
     }
 };
+
+// With O(log n)
+// Need to use binary search
+
