@@ -1,0 +1,4 @@
+1. EASY -> 35. Search Insert Position -- need to do Binary Search 
+2. EASY -> 1. Two Sum
+3. EASY -> 217. Contains Duplicate
+4. EASY -> 
