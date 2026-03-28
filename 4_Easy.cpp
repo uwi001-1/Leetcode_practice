@@ -34,11 +34,11 @@ public:
 
         while(x > 0)
         {
-            int a = x % 10;
-            rev = rev * 10 + a;
-            x = x /10;
+            int a = x % 10;     //use mod
+            rev = rev * 10 + a;   //save it in opposite order
+            x = x / 10;   //use divide
         }
 
-        return rev == org;
+        return rev == org;     //compare and return bool
     }
 };
