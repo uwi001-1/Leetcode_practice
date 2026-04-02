@@ -20,7 +20,31 @@ Output: 0
     Explanation: In this case, no transactions are done and the max profit = 0.
 ***************/
 
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) 
+    {
+        int least = prices[0];
+        int maxProfit = 0;
 
+        for(int i = 1; i < prices.size(); i++) 
+        {
+            if(prices[i] < least) 
+            {   
+                least = prices[i];    // the least price in position
+            } 
+        else
+        {
+            int profit = prices[i] - least;
+            if(profit > maxProfit)   //get the highest profit
+            {
+                maxProfit = profit;
+            }
+        }
+    }
+    return maxProfit;
+    }
+};
 
 /*****
 class Solution {
