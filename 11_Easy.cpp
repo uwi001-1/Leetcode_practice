@@ -4,74 +4,65 @@ using namespace std;
 // 21. Merge Two Sorted Lists
 
 /***************
-Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
-Symbol       Value
-I             1
-V             5
-X             10
-L             50
-C             100
-D             500
-M             1000
-For example, 2 is written as II in Roman numeral, just two ones added together. 
-12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
-
-Roman numerals are usually written largest to smallest from left to right. 
-However, the numeral for four is not IIII. Instead, the number four is written as IV. 
-Because the one is before the five we subtract it making four. T
-he same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
-    I can be placed before V (5) and X (10) to make 4 and 9. 
-    X can be placed before L (50) and C (100) to make 40 and 90. 
-    C can be placed before D (500) and M (1000) to make 400 and 900.
-
-Given a roman numeral, convert it to an integer.
+You are given the heads of two sorted linked lists list1 and list2.
+Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+Return the head of the merged linked list.
 
 Example 1:
-Input: s = "III"
-Output: 3
-    Explanation: III = 3.
+Input: list1 = [1,2,4], list2 = [1,3,4]
+Output: [1,1,2,3,4,4]
 
 Example 2:
-Input: s = "LVIII"
-Output: 58
-    Explanation: L = 50, V= 5, III = 3.
+Input: list1 = [], list2 = []
+Output: []
 
 Example 3:
-Input: s = "MCMXCIV"
-Output: 1994
-    Explanation: M = 1000, CM = 900, XC = 90 and IV = 4
+Input: list1 = [], list2 = [0]
+Output: [0]
 ***************/
 
+
+// Definition for singly-linked list.
+struct ListNode 
+{
+    int val;
+    ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ 
 class Solution {
 public:
-    int getValue(char c) 
-    {
-        switch(c) 
-        {
-            case 'I': return 1;
-            case 'V': return 5;
-            case 'X': return 10;
-            case 'L': return 50;
-            case 'C': return 100;
-            case 'D': return 500;
-            case 'M': return 1000;
-            default: return 0; // for safety
-        }
-    }
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        ListNode* newNode = new ListNode(0);
+        ListNode* curr = newNode;
+        
+        ListNode* curr1 = list1;
+        ListNode* curr2 = list2;
 
-    int romanToInt(string s) {
-       int total = 0;
-       for(int i = 0; i < s.size(); i++)
-       {
-            if(getValue(s[i]) < getValue(s[i+1]))
+
+        while(curr1 != nullptr and curr2 != nullptr)
+        {
+            if(curr1->val <= curr2->val)
             {
-                total = total - getValue(s[i]);   // subtract if it less
+                curr->next = curr1;
+                curr1 = curr1->next;
             }
             else
             {
-                total = total + getValue(s[i]);  //add the value if it not an exception case
+                curr->next = curr2;
+                curr2 = curr2->next;
             }
-       }
-       return total; 
+            curr = curr->next;
+        }
+
+        if(curr1 != nullptr)
+            curr->next = curr1;
+        
+        if(curr2 != nullptr)
+            curr->next = curr2;
+
+        return newNode->next;
     }
 };
