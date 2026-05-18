@@ -1,71 +1,52 @@
 #include<iostream>
 using namespace std;
 
-// 21. Merge Two Sorted Lists
+// 70. Climbing Stairs
 
 /***************
-You are given the heads of two sorted linked lists list1 and list2.
-Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
-Return the head of the merged linked list.
+You are climbing a staircase. It takes n steps to reach the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
 Example 1:
-Input: list1 = [1,2,4], list2 = [1,3,4]
-Output: [1,1,2,3,4,4]
+Input: n = 2
+Output: 2
+    Explanation: There are two ways to climb to the top.
+        1. 1 step + 1 step
+        2. 2 steps
 
 Example 2:
-Input: list1 = [], list2 = []
-Output: []
-
-Example 3:
-Input: list1 = [], list2 = [0]
-Output: [0]
+Input: n = 3
+Output: 3
+    Explanation: There are three ways to climb to the top.
+        1. 1 step + 1 step + 1 step
+        2. 1 step + 2 steps
+        3. 2 steps + 1 step
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode 
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
- 
+//Using Dyanmic Programming 
+//THIS IS SIMILAR TO FIBONNACCI SERIES
+
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) 
+    int res[50];
+
+    Solution() 
     {
-        // make a new LL to store the merged list
-        ListNode* newNode = new ListNode(0);
-        ListNode* curr = newNode;
+        memset(res, -1, 50 * sizeof(int));
+    }
+
+    int climbStairs(int n) 
+    {
+        if(res[n] != -1)
+            return res[n];
+
+        if(n <= 2)
+            return n;
         
-        ListNode* curr1 = list1;
-        ListNode* curr2 = list2;
+        //a(n) = a(n-1) + a(n-2)
+        res[n] = climbStairs(n-1) + climbStairs(n-2);
 
-
-        while(curr1 != nullptr and curr2 != nullptr)
-        {
-            if(curr1->val <= curr2->val)
-            {
-                curr->next = curr1;
-                curr1 = curr1->next;
-            }
-            else
-            {
-                curr->next = curr2;
-                curr2 = curr2->next;
-            }
-            curr = curr->next;
-        }
-
-        // if one of the list becomes empty, attach whichever list still has remaining nodes
-        if(curr1 != nullptr)
-            curr->next = curr1;
-        
-        if(curr2 != nullptr)
-            curr->next = curr2;
-
-        return newNode->next;
+        return res[n];
     }
 };
