@@ -1,52 +1,36 @@
 #include<iostream>
 using namespace std;
 
-// 70. Climbing Stairs
+// 2469. Convert the Temperature
 
 /***************
-You are climbing a staircase. It takes n steps to reach the top.
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+You are given a non-negative floating point number rounded to two decimal places celsius, that denotes the temperature in Celsius.
+You should convert Celsius into Kelvin and Fahrenheit and return it as an array ans = [kelvin, fahrenheit].
+Return the array ans. Answers within 10-5 of the actual answer will be accepted.
 
+Note that:
+Kelvin = Celsius + 273.15
+Fahrenheit = Celsius * 1.80 + 32.00
+ 
 Example 1:
-Input: n = 2
-Output: 2
-    Explanation: There are two ways to climb to the top.
-        1. 1 step + 1 step
-        2. 2 steps
+Input: celsius = 36.50
+Output: [309.65000,97.70000]
+    Explanation: Temperature at 36.50 Celsius converted in Kelvin is 309.65 and converted in Fahrenheit is 97.70.
 
 Example 2:
-Input: n = 3
-Output: 3
-    Explanation: There are three ways to climb to the top.
-        1. 1 step + 1 step + 1 step
-        2. 1 step + 2 steps
-        3. 2 steps + 1 step
+Input: celsius = 122.11
+Output: [395.26000,251.79800]
+    Explanation: Temperature at 122.11 Celsius converted in Kelvin is 395.26 and converted in Fahrenheit is 251.798.
 ***************/
 
 
-//Using Dyanmic Programming 
-//THIS IS SIMILAR TO FIBONNACCI SERIES
-
 class Solution {
 public:
-    int res[50];
-
-    Solution() 
+    vector<double> convertTemperature(double celsius) 
     {
-        memset(res, -1, 50 * sizeof(int));
-    }
+        double K = celsius + 273.15;
+        double F = celsius * 1.80 + 32.00;
 
-    int climbStairs(int n) 
-    {
-        if(res[n] != -1)
-            return res[n];
-
-        if(n <= 2)
-            return n;
-        
-        //a(n) = a(n-1) + a(n-2)
-        res[n] = climbStairs(n-1) + climbStairs(n-2);
-
-        return res[n];
+        return {K, F};
     }
 };
