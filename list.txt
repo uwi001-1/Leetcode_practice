@@ -12,4 +12,5 @@
 12. EASY -> 70. Climbing Stairs
 13. EASY -> 2469. Convert the Temperature
 14. MEDUIM -> 2807. Insert Greatest Common Divisors in Linked List
-15. MEDIUM -> 
+15. MEDIUM -> 2396. Strictly Palindromic Number
+16. 

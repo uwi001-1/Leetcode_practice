@@ -1,61 +1,64 @@
 #include<iostream>
-#include <numeric> 
+#include <string> 
 using namespace std;
 
-// 2807. Insert Greatest Common Divisors in Linked List
+// 2396. Strictly Palindromic Number
 
 /***************
-Given the head of a linked list head, in which each node contains an integer value.
-Between every pair of adjacent nodes, insert a new node with a value equal to the greatest common divisor of them.
-Return the linked list after insertion.
-The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+An integer n is strictly palindromic if, for every base b between 2 and n - 2 (inclusive), the string representation of the integer n in base b is palindromic.
+Given an integer n, return true if n is strictly palindromic and false otherwise.
+A string is palindromic if it reads the same forward and backward.
 
 Example 1:
-Input: head = [18,6,10,3]
-Output: [18,6,6,2,10,1,3]
-    Explanation: The 1st diagram denotes the initial linked list and the 2nd diagram denotes the linked list after inserting the new nodes (nodes in blue are the inserted nodes).
-        - We insert the greatest common divisor of 18 and 6 = 6 between the 1st and the 2nd nodes.
-        - We insert the greatest common divisor of 6 and 10 = 2 between the 2nd and the 3rd nodes.
-        - We insert the greatest common divisor of 10 and 3 = 1 between the 3rd and the 4th nodes.
-        There are no more adjacent nodes, so we return the linked list.
+Input: n = 9
+Output: false
+    Explanation: In base 2: 9 = 1001 (base 2), which is palindromic.
+    In base 3: 9 = 100 (base 3), which is not palindromic.
+    Therefore, 9 is not strictly palindromic so we return false.
+        Note that in bases 4, 5, 6, and 7, n = 9 is also not palindromic.
 
 Example 2:
-Input: head = [7]
-Output: [7]
-    Explanation: The 1st diagram denotes the initial linked list and the 2nd diagram denotes the linked list after inserting the new nodes.
-    There are no pairs of adjacent nodes, so we return the initial linked list.
+Input: n = 4
+Output: false
+    Explanation: We only consider base 2: 4 = 100 (base 2), which is not palindromic.
+    Therefore, we return false.
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
- };
-
-
+// This is supposed to be a famous troll Leetcode problem
+// The answer will always be false for n>3; could have just done return false
+// Because with the base n-2 for any number it will be 12 and it is never a palindrome. 
 
 class Solution {
 public:
-    ListNode* insertGreatestCommonDivisors(ListNode* head) 
+    bool checkPalindrome(int n)
     {
-        ListNode* pCurr = head;
-        while(pCurr->next != nullptr)
+        int org = n;
+        int ne = 0;
+        for(int i=0; i<to_string(n).length(); i++)
         {
-            ListNode* pBeg = pCurr;
-            ListNode* pEnd = pCurr->next;
-            
-            //int iMid = std::gcd(pBeg->val, pEnd->val);
-
-            //ListNode* pNew = new ListNode(iMid);
-            //pNew->next = pEnd;
-            //pBeg->next = pNew;
-
-            pCurr = pEnd; 
+            ne = ne * 10 + (n % 10);
+            n = n/10;
         }
-        return head;
+        if(ne == org)
+            return true;
+        return false;
+    }
+
+    bool isStrictlyPalindromic(int n) 
+    {
+        for(int i=2; i<=n-1; i++)
+        {
+            int check = 0;
+            int x = n;
+            while(x > 0)
+            {
+                check = check * 10 + (x % i);
+                x = x/i;
+            }
+            if(!checkPalindrome(check))
+                return false;
+        }
+        return true; 
     }
 };
