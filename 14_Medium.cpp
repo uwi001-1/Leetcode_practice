@@ -1,36 +1,61 @@
 #include<iostream>
+#include <numeric> 
 using namespace std;
 
-// 2469. Convert the Temperature
+// 2807. Insert Greatest Common Divisors in Linked List
 
 /***************
-You are given a non-negative floating point number rounded to two decimal places celsius, that denotes the temperature in Celsius.
-You should convert Celsius into Kelvin and Fahrenheit and return it as an array ans = [kelvin, fahrenheit].
-Return the array ans. Answers within 10-5 of the actual answer will be accepted.
+Given the head of a linked list head, in which each node contains an integer value.
+Between every pair of adjacent nodes, insert a new node with a value equal to the greatest common divisor of them.
+Return the linked list after insertion.
+The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
 
-Note that:
-Kelvin = Celsius + 273.15
-Fahrenheit = Celsius * 1.80 + 32.00
- 
 Example 1:
-Input: celsius = 36.50
-Output: [309.65000,97.70000]
-    Explanation: Temperature at 36.50 Celsius converted in Kelvin is 309.65 and converted in Fahrenheit is 97.70.
+Input: head = [18,6,10,3]
+Output: [18,6,6,2,10,1,3]
+    Explanation: The 1st diagram denotes the initial linked list and the 2nd diagram denotes the linked list after inserting the new nodes (nodes in blue are the inserted nodes).
+        - We insert the greatest common divisor of 18 and 6 = 6 between the 1st and the 2nd nodes.
+        - We insert the greatest common divisor of 6 and 10 = 2 between the 2nd and the 3rd nodes.
+        - We insert the greatest common divisor of 10 and 3 = 1 between the 3rd and the 4th nodes.
+        There are no more adjacent nodes, so we return the linked list.
 
 Example 2:
-Input: celsius = 122.11
-Output: [395.26000,251.79800]
-    Explanation: Temperature at 122.11 Celsius converted in Kelvin is 395.26 and converted in Fahrenheit is 251.798.
+Input: head = [7]
+Output: [7]
+    Explanation: The 1st diagram denotes the initial linked list and the 2nd diagram denotes the linked list after inserting the new nodes.
+    There are no pairs of adjacent nodes, so we return the initial linked list.
 ***************/
+
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+ };
+
 
 
 class Solution {
 public:
-    vector<double> convertTemperature(double celsius) 
+    ListNode* insertGreatestCommonDivisors(ListNode* head) 
     {
-        double K = celsius + 273.15;
-        double F = celsius * 1.80 + 32.00;
+        ListNode* pCurr = head;
+        while(pCurr->next != nullptr)
+        {
+            ListNode* pBeg = pCurr;
+            ListNode* pEnd = pCurr->next;
+            
+            //int iMid = std::gcd(pBeg->val, pEnd->val);
 
-        return {K, F};
+            //ListNode* pNew = new ListNode(iMid);
+            //pNew->next = pEnd;
+            //pBeg->next = pNew;
+
+            pCurr = pEnd; 
+        }
+        return head;
     }
 };
