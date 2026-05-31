@@ -29,40 +29,52 @@ Output: [1,3,4]
         - The sum of the nodes marked in yellow: 2 + 2 = 4.
 ***************/
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+ };
 
 class Solution {
 public:
-    bool checkPalindrome(int n)
+    ListNode* mergeNodes(ListNode* head) 
     {
-        int org = n;
-        int ne = 0;
-        for(int i=0; i<to_string(n).length(); i++)
-        {
-            ne = ne * 10 + (n % 10);
-            n = n/10;
-        }
-        if(ne == org)
-            return true;
-        return false;
-    }
-
-    bool isStrictlyPalindromic(int n) 
-    {
-        //just could have done this:
-        //return false;
+        ListNode* pCurr = head->next;
+        ListNode* pHead = nullptr;
+        ListNode* pTail = nullptr;
+        int iCount = 0;
         
-        for(int i=2; i<=n-1; i++)
+        //need to run the last zero too, to make sure that the last count is appended to the list
+        while(pCurr != nullptr) 
         {
-            int check = 0;
-            int x = n;
-            while(x > 0)
+            if(pCurr->val != 0)
             {
-                check = check * 10 + (x % i);
-                x = x/i;
+                iCount = iCount + pCurr->val;
             }
-            if(!checkPalindrome(check))
-                return false;
+            else
+            {
+                if(iCount != 0)
+                {
+                    ListNode* pNew = new ListNode(iCount);
+
+                    if(pHead == nullptr)
+                    {
+                        pHead = pNew;
+                        pTail = pHead;
+                    }
+                    else
+                    {
+                        pTail->next = pNew;
+                        pTail = pNew;
+                    }
+                }
+                iCount = 0;
+            }
+            pCurr = pCurr->next;
         }
-        return true; 
+        return pHead;
     }
 };

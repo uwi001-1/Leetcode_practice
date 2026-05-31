@@ -37,7 +37,6 @@ struct ListNode {
  };
 
 
-
 class Solution {
 public:
     ListNode* insertGreatestCommonDivisors(ListNode* head) 
