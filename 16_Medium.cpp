@@ -1,33 +1,34 @@
 #include<iostream>
-#include <string> 
 using namespace std;
 
-// 2396. Strictly Palindromic Number
+// 2181. Merge Nodes in Between Zeros
 
 /***************
-An integer n is strictly palindromic if, for every base b between 2 and n - 2 (inclusive), the string representation of the integer n in base b is palindromic.
-Given an integer n, return true if n is strictly palindromic and false otherwise.
-A string is palindromic if it reads the same forward and backward.
+You are given the head of a linked list, which contains a series of integers separated by 0's. 
+The beginning and end of the linked list will have Node.val == 0.
+For every two consecutive 0's, merge all the nodes lying in between them into a single node whose value is the sum of all the merged nodes. 
+The modified list should not contain any 0's.
 
+Return the head of the modified linked list.
+ 
 Example 1:
-Input: n = 9
-Output: false
-    Explanation: In base 2: 9 = 1001 (base 2), which is palindromic.
-    In base 3: 9 = 100 (base 3), which is not palindromic.
-    Therefore, 9 is not strictly palindromic so we return false.
-        Note that in bases 4, 5, 6, and 7, n = 9 is also not palindromic.
+Input: head = [0,3,1,0,4,5,2,0]
+Output: [4,11]
+    Explanation: 
+    The above figure represents the given linked list. The modified list contains
+        - The sum of the nodes marked in green: 3 + 1 = 4.
+        - The sum of the nodes marked in red: 4 + 5 + 2 = 11.
 
 Example 2:
-Input: n = 4
-Output: false
-    Explanation: We only consider base 2: 4 = 100 (base 2), which is not palindromic.
-    Therefore, we return false.
+Input: head = [0,1,0,3,0,2,2,0]
+Output: [1,3,4]
+    Explanation: 
+    The above figure represents the given linked list. The modified list contains
+        - The sum of the nodes marked in green: 1 = 1.
+        - The sum of the nodes marked in red: 3 = 3.
+        - The sum of the nodes marked in yellow: 2 + 2 = 4.
 ***************/
 
-
-// This is supposed to be a famous troll Leetcode problem
-// The answer will always be false for n>3; could have just done return false
-// Because with the base n-2 for any number it will be 12 and it is never a palindrome. 
 
 class Solution {
 public:
