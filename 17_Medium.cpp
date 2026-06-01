@@ -4,77 +4,55 @@ using namespace std;
 // 2126. Destroying Asteroids
 
 /***************
-You are given the head of a linked list, which contains a series of integers separated by 0's. 
-The beginning and end of the linked list will have Node.val == 0.
-For every two consecutive 0's, merge all the nodes lying in between them into a single node whose value is the sum of all the merged nodes. 
-The modified list should not contain any 0's.
+You are given an integer mass, which represents the original mass of a planet. 
+You are further given an integer array asteroids, where asteroids[i] is the mass of the ith asteroid.
+You can arrange for the planet to collide with the asteroids in any arbitrary order. 
+If the mass of the planet is greater than or equal to the mass of the asteroid, the asteroid is destroyed and the planet gains the mass of the asteroid. Otherwise, the planet is destroyed.
 
-Return the head of the modified linked list.
- 
+Return true if all asteroids can be destroyed. Otherwise, return false.
+
 Example 1:
-Input: head = [0,3,1,0,4,5,2,0]
-Output: [4,11]
-    Explanation: 
-    The above figure represents the given linked list. The modified list contains
-        - The sum of the nodes marked in green: 3 + 1 = 4.
-        - The sum of the nodes marked in red: 4 + 5 + 2 = 11.
+Input: mass = 10, asteroids = [3,9,19,5,21]
+Output: true
+    Explanation: One way to order the asteroids is [9,19,5,3,21]:
+    - The planet collides with the asteroid with a mass of 9. New planet mass: 10 + 9 = 19
+    - The planet collides with the asteroid with a mass of 19. New planet mass: 19 + 19 = 38
+    - The planet collides with the asteroid with a mass of 5. New planet mass: 38 + 5 = 43
+    - The planet collides with the asteroid with a mass of 3. New planet mass: 43 + 3 = 46
+    - The planet collides with the asteroid with a mass of 21. New planet mass: 46 + 21 = 67
+    All asteroids are destroyed.
 
 Example 2:
-Input: head = [0,1,0,3,0,2,2,0]
-Output: [1,3,4]
-    Explanation: 
-    The above figure represents the given linked list. The modified list contains
-        - The sum of the nodes marked in green: 1 = 1.
-        - The sum of the nodes marked in red: 3 = 3.
-        - The sum of the nodes marked in yellow: 2 + 2 = 4.
+Input: mass = 5, asteroids = [4,9,23,4]
+Output: false
+    Explanation: The planet cannot ever gain enough mass to destroy the asteroid with a mass of 23.
+    After the planet destroys the other asteroids, it will have a mass of 5 + 4 + 9 + 4 = 22.
+    This is less than 23, so a collision would not destroy the last asteroid.
 ***************/
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
- };
 
 class Solution {
 public:
-    ListNode* mergeNodes(ListNode* head) 
+    bool asteroidsDestroyed(int mass, vector<int>& asteroids) 
     {
-        ListNode* pCurr = head->next;
-        ListNode* pHead = nullptr;
-        ListNode* pTail = nullptr;
-        int iCount = 0;
+        // sort the array in ascending order as that is the most reasonable
+        // If you can't destroy a smaller asteroid, you definitely can't destroy a larger one. So sorting ascending and going left to right is optimal.
+        std::sort(asteroids.begin(), asteroids.end()); 
         
-        //need to run the last zero too, to make sure that the last count is appended to the list
-        while(pCurr != nullptr) 
+        // use long long data type as it is 64-bit size as the mass size can be huge
+        long long newMass = mass;
+
+        // this is a for loop, in vectors, use .size() makes it complicated
+        for(int i : asteroids)
         {
-            if(pCurr->val != 0)
-            {
-                iCount = iCount + pCurr->val;
-            }
+            // if ever can't be destroyed, then return false
+            if(i > newMass) return false;
             else
             {
-                if(iCount != 0)
-                {
-                    ListNode* pNew = new ListNode(iCount);
-
-                    if(pHead == nullptr)
-                    {
-                        pHead = pNew;
-                        pTail = pHead;
-                    }
-                    else
-                    {
-                        pTail->next = pNew;
-                        pTail = pNew;
-                    }
-                }
-                iCount = 0;
+                // destroy and add to the mass of the planet
+                newMass += i;
             }
-            pCurr = pCurr->next;
         }
-        return pHead;
+        return true;
     }
 };
