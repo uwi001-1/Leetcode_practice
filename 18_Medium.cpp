@@ -24,26 +24,23 @@ Output: 0
 
 class Solution {
 public:
-    bool asteroidsDestroyed(int mass, vector<int>& asteroids) 
+    int countDigitOccurrences(vector<int>& nums, int digit) 
     {
-        // sort the array in ascending order as that is the most reasonable
-        // If you can't destroy a smaller asteroid, you definitely can't destroy a larger one. So sorting ascending and going left to right is optimal.
-        std::sort(asteroids.begin(), asteroids.end()); 
-        
-        // use long long data type as it is 64-bit size as the mass size can be huge
-        long long newMass = mass;
-
-        // this is a for loop, in vectors, use .size() makes it complicated
-        for(int i : asteroids)
+        int count = 0;
+        for(int num : nums)
         {
-            // if ever can't be destroyed, then return false
-            if(i > newMass) return false;
-            else
+            while(num > 0)
             {
-                // destroy and add to the mass of the planet
-                newMass += i;
+                int one = num % 10;  // get the last digit
+                num = num / 10;      // remove the last digit
+                
+                // count the number of times the digits are same
+                if(one == digit)
+                {
+                    count += 1;
+                }
             }
         }
-        return true;
+        return count; 
     }
 };
