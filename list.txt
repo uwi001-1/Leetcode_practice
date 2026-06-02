@@ -15,5 +15,5 @@
 15. MEDIUM -> 2396. Strictly Palindromic Number
 16. MEDUIM -> 2181. Merge Nodes in Between Zeros
 17. MEDIUM -> 2126. Destroying Asteroids
-18. MEDIUM -> 
+18. MEDIUM -> 3895. Count Digit Appearances
 19. 
