@@ -16,4 +16,5 @@
 16. MEDUIM -> 2181. Merge Nodes in Between Zeros
 17. MEDIUM -> 2126. Destroying Asteroids
 18. MEDIUM -> 3895. Count Digit Appearances
-19. EASY -> 
+19. EASY -> 203. Remove Linked List Elements
+20. 

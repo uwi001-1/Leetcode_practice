@@ -1,24 +1,22 @@
 #include<iostream>
 using namespace std;
 
-// 3895. Count Digit Appearances
-
+// 203. Remove Linked List Elements
 
 /***************
-You are given an integer array nums and an integer digit.
-Return the total number of times digit appears in the decimal representation of all elements in nums.
+Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
 
 Example 1:
-Input: nums = [12,54,32,22], digit = 2
-Output: 4
-    Explanation:
-    The digit 2 appears once in 12 and 32, and twice in 22. Thus, the total number of times digit 2 appears is 4.
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
 
 Example 2:
-Input: nums = [1,34,7], digit = 9
-Output: 0
-    Explanation:
-    The digit 9 does not appear in the decimal representation of any element in nums, so the total number of times digit 9 appears is 0.
+Input: head = [], val = 1
+Output: []
+
+Example 3:
+Input: head = [7,7,7,7], val = 7
+Output: []
 ***************/
 
 
