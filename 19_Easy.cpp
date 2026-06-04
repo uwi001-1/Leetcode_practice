@@ -20,25 +20,55 @@ Output: []
 ***************/
 
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
-    int countDigitOccurrences(vector<int>& nums, int digit) 
+    ListNode* removeElements(ListNode* head, int val) 
     {
-        int count = 0;
-        for(int num : nums)
+        // if LL is empty, we can't dereference the nullptr at head
+        if(head == nullptr) return head;
+
+        while(true)
         {
-            while(num > 0)
+            // for cases like --> head = [7,7,7,7], val = 7
+            if(head == nullptr) return head;
+            
+            if(head->val == val)
             {
-                int one = num % 10;  // get the last digit
-                num = num / 10;      // remove the last digit
-                
-                // count the number of times the digits are same
-                if(one == digit)
-                {
-                    count += 1;
-                }
+                head = head->next;
+            }
+            else
+            {
+                // if head ain't the val then move forward
+                break;
             }
         }
-        return count; 
+        ListNode* curr = head->next;
+        ListNode* prev = head;
+
+        while(curr != nullptr)
+        {
+            if(curr->val == val)
+            {
+                // remove it and keep prev at the same
+                prev->next = curr->next;
+                curr = curr->next;
+            }
+            else
+            {
+                // move one step ahead with both prev and curr
+                prev = prev->next;
+                curr = curr->next;
+            }
+        }
+        return head;
     }
 };
