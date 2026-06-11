@@ -17,4 +17,5 @@
 17. MEDIUM -> 2126. Destroying Asteroids
 18. MEDIUM -> 3895. Count Digit Appearances
 19. EASY -> 203. Remove Linked List Elements
-20. MEDIUM ->
+20. MEDIUM -> 2391. Minimum Amount of Time to Collect Garbage
+21. 
