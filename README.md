@@ -9,3 +9,34 @@ This repository contains my solutions to LeetCode problems across Easy, Medium, 
 Language Used: C++ 
 
 Started: March 2026
+
+
+## 📊 Progress
+
+| Difficulty | Solved |
+|------------|---------|
+| Easy       | 12 |
+| Medium     | 8 |
+| Hard       | 0 |
+| Total      | 20 |
+
+
+## Topics Covered
+
+- Dynamic Programming
+- Math
+- Hash Tables
+- Binary Search
+- Recursion
+- Bit Manipulation
+- Greedy Algorithms
+- Brainteaser
+- Database
+- Arrays
+- Linked Lists
+- Strings
+- Sorting
+- Simulation
+- Two Pointers
+- Stacks & Queues
+
