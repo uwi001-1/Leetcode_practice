@@ -45,55 +45,55 @@ Output: 37
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution {
 public:
-    ListNode* removeElements(ListNode* head, int val) 
+    int garbageCollection(vector<string>& garbage, vector<int>& travel) 
     {
-        // if LL is empty, we can't dereference the nullptr at head
-        if(head == nullptr) return head;
+        int G = 0;
+        int P = 0;
+        int M = 0;
 
-        while(true)
-        {
-            // for cases like --> head = [7,7,7,7], val = 7
-            if(head == nullptr) return head;
+        // for calculating the travel time 
+        int travel_P = 0;
+        int travel_G = 0;
+        int travel_M = 0;
+        
+        // for looping through the travel array
+        int index = -1;
+
+        for (const string& house : garbage) {
+            // add the travel distance only from house 1
+            if(index > -1) travel_G += travel[index];
+            if(index > -1) travel_P += travel[index];
+            if(index > -1) travel_M += travel[index];
             
-            if(head->val == val)
-            {
-                head = head->next;
+            // c is 'G', 'P', or 'M
+            for (char c : house) {
+                if (c == 'G') 
+                {
+                    // handle glass
+                    G = G + 1 + travel_G;
+                    travel_G = 0;
+                } 
+                else if (c == 'P') 
+                {
+                    // handle paper
+                    P = P + 1 + travel_P;
+                    travel_P = 0;
+                } 
+                else if (c == 'M') 
+                {
+                    // handle metal
+                    M = M + 1 + travel_M;
+                    travel_M = 0;
+                }
             }
-            else
-            {
-                // if head ain't the val then move forward
-                break;
-            }
+            // loop through and avoid the first travel cost
+            index += 1;
         }
-        ListNode* curr = head->next;
-        ListNode* prev = head;
-
-        while(curr != nullptr)
-        {
-            if(curr->val == val)
-            {
-                // remove it and keep prev at the same
-                prev->next = curr->next;
-                curr = curr->next;
-            }
-            else
-            {
-                // move one step ahead with both prev and curr
-                prev = prev->next;
-                curr = curr->next;
-            }
-        }
-        return head;
+        // total min time taken
+        int total = G + P + M;
+        
+        return total;
     }
 };
