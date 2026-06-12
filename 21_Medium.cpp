@@ -23,13 +23,18 @@ Output: "lYmpH"
     Explanation: There are no vowels in s (all characters in s are consonants), so we return "lYmpH".
 ***************/
 
+
+
+
+
+// this is O(n^2)
 class Solution {
 public:
     string sortVowels(string s) 
     {
         for(int i = 0; i < s.size(); i++)
         {
-            // if the char is not vowel then break
+            // if the char is not vowel then continue
             if(s[i] != 'A' 
             && s[i] != 'E' 
             && s[i] != 'O'
