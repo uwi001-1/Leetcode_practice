@@ -23,56 +23,53 @@ Output: "lYmpH"
     Explanation: There are no vowels in s (all characters in s are consonants), so we return "lYmpH".
 ***************/
 
-
 class Solution {
 public:
-    int garbageCollection(vector<string>& garbage, vector<int>& travel) 
+    string sortVowels(string s) 
     {
-        int G = 0;
-        int P = 0;
-        int M = 0;
+        for(int i = 0; i < s.size(); i++)
+        {
+            // if the char is not vowel then break
+            if(s[i] != 'A' 
+            && s[i] != 'E' 
+            && s[i] != 'O'
+            && s[i] != 'I' 
+            && s[i] != 'U'
+            && s[i] != 'a' 
+            && s[i] != 'e' 
+            && s[i] != 'i'
+            && s[i] != 'o' 
+            && s[i] != 'u')
+                continue;
 
-        // for calculating the travel time 
-        int travel_P = 0;
-        int travel_G = 0;
-        int travel_M = 0;
-        
-        // for looping through the travel array
-        int index = -1;
+            // assign the ascii value of the char to smallest
+            int smallest = s[i];
+            int small = i;
+            int num;
 
-        for (const string& house : garbage) {
-            // add the travel distance only from house 1
-            if(index > -1) travel_G += travel[index];
-            if(index > -1) travel_P += travel[index];
-            if(index > -1) travel_M += travel[index];
-            
-            // c is 'G', 'P', or 'M
-            for (char c : house) {
-                if (c == 'G') 
+            // selection sort (O(n2))
+            for(int j = i; j < s.size(); j++)
+            {
+                if(s[j] != 'A' 
+                && s[j] != 'E' 
+                && s[j] != 'O'
+                && s[j] != 'I' 
+                && s[j] != 'U'
+                && s[j] != 'a' 
+                && s[j] != 'e' 
+                && s[j] != 'i'
+                && s[j] != 'o' 
+                && s[j] != 'u')
+                    continue;
+                num = s[j];
+                if(num <= smallest)
                 {
-                    // handle glass
-                    G = G + 1 + travel_G;
-                    travel_G = 0;
-                } 
-                else if (c == 'P') 
-                {
-                    // handle paper
-                    P = P + 1 + travel_P;
-                    travel_P = 0;
-                } 
-                else if (c == 'M') 
-                {
-                    // handle metal
-                    M = M + 1 + travel_M;
-                    travel_M = 0;
+                    smallest = num;
+                    small = j;
                 }
             }
-            // loop through and avoid the first travel cost
-            index += 1;
+            swap(s[i], s[small]);
         }
-        // total min time taken
-        int total = G + P + M;
-        
-        return total;
-    }
+        return s;
+    };
 };
