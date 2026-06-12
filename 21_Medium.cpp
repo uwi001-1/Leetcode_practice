@@ -24,10 +24,63 @@ Output: "lYmpH"
 ***************/
 
 
+// this is O(nlogn)
+class Solution {
+public:
+    string sortVowels(string s) 
+    {
+        // make new character to push the vowels
+        vector<char> m;
+
+        for(int i = 0; i < s.size(); i++)
+        {
+            // if the char is not vowel then continue
+            if(s[i] != 'A' 
+            && s[i] != 'E' 
+            && s[i] != 'O'
+            && s[i] != 'I' 
+            && s[i] != 'U'
+            && s[i] != 'a' 
+            && s[i] != 'e' 
+            && s[i] != 'i'
+            && s[i] != 'o' 
+            && s[i] != 'u')
+                continue;
+            
+            m.push_back(s[i]);
+        }
+
+        // sort the vowels based on their ascii values
+        std::sort(m.begin(), m.end());
+        
+        // for the vowels string
+        int num = 0;
+
+        for(int i = 0; i < s.size(); i++)
+        {
+            // if the char is not vowel then continue
+            if(s[i] != 'A' 
+            && s[i] != 'E' 
+            && s[i] != 'O'
+            && s[i] != 'I' 
+            && s[i] != 'U'
+            && s[i] != 'a' 
+            && s[i] != 'e' 
+            && s[i] != 'i'
+            && s[i] != 'o' 
+            && s[i] != 'u')
+                continue;
+            
+            // if it is a vowel replace it with the string in vowel
+            s[i] = m[num];
+            num += 1;
+        }
+        return s;
+    };
+};
 
 
-
-// this is O(n^2)
+// this is O(n^2) as it has selection sort
 class Solution {
 public:
     string sortVowels(string s) 
@@ -73,6 +126,7 @@ public:
                     small = j;
                 }
             }
+            // swap the smallest ascii value char with the currect char
             swap(s[i], s[small]);
         }
         return s;
