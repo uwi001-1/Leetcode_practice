@@ -19,7 +19,8 @@
 19. EASY -> 203. Remove Linked List Elements
 20. MEDIUM -> 2391. Minimum Amount of Time to Collect Garbage
 21. MEDIUM -> 2785. Sort Vowels in a String
-22. 
+22. EASY -> 2535. Difference Between Element Sum and Digit Sum of an Array
 
 
 sorting method:     std::sort(m.begin(), m.end());
+absolute value:     abs(element - digit);
