@@ -20,6 +20,7 @@
 20. MEDIUM -> 2391. Minimum Amount of Time to Collect Garbage
 21. MEDIUM -> 2785. Sort Vowels in a String
 22. EASY -> 2535. Difference Between Element Sum and Digit Sum of an Array
+23. MEDIUM -> 2130. Maximum Twin Sum of a Linked List
 
 
 sorting method:     std::sort(m.begin(), m.end());

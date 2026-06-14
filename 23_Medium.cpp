@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-// 2535. Difference Between Element Sum and Digit Sum of an Array
+// 2130. Maximum Twin Sum of a Linked List
 
 /***************
 You are given a positive integer array nums.
@@ -68,3 +68,70 @@ public:
         return diff;    
     }
 };
+
+
+// didn't work
+// kinda logic worked
+/****************
+class Solution {
+public:
+    int pairSum(ListNode* head) 
+    {
+        // first get the half size of the list
+        int count = 0;
+        ListNode* curr = head;
+        // loop through the list till the end and count the number of element
+        while(curr != nullptr)
+        {
+            count += 1;
+            curr = curr-> next;
+        }
+        int half = count/2;
+
+
+        // second copy the half of the list to another linked list
+        ListNode* pCurr = head; // to loop OG linked list
+        ListNode* pHead = new ListNode(pCurr->val); // create new linked list
+        pCurr = pCurr->next;
+        // loop till the half of the OG linked list and copy it to the new linked list
+        int reach = 0;
+        while(true)
+        {
+            ListNode* pNew = new ListNode(pCurr->val);
+            // we add in the head
+            pNew->next = pHead;
+            pHead = pNew;
+
+            // next element in the OG linked list
+            pCurr = pCurr->next;
+
+            reach += 1;
+            if(reach == half) break;
+        }
+
+        
+        // third find the largest sum as we go through the end half of the OG linked list and the new linked list
+        int largest = 0;
+        int sum;
+        ListNode* Pcurr = head;
+        ListNode* current = pHead;
+        int rr = 1;
+        while(Pcurr != nullptr)
+        {
+            if(rr <= half)
+            {
+                rr += 1;
+                Pcurr = Pcurr->next;
+                continue;
+            }
+            
+            sum = Pcurr->val + current->val;
+            if(largest < sum) largest = sum;
+
+            Pcurr = Pcurr->next;
+            current = current->next;
+        }
+        return largest;
+    }
+};
+*********/
