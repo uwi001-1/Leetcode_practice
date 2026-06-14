@@ -36,42 +36,44 @@ Output: 100001
 ***************/
 
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
-    int differenceOfSum(vector<int>& nums) 
+    int pairSum(ListNode* head) 
     {
-        // this data type as the element could be long 
-        long long ele = 0;
-        long long digit = 0; 
+        // create a new int array to push al the values into it
+        // so we can handle it as an 
+        vector<int> arr;
+        ListNode* curr = head;
 
-        for(int index : nums)
+        // loop through the linked list and push the value into the array
+        while(curr != nullptr)
         {
-            // add each element 
-            ele += index;
-
-            while(true)
-            {
-                if(index < 10) 
-                {
-                    digit += index;
-                    break;
-                }
-                else
-                {
-                    // get the digit and also reduce the number
-                    digit += index % 10;
-                    index = index /10;
-                }
-            }
+            arr.push_back(curr->val);
+            curr = curr->next;
         }
 
-        // this as we need to find the absolute difference
-        long long diff; 
-        if(ele >= digit) diff = ele - digit;
-        if(ele < digit) diff = digit - ele;
+        int largest = 0;
+        int sum; 
 
-        // could use this too abs(ele - digit);
-        return diff;    
+        // now let's loop through the loop and find the maximum twin sum
+        for(int i = 0; i < arr.size()/2 ; i++)
+        {
+            // add the node and the twin of the node
+            sum = arr[i] + arr[arr.size()-1-i];
+
+            if(sum > largest) largest = sum;
+        }
+
+        return largest;
     }
 };
 
