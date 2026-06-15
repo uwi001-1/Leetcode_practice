@@ -4,35 +4,32 @@ using namespace std;
 // 2095. Delete the Middle Node of a Linked List
 
 /***************
-In a linked list of size n, where n is even, the ith node (0-indexed) of the linked list is known as the twin of the (n-1-i)th node, if 0 <= i <= (n / 2) - 1.
-
-For example, if n = 4, then node 0 is the twin of node 3, and node 1 is the twin of node 2. These are the only nodes with twins for n = 4.
-The twin sum is defined as the sum of a node and its twin.
-
-Given the head of a linked list with even length, return the maximum twin sum of the linked list.
+You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list.
+The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x.
+For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2, respectively.
 
 Example 1:
-Input: head = [5,4,2,1]
-Output: 6
+Input: head = [1,3,4,7,1,2,6]
+Output: [1,3,4,1,2,6]
     Explanation:
-    Nodes 0 and 1 are the twins of nodes 3 and 2, respectively. All have twin sum = 6.
-    There are no other nodes with twins in the linked list.
-    Thus, the maximum twin sum of the linked list is 6. 
+    The above figure represents the given linked list. The indices of the nodes are written below.
+    Since n = 7, node 3 with value 7 is the middle node, which is marked in red.
+    We return the new list after removing this node. 
 
 Example 2:
-Input: head = [4,2,2,3]
-Output: 7
+Input: head = [1,2,3,4]
+Output: [1,2,4]
     Explanation:
-    The nodes with twins present in this linked list are:
-    - Node 0 is the twin of node 3 having a twin sum of 4 + 3 = 7.
-    - Node 1 is the twin of node 2 having a twin sum of 2 + 2 = 4.
-    Thus, the maximum twin sum of the linked list is max(7, 4) = 7. 
+    The above figure represents the given linked list.
+    For n = 4, node 2 with value 3 is the middle node, which is marked in red.
 
-Example 3:
-Input: head = [1,100000]
-Output: 100001
+Example 3:  
+Input: head = [2,1]
+Output: [2]
     Explanation:
-    There is only one node with a twin in the linked list having twin sum of 1 + 100000 = 100001.
+    The above figure represents the given linked list.
+    For n = 2, node 1 with value 1 is the middle node, which is marked in red.
+    Node 0 with value 2 is the only node remaining after removing node 1.
 ***************/
 
 
