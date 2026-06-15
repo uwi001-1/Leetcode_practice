@@ -44,10 +44,13 @@ struct ListNode {
 
 class Solution {
 public:
-    int pairSum(ListNode* head) 
+    ListNode* deleteMiddle(ListNode* head) 
     {
-        // create a new int array to push al the values into it
-        // so we can handle it as an 
+        // for element with only one element
+        // the list becomes empty
+        if(head->next == nullptr) return nullptr;
+        
+        // make an array to find the half element
         vector<int> arr;
         ListNode* curr = head;
 
@@ -58,18 +61,30 @@ public:
             curr = curr->next;
         }
 
-        int largest = 0;
-        int sum; 
+        int half = (arr.size()/2);
 
-        // now let's loop through the loop and find the maximum twin sum
-        for(int i = 0; i < arr.size()/2 ; i++)
+        ListNode* Curr = head;
+        int count = 0;
+        
+        while(true)
         {
-            // add the node and the twin of the node
-            sum = arr[i] + arr[arr.size()-1-i];
-
-            if(sum > largest) largest = sum;
+            if(count == half -1)
+            {
+                // for a linked list with two nodes
+                if(Curr->next->next == nullptr)
+                {
+                    Curr->next = nullptr;
+                }
+                else
+                {
+                    // remove the element
+                    Curr->next = Curr->next->next;
+                }
+                break;
+            }
+            Curr = Curr->next;
+            count += 1;
         }
-
-        return largest;
+        return head;
     }
 };
