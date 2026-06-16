@@ -39,47 +39,40 @@ Thus, the final result is "".
 
 class Solution {
 public:
-    ListNode* deleteMiddle(ListNode* head) 
+    string processStr(string s) 
     {
-        // for element with only one element
-        // the list becomes empty
-        if(head->next == nullptr) return nullptr;
-        
-        // make an array to find the half element
-        vector<int> arr;
-        ListNode* curr = head;
-
-        // loop through the linked list and push the value into the array
-        while(curr != nullptr)
+        string n = "";
+        for(char i : s)
         {
-            arr.push_back(curr->val);
-            curr = curr->next;
-        }
-
-        int half = (arr.size()/2);
-
-        ListNode* Curr = head;
-        int count = 0;
-        
-        while(true)
-        {
-            if(count == half -1)
+            // if no special character just append it to the new string
+            if(i != '*' && i != '#' && i != '%')
             {
-                // for a linked list with two nodes
-                if(Curr->next->next == nullptr)
-                {
-                    Curr->next = nullptr;
-                }
-                else
-                {
-                    // remove the element
-                    Curr->next = Curr->next->next;
-                }
-                break;
+                n.push_back(i);
             }
-            Curr = Curr->next;
-            count += 1;
+
+            // if "*" pop the last input character
+            else if(i == '*')
+            {
+                // but if the new string is empty just continue as we can't pop an empty string
+                if(n.size() == 0) continue;
+                n.pop_back();
+                
+                // could use 
+                // if(!n.empty()) n.pop_back();
+            }
+
+            // if "#" duplicates the whole of the new string and append 
+            else if(i == '#')
+            {
+                n += n;
+            }
+
+            // if "%" reverse the string
+            else if(i == '%')
+            {
+                std::reverse(n.begin(), n.end());
+            }
         }
-        return head;
+        return n;
     }
 };
