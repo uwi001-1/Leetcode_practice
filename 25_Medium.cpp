@@ -1,46 +1,41 @@
 #include<iostream>
 using namespace std;
 
-// 2095. Delete the Middle Node of a Linked List
+// 3612. Process String with Special Operations I
 
 /***************
-You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list.
-The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x.
-For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2, respectively.
+You are given a string s consisting of lowercase English letters and the special characters: *, #, and %.
+Build a new string result by processing s according to the following rules from left to right:
+If the letter is a lowercase English letter append it to result.
+A '*' removes the last character from result, if it exists.
+A '#' duplicates the current result and appends it to itself.
+A '%' reverses the current result.
+
+Return the final string result after processing all characters in s.
 
 Example 1:
-Input: head = [1,3,4,7,1,2,6]
-Output: [1,3,4,1,2,6]
+Input: s = "a#b%*"
+Output: "ba"
     Explanation:
-    The above figure represents the given linked list. The indices of the nodes are written below.
-    Since n = 7, node 3 with value 7 is the middle node, which is marked in red.
-    We return the new list after removing this node. 
+i	s[i]	Operation	Current result
+0	'a'	Append 'a'	"a"
+1	'#'	Duplicate result	"aa"
+2	'b'	Append 'b'	"aab"
+3	'%'	Reverse result	"baa"
+4	'*'	Remove the last character	"ba"
+Thus, the final result is "ba".
 
 Example 2:
-Input: head = [1,2,3,4]
-Output: [1,2,4]
+Input: s = "z*#"
+Output: ""
     Explanation:
-    The above figure represents the given linked list.
-    For n = 4, node 2 with value 3 is the middle node, which is marked in red.
-
-Example 3:  
-Input: head = [2,1]
-Output: [2]
-    Explanation:
-    The above figure represents the given linked list.
-    For n = 2, node 1 with value 1 is the middle node, which is marked in red.
-    Node 0 with value 2 is the only node remaining after removing node 1.
+i	s[i]	Operation	Current result
+0	'z'	Append 'z'	"z"
+1	'*'	Remove the last character	""
+2	'#'	Duplicate the string	""
+Thus, the final result is "".
 ***************/
 
-
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
 
 class Solution {
 public:
