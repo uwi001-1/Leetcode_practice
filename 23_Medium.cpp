@@ -50,7 +50,7 @@ public:
     int pairSum(ListNode* head) 
     {
         // create a new int array to push al the values into it
-        // so we can handle it as an 
+        // so we can handle it as an array
         vector<int> arr;
         ListNode* curr = head;
 
