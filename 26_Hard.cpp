@@ -39,26 +39,24 @@ Thus, the final result is "".
 
 class Solution {
 public:
-    string processStr(string s) 
+    char processStr(string s, long long k) 
     {
-        string n = "";
+        long long n = 0;
+        vector<long long> arr;
+
         for(char i : s)
         {
             // if no special character just append it to the new string
             if(i != '*' && i != '#' && i != '%')
             {
-                n.push_back(i);
+                n += 1;
             }
 
             // if "*" pop the last input character
             else if(i == '*')
             {
                 // but if the new string is empty just continue as we can't pop an empty string
-                if(n.size() == 0) continue;
-                n.pop_back();
-                
-                // could use 
-                // if(!n.empty()) n.pop_back();
+                if(n > 0) n -= 1;
             }
 
             // if "#" duplicates the whole of the new string and append 
@@ -66,16 +64,38 @@ public:
             {
                 n += n;
             }
+            arr.push_back(n);
+        }
+        if(k >= n) return '.';
 
-            // if "%" reverse the string
-            else if(i == '%')
+        for(int i = s.size()-1; i >= 0; i--)
+        {
+            if(s[i] != '*' && s[i] != '#' && s[i] != '%')
             {
-                std::reverse(n.begin(), n.end());
+                // if k points to this character, return it
+                if(k == arr[i] - 1) return s[i];
+                // otherwise do nothing
+            }
+            else if(s[i] == '*')
+            {
+                // undo the deletion — what happens to k?
+                continue;
+            }
+            else if(s[i] == '#')
+            {
+                // if k >= half, adjust k
+                if(k >= arr[i]/2) k = k - arr[i]/2;
+            }
+            else if(s[i] == '%')
+            {       
+                // reverse the index
+                k = arr[i] - 1 - k;
             }
         }
-        return n;
+        return '.';
     }
 };
+
 
 // doesn't work for too long strings 
 // ERROR Memory Limit Exceeded
@@ -117,7 +137,7 @@ public:
             }
         }
         if(k >= n.size()) return '.';
-        return n.at(k); // same thing but with bounds checking
+        return n.at(k); // this is with bounds checking of (n[k];)
 
         return '.';
     }
