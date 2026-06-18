@@ -5,117 +5,46 @@ using namespace std;
 
 
 /***************
-You are given a string s consisting of lowercase English letters and the special characters: '*', '#', and '%'.
-You are also given an integer k.
-Build a new string result by processing s according to the following rules from left to right:
+Given two numbers, hour and minutes, return the smaller angle (in degrees) formed between the hour and the minute hand.
 
-If the letter is a lowercase English letter append it to result.
-    A '*' removes the last character from result, if it exists.
-    A '#' duplicates the current result and appends it to itself.
-    A '%' reverses the current result.
-Return the kth character of the final string result. If k is out of the bounds of result, return '.'.
+Answers within 10-5 of the actual value will be accepted as correct.
 
 Example 1:
-Input: s = "a#b%*", k = 1
-Output: "a"
-    Explanation:
-i	s[i]	Operation	Current result
-0	'a'	Append 'a'	"a"
-1	'#'	Duplicate result	"aa"
-2	'b'	Append 'b'	"aab"
-3	'%'	Reverse result	"baa"
-4	'*'	Remove the last character	"ba"
-The final result is "ba". The character at index k = 1 is 'a'.
+Input: hour = 12, minutes = 30
+Output: 165
 
 Example 2:
-Input: s = "cd%#*#", k = 3
-Output: "d"
-    Explanation:
-i	s[i]	Operation	Current result
-0	'c'	Append 'c'	"c"
-1	'd'	Append 'd'	"cd"
-2	'%'	Reverse result	"dc"
-3	'#'	Duplicate result	"dcdc"
-4	'*'	Remove the last character	"dcd"
-5	'#'	Duplicate result	"dcddcd"
-The final result is "dcddcd". The character at index k = 3 is 'd'.
+Input: hour = 3, minutes = 30
+Output: 75
 
 Example 3:
-Input: s = "z*#", k = 0
-Output: "."
-    Explanation:
-i	s[i]	Operation	Current result
-0	'z'	Append 'z'	"z"
-1	'*'	Remove the last character	""
-2	'#'	Duplicate the string	""
-The final result is "". Since index k = 0 is out of bounds, the output is '.'.
+Input: hour = 3, minutes = 15
+Output: 7.5
 ***************/
 
 
 class Solution {
 public:
-    char processStr(string s, long long k) 
+    double angleClock(int hour, int minutes) 
     {
-        long long n = 0;
-        vector<long long> arr;
+        // for the minute hand
+        double minHand = minutes * 6;
 
-        // forward pass
-        for(char i : s)
-        {
-            // if no special character just increase the n
-            if(i != '*' && i != '#' && i != '%')
-            {
-                n += 1;
-            }
+        // for the hour hand
+        double hourHand;
+        if(hour == 12) hourHand = 0.0;
+        else hourHand = (hour * 30);
+        
+        // account for hourhand for the minutes
+        hourHand += (minutes * 30.0 / 60); 
 
-            // if "*" decrease the n
-            else if(i == '*')
-            {
-                // but if n is less than 0 
-                if(n > 0) n -= 1;
-            }
+        // calculate the angle in absolute way
+        double angle;
+        if(hourHand > minHand) angle = hourHand - minHand;
+        else angle = minHand - hourHand;
 
-            // if "#" double the n 
-            else if(i == '#')
-            {
-                n += n;
-            }
-
-            // push the n in the array
-            arr.push_back(n);
-        }
-
-        // if k is out of bound return '.'
-        if(k >= n) return '.';
-
-        // backward pass
-        for(int i = s.size()-1; i >= 0; i--)
-        {
-            if(s[i] != '*' && s[i] != '#' && s[i] != '%')
-            {
-                // if k points to this character, return it
-                if(k == arr[i] - 1) return s[i];
-            }
-
-            else if(s[i] == '*')
-            {
-                // do nth
-                continue;
-            }
-
-            else if(s[i] == '#')
-            {
-                // if k >= half, adjust k
-                if(k >= arr[i]/2) k = k - arr[i]/2;
-            }
-
-            else if(s[i] == '%')
-            {       
-                // reverse the index
-                k = arr[i] - 1 - k;
-            }
-        }
-
-        return '.';
+        // find the smallest angle between them
+        if(angle < 360-angle) return angle;
+        else return 360-angle;
     }
 };
