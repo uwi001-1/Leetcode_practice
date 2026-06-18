@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 
-// 3614. Process String with Special Operations II
+// 1344. Angle Between Hands of a Clock
+
 
 /***************
 You are given a string s consisting of lowercase English letters and the special characters: '*', '#', and '%'.
@@ -118,51 +119,3 @@ public:
         return '.';
     }
 };
-
-
-// doesn't work for too long strings 
-// ERROR Memory Limit Exceeded
-/**************
-class Solution {
-public:
-    char processStr(string s, long long k) 
-    {
-        string n = "";
-        for(char i : s)
-        {
-            // if no special character just append it to the new string
-            if(i != '*' && i != '#' && i != '%')
-            {
-                n.push_back(i);
-            }
-
-            // if "*" pop the last input character
-            else if(i == '*')
-            {
-                // but if the new string is empty just continue as we can't pop an empty string
-                if(n.size() == 0) continue;
-                n.pop_back();
-                
-                // could use 
-                // if(!n.empty()) n.pop_back();
-            }
-
-            // if "#" duplicates the whole of the new string and append 
-            else if(i == '#')
-            {
-                n += n;
-            }
-
-            // if "%" reverse the string
-            else if(i == '%')
-            {
-                std::reverse(n.begin(), n.end());
-            }
-        }
-        if(k >= n.size()) return '.';
-        return n.at(k); // this is with bounds checking of (n[k];)
-
-        return '.';
-    }
-};
-*****************/
