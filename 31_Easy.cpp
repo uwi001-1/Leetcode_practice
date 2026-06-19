@@ -22,14 +22,20 @@ class Solution {
 public:
     bool isSubsequence(string s, string t) 
     {
-       if(s == "") return true;
+       // if s is empty then it can be made by t so return true
+        if(s == "") return true;
 
-       bool found = false;
-       int i = 0;
+        bool found = false;
 
-       for(char index : s)
-       {
+        // initiate it outside to not over loop 
+        int i = 0;
+
+        for(char index : s)
+        {
+            // each new char of s, the bool found becomes false
             found = false;
+
+            // if the t has come to an end and a char of s was not found then it's false
             if(i == t.size()) break;
             
             for(i; i < t.size(); i++)
@@ -37,7 +43,10 @@ public:
                 if(index == t[i])
                 {
                     found = true;
+
+                    // i is incremented as we need to move ahead to another mode for cases like 'aaaaa' as s
                     i += 1;
+                    
                     break;
                 }
             } 
