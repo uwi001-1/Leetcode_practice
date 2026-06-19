@@ -3,7 +3,6 @@ using namespace std;
 
 // 1344. Angle Between Hands of a Clock
 
-
 /***************
 Given two numbers, hour and minutes, return the smaller angle (in degrees) formed between the hour and the minute hand.
 
