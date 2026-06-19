@@ -28,7 +28,7 @@
 28. EASY -> 169. Majority Element
 29. MEDIUM -> 189. Rotate Array
 30. EASY -> 1732. Find the Highest Altitude
-31. 
+31. EASY -> 
 
 
 sorting method:     std::sort(m.begin(), m.end());
