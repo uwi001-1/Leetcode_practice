@@ -27,7 +27,8 @@
 27. MEDIUM -> 1344. Angle Between Hands of a Clock
 28. EASY -> 169. Majority Element
 29. MEDIUM -> 189. Rotate Array
-30. 
+30. EASY -> 
+31. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
