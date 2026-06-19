@@ -22,33 +22,28 @@ Output: 0
 
 class Solution {
 public:
-    // array(nums) here is passed by reference
-    void rotate(vector<int>& nums, int k) 
+    int largestAltitude(vector<int>& gain) 
     {
-        // to handle k > nums.size() cases
-        k = k % nums.size();
-
-        // to loop 
-        int loop = nums.size() - k;
-        
-        // new array to push in elements in the order
+        // new array to push the value
         vector<int> arr;
+
+        // first element is going to be 0
+        arr.push_back(0);
+
+        int val;
+
+        for(int i = 0; i < gain.size(); i++)
+        {
+            // gain the altitude based on the array gain
+            val = arr[i] + gain[i];
+
+            arr.push_back(val);
+        }
         
-        while(loop != nums.size())
-        {
-            // add values from nums.size()-k
-            arr.push_back(nums[loop]);
-            
-            loop += 1;
-        }
+        // sort it in ascending order
+        std::sort(arr.begin(), arr.end());
 
-        // loop the rest of the array
-        for(int i = 0; i<nums.size()-k; i++)
-        {
-            arr.push_back(nums[i]);
-        }
-
-        // as we are returning the nums array as it is passed by reference
-        nums = arr;
+        // return the last element in the arr array as it will be the highest altitude the biker gained
+        return arr[gain.size()];
     }
 };
