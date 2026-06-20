@@ -20,39 +20,55 @@ Output: []
 ***************/
 
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
-    bool isSubsequence(string s, string t) 
+    ListNode* sortList(ListNode* head) 
     {
-       // if s is empty then it can be made by t so return true
-        if(s == "") return true;
+        // empty case
+        if(head == nullptr) return nullptr; 
 
-        bool found = false;
+        // 1st make it into array
+        vector<int> arr;    
+        
+        ListNode* curr = head;
 
-        // initiate it outside to not over loop 
-        int i = 0;
-
-        for(char index : s)
+        while(curr != nullptr)
         {
-            // each new char of s, the bool found becomes false
-            found = false;
+            arr.push_back(curr->val);
 
-            // if the t has come to an end and a char of s was not found then it's false
-            if(i == t.size()) break;
-            
-            for(i; i < t.size(); i++)
-            {
-                if(index == t[i])
-                {
-                    found = true;
-
-                    // i is incremented as we need to move ahead to another mode for cases like 'aaaaa' as s
-                    i += 1;
-                    
-                    break;
-                }
-            } 
+            curr = curr->next;
         }
-        return found;
+        
+        // sort it 
+        std::sort(arr.begin(), arr.end());
+        
+        // push it into the linkelist into head
+        ListNode* pHead = nullptr;
+        
+        // loop from behind
+        for(int i =arr.size()-1; i >= 0; i--)
+        {
+            ListNode* pNew = new ListNode(arr[i]);
+
+            // for the first node in the linked list
+            if(pHead == nullptr) pHead = pNew;
+            
+            else
+            {
+                pNew->next = pHead;
+                pHead = pNew;
+            }
+        } 
+
+        return pHead;    
     }
 };
