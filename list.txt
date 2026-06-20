@@ -29,7 +29,7 @@
 29. MEDIUM -> 189. Rotate Array
 30. EASY -> 1732. Find the Highest Altitude
 31. EASY -> 392. Is Subsequence
-32. 
+32. MEDIUM -> 
 
 
 sorting method:     std::sort(m.begin(), m.end());
