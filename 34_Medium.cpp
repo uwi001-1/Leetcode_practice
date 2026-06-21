@@ -4,47 +4,67 @@ using namespace std;
 // 1833. Maximum Ice Cream Bars
 
 /***************
-A peak element is an element that is strictly greater than its neighbors.
-Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
+It is a sweltering summer day, and a boy wants to buy some ice cream bars.
+At the store, there are n ice cream bars. You are given an array costs of length n, where costs[i] is the price of the ith ice cream bar in coins. The boy initially has coins coins to spend, and he wants to buy as many ice cream bars as possible. 
 
-You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.
-You must write an algorithm that runs in O(log n) time.
+Note: The boy can buy the ice cream bars in any order.
 
-Example 1: 
-Input: nums = [1,2,3,1]
-Output: 2
-    Explanation: 3 is a peak element and your function should return the index number 2.
+Return the maximum number of ice cream bars the boy can buy with coins coins.
+
+## You must solve the problem by counting sort.
+
+Example 1:
+Input: costs = [1,3,2,4,1], coins = 7
+Output: 4
+    Explanation: The boy can buy ice cream bars at indices 0,1,2,4 for a total price of 1 + 3 + 2 + 1 = 7.
 
 Example 2:
-Input: nums = [1,2,1,3,5,6,4]
-Output: 5
-    Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
+Input: costs = [10,6,8,7,7,8], coins = 5
+Output: 0
+    Explanation: The boy cannot afford any of the ice cream bars.
+
+Example 3:
+Input: costs = [1,6,3,1,2,5], coins = 20
+Output: 6
+    Explanation: The boy can buy all the ice cream bars for a total price of 1 + 6 + 3 + 1 + 2 + 5 = 18.
 ***************/
 
 
 class Solution {
 public:
-    int findPeakElement(vector<int>& nums) 
+    // using counting sort 
+    
+    int maxIceCream(vector<int>& costs, int coins) 
     {
-        // if the list has only one value then it is the peak
-        if(nums.size() == 1)
-            return 0;
+        // count represent how many icecream bars cost exactly index coins
+        vector<int> count(100001, 0);
         
-        // for the first element
-        if(nums[0] > nums[1])
-            return 0;
-
-        // for the last element
-        if(nums[nums.size()-1] > nums[nums.size()-2]) 
-            return nums.size()-1;
-
-        // loop to find around the loop
-        // make sure not to go out of bound
-        for(int i = 1; i < nums.size()-1; i++)
+        // increase the count of index if the cost of the icecream bar is that index
+        // count[5] = 2 means that there are two icecream bars of 5 costs
+        for(int i = 0; i < costs.size(); i++)
         {
-            if(nums[i] > nums[i-1] && nums[i] > nums[i+1]) return i;
+            count[costs[i]] += 1;
         }
-        
-        return 0;   
+
+        int total = 0;
+
+        // loop through the count array and buy the most bars starting from cheapest icecream bars
+        for(int price = 1; price <= 100000; price++)
+        {
+            // if we can buy
+            while(count[price] > 0 && coins >= price)
+            {
+                // reduce the number of count of that price
+                count[price] -= 1;
+
+                // coins reduces by that cost
+                coins -= price;
+
+                // the total buy increases by 1
+                total += 1;
+            }
+        }
+
+        return total;
     }
 };
