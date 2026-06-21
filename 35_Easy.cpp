@@ -33,39 +33,19 @@ Output: [1]
 
 class Solution {
 public:
-    // using counting sort 
-    
-    int maxIceCream(vector<int>& costs, int coins) 
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) 
     {
-        // count represent how many icecream bars cost exactly index coins
-        vector<int> count(100001, 0);
-        
-        // increase the count of index if the cost of the icecream bar is that index
-        // count[5] = 2 means that there are two icecream bars of 5 costs
-        for(int i = 0; i < costs.size(); i++)
+        // (there seems to be no exception cases to be handled)
+        int loop = 0;
+
+        // loop and add at the end of the list
+        while(loop != n)
         {
-            count[costs[i]] += 1;
+            nums1[m + loop] = nums2[loop];
+            loop += 1;
         }
 
-        int total = 0;
-
-        // loop through the count array and buy the most bars starting from cheapest icecream bars
-        for(int price = 1; price <= 100000; price++)
-        {
-            // if we can buy
-            while(count[price] > 0 && coins >= price)
-            {
-                // reduce the number of count of that price
-                count[price] -= 1;
-
-                // coins reduces by that cost
-                coins -= price;
-
-                // the total buy increases by 1
-                total += 1;
-            }
-        }
-
-        return total;
+        // sort the list nums1
+        std::sort(nums1.begin(), nums1.end());
     }
 };
