@@ -32,7 +32,8 @@
 32. MEDIUM -> 148. Sort List
 33. MEDIUM -> 162. Find Peak Element
 34. MEDIUM -> 1833. Maximum Ice Cream Bars
-35. 
+35. EASY -> 88. Merge Sorted Array
+36. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
