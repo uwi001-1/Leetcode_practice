@@ -31,7 +31,7 @@
 31. EASY -> 392. Is Subsequence
 32. MEDIUM -> 148. Sort List
 33. MEDIUM -> 162. Find Peak Element
-34. MEDIUM ->
+34. MEDIUM -> 1833. Maximum Ice Cream Bars
 35. 
 
 
