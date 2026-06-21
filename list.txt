@@ -31,7 +31,8 @@
 31. EASY -> 392. Is Subsequence
 32. MEDIUM -> 148. Sort List
 33. MEDIUM -> 162. Find Peak Element
-34. 
+34. MEDIUM ->
+35. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
