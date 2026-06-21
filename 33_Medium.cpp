@@ -1,74 +1,50 @@
 #include<iostream>
 using namespace std;
 
-// 148. Sort List
+// 162. Find Peak Element
 
 /***************
-Given the head of a linked list, return the list after sorting it in ascending order.
+A peak element is an element that is strictly greater than its neighbors.
+Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
 
-Example 1:
-Input: head = [4,2,1,3]
-Output: [1,2,3,4]
+You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.
+You must write an algorithm that runs in O(log n) time.
+
+Example 1: 
+Input: nums = [1,2,3,1]
+Output: 2
+    Explanation: 3 is a peak element and your function should return the index number 2.
 
 Example 2:
-Input: head = [-1,5,3,4,0]
-Output: [-1,0,3,4,5]
-
-Example 3:
-Input: head = []
-Output: []
+Input: nums = [1,2,1,3,5,6,4]
+Output: 5
+    Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution {
 public:
-    ListNode* sortList(ListNode* head) 
+    int findPeakElement(vector<int>& nums) 
     {
-        // empty case
-        if(head == nullptr) return nullptr; 
-
-        // 1st make it into array
-        vector<int> arr;    
+        // if the list has only one value then it is the peak
+        if(nums.size() == 1)
+            return 0;
         
-        ListNode* curr = head;
+        // for the first element
+        if(nums[0] > nums[1])
+            return 0;
 
-        while(curr != nullptr)
+        // for the last element
+        if(nums[nums.size()-1] > nums[nums.size()-2]) 
+            return nums.size()-1;
+
+        // loop to find around the loop
+        // make sure not to go out of bound
+        for(int i = 1; i < nums.size()-1; i++)
         {
-            arr.push_back(curr->val);
-
-            curr = curr->next;
+            if(nums[i] > nums[i-1] && nums[i] > nums[i+1]) return i;
         }
         
-        // sort it 
-        std::sort(arr.begin(), arr.end());
-        
-        // push it into the linkelist into head
-        ListNode* pHead = nullptr;
-        
-        // loop from behind
-        for(int i =arr.size()-1; i >= 0; i--)
-        {
-            ListNode* pNew = new ListNode(arr[i]);
-
-            // for the first node in the linked list
-            if(pHead == nullptr) pHead = pNew;
-            
-            else
-            {
-                pNew->next = pHead;
-                pHead = pNew;
-            }
-        } 
-
-        return pHead;    
+        return 0;   
     }
 };

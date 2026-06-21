@@ -30,7 +30,8 @@
 30. EASY -> 1732. Find the Highest Altitude
 31. EASY -> 392. Is Subsequence
 32. MEDIUM -> 148. Sort List
-33. 
+33. MEDIUM -> 162. Find Peak Element
+34. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
