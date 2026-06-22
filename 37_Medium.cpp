@@ -1,44 +1,41 @@
 #include<iostream>
 using namespace std;
 
-// 1189. Maximum Number of Balloons
+// 33. Search in Rotated Sorted Array
 
 /***************
-Given a string text, you want to use the characters of text to form as many instances of the word "balloon" as possible.
+There is an integer array nums sorted in ascending order (with distinct values).
 
-You can use each character in text at most once. Return the maximum number of instances that can be formed.
+Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
+
+Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+You must write an algorithm with O(log n) runtime complexity.
 
 Example 1:
-Input: text = "nlaebolko"
-Output: 1
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
 
 Example 2:
-Input: text = "loonbalxballpoon"
-Output: 2
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
 
 Example 3:
-Input: text = "leetcode"
-Output: 0
+Input: nums = [1], target = 0
+Output: -1
 ***************/
 
 
+// this works but we need to do it in the binary search method
+// In O(nlogn) way
 class Solution {
 public:
-    int maxNumberOfBalloons(string text) 
+    int search(vector<int>& nums, int target) 
     {
-        int b = 0, a = 0, l = 0, o = 0, n = 0;
-
-        // count the number of times the ballon letters appear in the string
-        for(int i = 0; i < text.size(); i++)
+        for(int i = 0; i < nums.size(); i++)
         {
-            if(text[i] == 'a') a += 1;
-            if(text[i] == 'b') b += 1;
-            if(text[i] == 'l') l += 1;
-            if(text[i] == 'o') o += 1;
-            if(text[i] == 'n') n += 1;
+            if(nums[i] == target) return i;
         }
-
-        // min() takes two values and returns the smaller one
-        return min({b, a, l/2, o/2, n});
+        return -1;
     }
 };
