@@ -24,19 +24,21 @@ Output: 0
 
 class Solution {
 public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) 
+    int maxNumberOfBalloons(string text) 
     {
-        // (there seems to be no exception cases to be handled)
-        int loop = 0;
+        int b = 0, a = 0, l = 0, o = 0, n = 0;
 
-        // loop and add at the end of the list
-        while(loop != n)
+        // count the number of times the ballon letters appear in the string
+        for(int i = 0; i < text.size(); i++)
         {
-            nums1[m + loop] = nums2[loop];
-            loop += 1;
+            if(text[i] == 'a') a += 1;
+            if(text[i] == 'b') b += 1;
+            if(text[i] == 'l') l += 1;
+            if(text[i] == 'o') o += 1;
+            if(text[i] == 'n') n += 1;
         }
 
-        // sort the list nums1
-        std::sort(nums1.begin(), nums1.end());
+        // min() takes two values and returns the smaller one
+        return min({b, a, l/2, o/2, n});
     }
 };

@@ -40,5 +40,6 @@
 sorting method:     std::sort(m.begin(), m.end());
 reverse method:     std::reverse(n.begin(), n.end());
 absolute value:     abs(element - digit);
+min:    min({b, a, l/2, o/2, n});
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
