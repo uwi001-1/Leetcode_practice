@@ -34,7 +34,8 @@
 34. MEDIUM -> 1833. Maximum Ice Cream Bars
 35. EASY -> 88. Merge Sorted Array
 36. EASY -> 1189. Maximum Number of Balloons
-37. 
+37. MEDIUM -> 33. Search in Rotated Sorted Array
+38. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
