@@ -26,16 +26,41 @@ Output: [0]
 ***************/
 
 
-// this works but we need to do it in the binary search method
-// In O(nlogn) way
 class Solution {
 public:
-    int search(vector<int>& nums, int target) 
+    vector<int> leftRightDifference(vector<int>& nums) 
     {
-        for(int i = 0; i < nums.size(); i++)
+        // 1st handle left Sum
+        vector<int> leftSum;
+        leftSum.push_back(0);
+
+        for(int i = 0; i < nums.size() - 1; i++)
         {
-            if(nums[i] == target) return i;
+            leftSum.push_back(leftSum[i] + nums[i]);
         }
-        return -1;
+
+        // 2nd handle right sum
+        vector<int> rightSum;
+        rightSum.push_back(0);
+        
+        int loop = 0;
+        for(int j = nums.size() - 1; j > 0; j--)
+        {
+            rightSum.push_back(rightSum[loop] + nums[j]);
+            loop += 1;
+        }
+
+        // then reverse the rightSum array
+        std::reverse(rightSum.begin(), rightSum.end());
+
+        // 3rd make the left and right difference in an array
+        vector<int> arr;
+        for(int k = 0; k < nums.size(); k++)
+        {
+            // make sure the array element is an absolute number
+            arr.push_back(abs(leftSum[k] - rightSum[k]));
+        }
+
+        return arr;
     }
 };
