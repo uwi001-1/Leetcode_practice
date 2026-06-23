@@ -1,28 +1,28 @@
 #include<iostream>
 using namespace std;
 
-// 33. Search in Rotated Sorted Array
+// 2574. Left and Right Sum Differences
 
 /***************
-There is an integer array nums sorted in ascending order (with distinct values).
+You are given a 0-indexed integer array nums of size n.
 
-Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
+Define two arrays leftSum and rightSum where:
+    leftSum[i] is the sum of elements to the left of the index i in the array nums. If there is no such element, leftSum[i] = 0.
+    rightSum[i] is the sum of elements to the right of the index i in the array nums. If there is no such element, rightSum[i] = 0.
 
-Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
-
-You must write an algorithm with O(log n) runtime complexity.
+Return an integer array answer of size n where answer[i] = |leftSum[i] - rightSum[i]|.
 
 Example 1:
-Input: nums = [4,5,6,7,0,1,2], target = 0
-Output: 4
+Input: nums = [10,4,8,3]
+Output: [15,1,11,22]
+    Explanation: The array leftSum is [0,10,14,22] and the array rightSum is [15,11,3,0].
+    The array answer is [|0 - 15|,|10 - 11|,|14 - 3|,|22 - 0|] = [15,1,11,22].
 
 Example 2:
-Input: nums = [4,5,6,7,0,1,2], target = 3
-Output: -1
-
-Example 3:
-Input: nums = [1], target = 0
-Output: -1
+Input: nums = [1]
+Output: [0]
+    Explanation: The array leftSum is [0] and the array rightSum is [0].
+    The array answer is [|0 - 0|] = [0].
 ***************/
 
 
