@@ -48,7 +48,7 @@ public:
 
         while(true)
         {
-            // when the linked list has value
+            // when both the linked list has value
             if(curr1 != nullptr && curr2 != nullptr)
             {
                 value = curr1->val + curr2->val + extra;
@@ -112,7 +112,7 @@ public:
                 curr2 = curr2-> next;
             }
 
-            // when both linked list is done but there still remains extra 
+            // when both the linked list is done but there still remains extra 
             else if(extra != 0)
             {
                 ListNode* pNew = new ListNode(extra);
