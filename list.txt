@@ -36,7 +36,8 @@
 36. EASY -> 1189. Maximum Number of Balloons
 37. MEDIUM -> 33. Search in Rotated Sorted Array
 38. EASY -> 2574. Left and Right Sum Differences
-39. 
+39. MEDIUM -> 2. Add Two Numbers
+40. 
 
 
 sorting method:     std::sort(m.begin(), m.end());

@@ -1,30 +1,36 @@
 #include<iostream>
 using namespace std;
 
-// 2574. Left and Right Sum Differences
+// 2. Add Two Numbers
 
 /***************
-You are given a 0-indexed integer array nums of size n.
+You are given two non-empty linked lists representing two non-negative integers. 
+The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
-Define two arrays leftSum and rightSum where:
-    leftSum[i] is the sum of elements to the left of the index i in the array nums. If there is no such element, leftSum[i] = 0.
-    rightSum[i] is the sum of elements to the right of the index i in the array nums. If there is no such element, rightSum[i] = 0.
-
-Return an integer array answer of size n where answer[i] = |leftSum[i] - rightSum[i]|.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 
 Example 1:
-Input: nums = [10,4,8,3]
-Output: [15,1,11,22]
-    Explanation: The array leftSum is [0,10,14,22] and the array rightSum is [15,11,3,0].
-    The array answer is [|0 - 15|,|10 - 11|,|14 - 3|,|22 - 0|] = [15,1,11,22].
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+    Explanation: 342 + 465 = 807.
 
 Example 2:
-Input: nums = [1]
+Input: l1 = [0], l2 = [0]
 Output: [0]
-    Explanation: The array leftSum is [0] and the array rightSum is [0].
-    The array answer is [|0 - 0|] = [0].
+
+Example 3:
+Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
 ***************/
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 class Solution {
 public:
