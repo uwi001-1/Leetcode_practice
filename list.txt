@@ -38,11 +38,19 @@
 38. EASY -> 2574. Left and Right Sum Differences
 39. MEDIUM -> 2. Add Two Numbers
 40. MEDIUM -> 3737. Count Subarrays With Majority Element I
-41. 
+41. MEDIUM ->
+42. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
 reverse method:     std::reverse(n.begin(), n.end());
+    int reversed = 0;
+    while(num > 0)
+    {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+    }
+
 absolute value:     abs(element - digit);
 min:    min({b, a, l/2, o/2, n});
 
