@@ -5,7 +5,7 @@ using namespace std;
 
 /***************
 Given a signed 32-bit integer x, return x with its digits reversed. 
-If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.    (## INT_MAX)
+If reversing x causes the value to go outside the signed 32-bit integer range [-2^(31), 2^(31) - 1], then return 0.    (## INT_MAX)
 
 Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
 
@@ -25,31 +25,41 @@ Output: 21
 
 class Solution {
 public:
-    int countMajoritySubarrays(vector<int>& nums, int target) 
+    int reverse(int x) 
     {
-        // we use brute force approach 
-        // that is try every possible subarray, one by one. --> length of all possible chunks
+        // reversed would overflow anyway so check before-hand
+        if(x == INT_MIN) return 0; 
+        
+        bool neg = false;
 
-        // count how many times target appears in the subarray
-        int targetCount = 0;
-
-        // count the number of valid subarray
-        int total = 0;
-
-        // To generate all chunks in code, you just need two indices — where the chunk starts (i) and where it ends (j)
-        for(int i = 0; i < nums.size(); i++)        
+        // to take care of the negative sign
+        if(x < 0)
         {
-            for(int j = i; j < nums.size(); j++)
-            {
-                // check subarray nums[i..j]
-                if(nums[j] == target) targetCount += 1;
-
-                // if targetCount is greater than half the size of subarray then it has target as majority element
-                if(targetCount > (j - i + 1) / 2) total += 1;
-            }
-            // change the targetCount to 0
-            targetCount = 0;
+            neg = true;
+            x = abs(x);
         }
-        return total;
+
+        // reversed cannot fit in int
+        long long reversed = 0;
+
+        while(x > 0)
+        {
+            reversed = reversed * 10 + x % 10;
+            x /= 10;
+        }
+
+        // to return based on the condition
+        if(neg == true)
+        {
+            if(-reversed < INT_MIN) return 0;
+            
+            // add the negative sign
+            return -reversed;
+        }
+        else
+        {
+            if(reversed > INT_MAX) return 0;
+            return reversed;
+        }
     }
 };
