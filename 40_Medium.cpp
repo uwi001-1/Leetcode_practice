@@ -38,96 +38,31 @@ Output: 0
 
 class Solution {
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) 
+    int countMajoritySubarrays(vector<int>& nums, int target) 
     {
-       // save the head before advancing
-        ListNode* pHead = l1; 
-       
-        ListNode* curr1 = l1;
-        ListNode* prev = nullptr;
-        ListNode* curr2 = l2;
+        // we use brute force approach 
+        // that is try every possible subarray, one by one. --> length of all possible chunks
 
-        int extra = 0;
-        int value;
+        // count how many times target appears in the subarray
+        int targetCount = 0;
 
-        while(true)
+        // count the number of valid subarray
+        int total = 0;
+
+        // To generate all chunks in code, you just need two indices — where the chunk starts (i) and where it ends (j)
+        for(int i = 0; i < nums.size(); i++)        
         {
-            // when both the linked list has value
-            if(curr1 != nullptr && curr2 != nullptr)
+            for(int j = i; j < nums.size(); j++)
             {
-                value = curr1->val + curr2->val + extra;
-            
-                if(value > 9)
-                {
-                    // for the carry over ahead
-                    extra = value / 10;
+                // check subarray nums[i..j]
+                if(nums[j] == target) targetCount += 1;
 
-                    // take the last digit as the value
-                    value = value % 10;
-                }
-                else extra = 0;
-            
-                curr1->val = value;
-
-                prev = curr1;
-                curr1 = curr1->next;
-                curr2 = curr2-> next;
+                // if targetCount is greater than half the size of subarray then it has target as majority element
+                if(targetCount > (j - i + 1) / 2) total += 1;
             }
-
-            // when linked list 2 is done
-            else if(curr1 != nullptr)
-            {
-                value = curr1->val + extra;
-            
-                if(value > 9)
-                {
-                    extra = value / 10;
-                    value = value % 10;
-                }
-                else extra = 0;
-            
-                curr1->val = value;
-
-                prev = curr1;
-                curr1 = curr1->next;
-            }
-
-            // when linked list 1 is done
-            else if(curr2 != nullptr)
-            {
-                if(extra != 0)
-                {
-                    value = curr2->val + extra;
-            
-                    if(value > 9)
-                    {
-                        extra = value / 10;
-                        value = value % 10;
-                    }
-                    else extra = 0;
-                }
-                else value = curr2->val;
-
-                // add the new value to the end of the linked list 1
-                ListNode* pNew = new ListNode(value);
-
-                prev->next = pNew;
-                prev = pNew;
-                curr2 = curr2-> next;
-            }
-
-            // when both the linked list is done but there still remains extra 
-            else if(extra != 0)
-            {
-                ListNode* pNew = new ListNode(extra);
-                prev->next = pNew;
-
-                break;
-            }
-            
-            else break;
+            // change the targetCount to 0
+            targetCount = 0;
         }
-        // return the head node pointing to the linked list 1
-        return pHead;
+        return total;
     }
 };
