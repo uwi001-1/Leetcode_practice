@@ -38,7 +38,7 @@
 38. EASY -> 2574. Left and Right Sum Differences
 39. MEDIUM -> 2. Add Two Numbers
 40. MEDIUM -> 3737. Count Subarrays With Majority Element I
-41. MEDIUM ->
+41. MEDIUM -> 7. Reverse Integer
 42. 
 
 
