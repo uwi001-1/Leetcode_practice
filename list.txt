@@ -40,7 +40,8 @@
 40. MEDIUM -> 3737. Count Subarrays With Majority Element I
 41. MEDIUM -> 7. Reverse Integer
 42. HARD -> 3739. Count Subarrays With Majority Element II
-43. 
+43. EASY->
+44. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
