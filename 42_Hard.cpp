@@ -1,65 +1,89 @@
 #include<iostream>
 using namespace std;
 
-// 7. Reverse Integer
+// 3739. Count Subarrays With Majority Element II
 
 /***************
-Given a signed 32-bit integer x, return x with its digits reversed. 
-If reversing x causes the value to go outside the signed 32-bit integer range [-2^(31), 2^(31) - 1], then return 0.    (## INT_MAX)
+You are given an integer array nums and an integer target.
 
-Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+Return the number of subarrays of nums in which target is the majority element.
+
+The majority element of a subarray is the element that appears strictly more than half of the times in that subarray.
 
 Example 1:
-Input: x = 123
-Output: 321
+Input: nums = [1,2,2,3], target = 2
+Output: 5
+    Explanation:
+    Valid subarrays with target = 2 as the majority element:
+nums[1..1] = [2]
+nums[2..2] = [2]
+nums[1..2] = [2,2]
+nums[0..2] = [1,2,2]
+nums[1..3] = [2,2,3]
+So there are 5 such subarrays.
 
 Example 2:
-Input: x = -123
-Output: -321
+Input: nums = [1,1,1,1], target = 1
+Output: 10
+    Explanation:
+    ​​​​​​​All 10 subarrays have 1 as the majority element.
 
 Example 3:
-Input: x = 120
-Output: 21
+Input: nums = [1,2,3], target = 4
+Output: 0
+    Explanation:
+    target = 4 does not appear in nums at all. Therefore, there cannot be any subarray where 4 is the majority element. Hence the answer is 0.
 ***************/
 
 
+// Claude solved: 
+// Key Insight: Transform the array: +1 if nums[i] == target, -1 otherwise. 
+// Then target is majority in subarray [l,r] iff the subarray sum > 0.
 class Solution {
 public:
-    int reverse(int x) 
+    long long countMajoritySubarrays(vector<int>& nums, int target) 
     {
-        // reversed would overflow anyway so check before-hand
-        if(x == INT_MIN) return 0; 
+        int n = nums.size();
         
-        bool neg = false;
-
-        // to take care of the negative sign
-        if(x < 0)
-        {
-            neg = true;
-            x = abs(x);
+        // Build prefix sums (+1 for target, -1 otherwise)
+        vector<int> prefix(n + 1);
+        prefix[0] = 0;
+        for (int i = 0; i < n; i++)
+            prefix[i + 1] = prefix[i] + (nums[i] == target ? 1 : -1);
+        
+        // Coordinate compress prefix values
+        vector<int> sorted_vals = prefix;
+        sort(sorted_vals.begin(), sorted_vals.end());
+        sorted_vals.erase(unique(sorted_vals.begin(), sorted_vals.end()), sorted_vals.end());
+        int m = sorted_vals.size();
+        
+        auto rank = [&](int val) {
+            return (int)(lower_bound(sorted_vals.begin(), sorted_vals.end(), val) - sorted_vals.begin()) + 1;
+        };
+        
+        // Fenwick Tree (BIT)
+        vector<int> bit(m + 1, 0);
+        
+        auto update = [&](int i) {
+            for (; i <= m; i += i & (-i))
+                bit[i]++;
+        };
+        
+        auto query = [&](int i) {
+            int s = 0;
+            for (; i > 0; i -= i & (-i))
+                s += bit[i];
+            return s;
+        };
+        
+        // Count pairs (i < j) where prefix[i] < prefix[j]
+        long long result = 0;
+        for (int val : prefix) {
+            int r = rank(val);
+            result += query(r - 1);  // count prefix values strictly less than val
+            update(r);
         }
-
-        // reversed cannot fit in int
-        long long reversed = 0;
-
-        while(x > 0)
-        {
-            reversed = reversed * 10 + x % 10;
-            x /= 10;
-        }
-
-        // to return based on the condition
-        if(neg == true)
-        {
-            if(-reversed < INT_MIN) return 0;
-            
-            // add the negative sign
-            return -reversed;
-        }
-        else
-        {
-            if(reversed > INT_MAX) return 0;
-            return reversed;
-        }
+        
+        return result;
     }
 };

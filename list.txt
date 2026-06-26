@@ -39,7 +39,7 @@
 39. MEDIUM -> 2. Add Two Numbers
 40. MEDIUM -> 3737. Count Subarrays With Majority Element I
 41. MEDIUM -> 7. Reverse Integer
-42. HARD -> 
+42. HARD -> 3739. Count Subarrays With Majority Element II
 43. 
 
 
