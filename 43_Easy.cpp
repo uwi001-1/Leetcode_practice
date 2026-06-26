@@ -35,41 +35,20 @@ Output: 0
 
 class Solution {
 public:
-    int reverse(int x) 
+    int mirrorDistance(int n) 
     {
-        // reversed would overflow anyway so check before-hand
-        if(x == INT_MIN) return 0; 
-        
-        bool neg = false;
+        // save the value in num as it will change later
+        int num = n;
+        int reversed = 0;
 
-        // to take care of the negative sign
-        if(x < 0)
+        while(n > 0)
         {
-            neg = true;
-            x = abs(x);
+            reversed = reversed * 10 + n % 10;
+            n /= 10;
         }
 
-        // reversed cannot fit in int
-        long long reversed = 0;
+        int diff = abs(num - reversed);
 
-        while(x > 0)
-        {
-            reversed = reversed * 10 + x % 10;
-            x /= 10;
-        }
-
-        // to return based on the condition
-        if(neg == true)
-        {
-            if(-reversed < INT_MIN) return 0;
-            
-            // add the negative sign
-            return -reversed;
-        }
-        else
-        {
-            if(reversed > INT_MAX) return 0;
-            return reversed;
-        }
+        return diff; 
     }
 };
