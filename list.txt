@@ -39,7 +39,8 @@
 39. MEDIUM -> 2. Add Two Numbers
 40. MEDIUM -> 3737. Count Subarrays With Majority Element I
 41. MEDIUM -> 7. Reverse Integer
-42. 
+42. HARD -> 
+43. 
 
 
 sorting method:     std::sort(m.begin(), m.end());
