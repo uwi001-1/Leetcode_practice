@@ -36,6 +36,41 @@ Output: 0
 ***************/
 
 
+// Solved as the problem 3737. Count Subarrays With Majority Element I (except long long used)
+// But Time Limit Exceeded
+// 510 / 516 testcases passed
+class Solution {
+public:
+    long long countMajoritySubarrays(vector<int>& nums, int target) 
+    {
+        // we use brute force approach 
+        // that is try every possible subarray, one by one. --> length of all possible chunks
+
+        // count how many times target appears in the subarray
+        long long targetCount = 0;
+
+        // count the number of valid subarray
+        long long total = 0;
+
+        // To generate all chunks in code, you just need two indices — where the chunk starts (i) and where it ends (j)
+        for(int i = 0; i < nums.size(); i++)        
+        {
+            for(int j = i; j < nums.size(); j++)
+            {
+                // check subarray nums[i..j]
+                if(nums[j] == target) targetCount += 1;
+
+                // if targetCount is greater than half the size of subarray then it has target as majority element
+                if(targetCount > (j - i + 1) / 2) total += 1;
+            }
+            // change the targetCount to 0
+            targetCount = 0;
+        }
+        return total;
+    }
+};
+
+
 // Claude solved: 
 // Key Insight: Transform the array: +1 if nums[i] == target, -1 otherwise. 
 // Then target is majority in subarray [l,r] iff the subarray sum > 0.
