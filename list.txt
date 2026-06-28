@@ -41,7 +41,8 @@
 41. MEDIUM -> 7. Reverse Integer
 42. HARD -> 3739. Count Subarrays With Majority Element II
 43. EASY-> 3783. Mirror Distance of an Integer
-44. EASY ->
+44. EASY -> 231. Power of Two
+45. 
 
 
 
