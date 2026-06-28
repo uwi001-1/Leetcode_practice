@@ -43,7 +43,8 @@
 43. EASY-> 3783. Mirror Distance of an Integer
 44. EASY -> 231. Power of Two
 45. MEDIUM -> 1846. Maximum Element After Decreasing and Rearranging
-46.
+46. MEDIUM -> 
+47. 
 
 
 
