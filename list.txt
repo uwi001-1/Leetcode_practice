@@ -42,7 +42,8 @@
 42. HARD -> 3739. Count Subarrays With Majority Element II
 43. EASY-> 3783. Mirror Distance of an Integer
 44. EASY -> 231. Power of Two
-45. MEDIUM -> 
+45. MEDIUM -> 1846. Maximum Element After Decreasing and Rearranging
+46.
 
 
 

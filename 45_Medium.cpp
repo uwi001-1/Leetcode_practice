@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-// 231. Power of Two
+// 1846. Maximum Element After Decreasing and Rearranging
 
 /***************
 Given an integer n, return true if it is a power of two. Otherwise, return false.
