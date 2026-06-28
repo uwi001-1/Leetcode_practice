@@ -24,12 +24,14 @@ Started: March 2026
 ## Topics Covered
 
 - Dynamic Programming
+- Divide and Conquer
+- Segment Tree
 - Math
-- Hash Tables
+- Hash Table
+- Greedy Algorithms
 - Binary Search
 - Recursion
 - Bit Manipulation
-- Greedy Algorithms
 - Brainteaser
 - Database
 - Arrays
@@ -39,4 +41,3 @@ Started: March 2026
 - Simulation
 - Two Pointers
 - Stacks & Queues
-

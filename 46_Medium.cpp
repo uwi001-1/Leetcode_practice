@@ -23,28 +23,25 @@ Output: false
 
 class Solution {
 public:
-    int maximumElementAfterDecrementingAndRearranging(vector<int>& arr) 
+    bool canJump(vector<int>& nums) 
     {
-        // sort the array
-        std::sort(arr.begin(), arr.end());
+        // if the list is just 1 element then return true
+        if(nums.size() == 1) return true;
 
-        // 1st element must be 1
-        if(arr[0] != 1) arr[0] = 1;
+        int furthest = 0;
 
-        for(int i = 1; i < arr.size(); i++)
+        for(int i = 0; i < nums.size(); i++)
         {
-            // if adjacent element is equal then just continue
-            if(arr[i] == arr[i-1]) continue;
+            // can't reach index i
+            if(i > furthest) return false; 
+            
+            // furthest we can go is the max of the last and the new one in new index
+            furthest = max(furthest, i + nums[i]);
 
-            if(arr[i] != arr[i-1] + 1)
-            {
-                // if the adjancent element is not just greater by 1
-                // change it
-                arr[i] = arr[i-1] + 1;
-            }
+            // if we can reach or cross the last index return true
+            if(furthest >= nums.size()-1) return true;
         }
-
-        // return the max element which will be the last element
-        return arr[arr.size() -1];
+        
+        return false;
     }
 };
