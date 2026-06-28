@@ -4,45 +4,66 @@ using namespace std;
 // 1846. Maximum Element After Decreasing and Rearranging
 
 /***************
-Given an integer n, return true if it is a power of two. Otherwise, return false.
+You are given an array of positive integers arr. Perform some operations (possibly none) on arr so that it satisfies these conditions:
+    - The value of the first element in arr must be 1.
+    - The absolute difference between any 2 adjacent elements must be less than or equal to 1. 
+        In other words, abs(arr[i] - arr[i - 1]) <= 1 for each i where 1 <= i < arr.length (0-indexed). abs(x) is the absolute value of x.
 
-An integer n is a power of two, if there exists an integer x such that n == 2x.
+There are 2 types of operations that you can perform any number of times:
+    - Decrease the value of any element of arr to a smaller positive integer.
+    - Rearrange the elements of arr to be in any order.
+
+Return the maximum possible value of an element in arr after performing the operations to satisfy the conditions.
 
 Example 1:
-Input: n = 1
-Output: true
-    Explanation: 20 = 1
+Input: arr = [2,2,1,2,1]
+Output: 2
+    Explanation: 
+    We can satisfy the conditions by rearranging arr so it becomes [1,2,2,2,1].
+    The largest element in arr is 2.
 
 Example 2:
-Input: n = 16
-Output: true
-    Explanation: 24 = 16
+Input: arr = [100,1,1000]
+Output: 3
+Explanation: 
+    One possible way to satisfy the conditions is by doing the following:
+    1. Rearrange arr so it becomes [1,100,1000].
+    2. Decrease the value of the second element to 2.
+    3. Decrease the value of the third element to 3.
+        Now arr = [1,2,3], which satisfies the conditions.
+    The largest element in arr is 3.
 
 Example 3:
-Input: n = 3
-Output: false
+Input: arr = [1,2,3,4,5]
+Output: 5
+    Explanation: The array already satisfies the conditions, and the largest element is 5.
 ***************/
 
 
-// to use the pow function
-#include <cmath>
-
 class Solution {
 public:
-    bool isPowerOfTwo(int n) 
+    int maximumElementAfterDecrementingAndRearranging(vector<int>& arr) 
     {
-        if(n == 1) return true;
+        // sort the array
+        std::sort(arr.begin(), arr.end());
 
-        // the power of 2 cannot be negative at all
-        if(n <= 0) return false;
+        // 1st element must be 1
+        if(arr[0] != 1) arr[0] = 1;
 
-        // loop from 1 to 31 , as that's the max value in the constraints
-        for(int i = 1; i < 32; i++)
+        for(int i = 1; i < arr.size(); i++)
         {
-            if(n == pow(2,i)) return true;
+            // if adjacent element is equal then just continue
+            if(arr[i] == arr[i-1]) continue;
+
+            if(arr[i] != arr[i-1] + 1)
+            {
+                // if the adjancent element is not just greater by 1
+                // change it
+                arr[i] = arr[i-1] + 1;
+            }
         }
 
-        // if never true return false
-        return false;
+        // return the max element which will be the last element
+        return arr[arr.size() -1];
     }
 };
