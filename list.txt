@@ -46,7 +46,8 @@
 46. MEDIUM -> 55. Jump Game
 47. EASY -> 1967. Number of Strings That Appear as Substrings in Word
 48. EASY -> 342. Power of Four
-49. 
+49. EASY -> 
+50. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
