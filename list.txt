@@ -44,11 +44,14 @@
 44. EASY -> 231. Power of Two
 45. MEDIUM -> 1846. Maximum Element After Decreasing and Rearranging
 46. MEDIUM -> 55. Jump Game
-47. 
+47. EASY ->
+48. 
 
 
+create an vector array and push value:      vector<int> arr;    arr.push_back(val);
 
 sorting method:     std::sort(m.begin(), m.end());
+
 reverse method:     std::reverse(n.begin(), n.end());
     int reversed = 0;
     while(num > 0)
@@ -61,4 +64,4 @@ absolute value:     abs(element - digit);
 min:    min({b, a, l/2, o/2, n});
 #might need to use max();
 
-create an vector array and push value:      vector<int> arr;    arr.push_back(val);
+pattern exists in word:     if(word.find(pattern) != string::npos)
