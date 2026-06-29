@@ -1,24 +1,25 @@
 #include<iostream>
 using namespace std;
 
-// 342. Power of Four
+// 367. Valid Perfect Square
 
 /***************
-Given an integer n, return true if it is a power of four. Otherwise, return false.
+Given a positive integer num, return true if num is a perfect square or false otherwise.
 
-An integer n is a power of four, if there exists an integer x such that n == 4x.
+A perfect square is an integer that is the square of an integer. 
+In other words, it is the product of some integer with itself.
+
+You must not use any built-in library function, such as sqrt.
 
 Example 1:
-Input: n = 16
+Input: num = 16
 Output: true
+    Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
 
 Example 2:
-Input: n = 5
+Input: num = 14
 Output: false
-
-Example 3:
-Input: n = 1
-Output: true
+    Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
 ***************/
 
 
@@ -27,17 +28,22 @@ Output: true
 
 class Solution {
 public:
-    bool isPowerOfFour(int n)
+    bool isPerfectSquare(int num)
     {
-        if(n == 1) return true;
+        if(num == 1) return true;
 
-        // the power of 4 cannot be negative at all
-        if(n <= 0) return false;
+        // loop from 2
+        int i = 2; 
 
-        // loop from 1 to 31 , as that's the max value in the constraints
-        for(int i = 1; i < 32; i++)
+        while(true)
         {
-            if(n == pow(4,i)) return true;
+            // if i^2 == num then return true
+            if(num == pow(i,2)) return true;
+
+            // as square root of 2^31 that's the max is 46340.95
+            if(i >= 46340) break;
+            
+            i += 1;
         }
 
         // if never true return false
