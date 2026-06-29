@@ -37,25 +37,21 @@ Output: 3
 
 class Solution {
 public:
-    bool canJump(vector<int>& nums) 
+    int numOfStrings(vector<string>& patterns, string word) 
     {
-        // if the list is just 1 element then return true
-        if(nums.size() == 1) return true;
+        int count = 0;
 
-        int furthest = 0;
+        string pattern;
 
-        for(int i = 0; i < nums.size(); i++)
+        // loop through the patterns array and handle each pattern individually
+        for(int i = 0; i < patterns.size(); i++)
         {
-            // can't reach index i
-            if(i > furthest) return false; 
-            
-            // furthest we can go is the max of the last and the new one in new index
-            furthest = max(furthest, i + nums[i]);
+            pattern = patterns[i];
 
-            // if we can reach or cross the last index return true
-            if(furthest >= nums.size()-1) return true;
+            // this is a built-in function to find if the pattern exists as a substring in word
+            if(word.find(pattern) != string::npos) count += 1;
         }
-        
-        return false;
+
+        return count;    
     }
 };
