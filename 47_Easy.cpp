@@ -1,23 +1,37 @@
 #include<iostream>
 using namespace std;
 
-// 55. Jump Game
+// 1967. Number of Strings That Appear as Substrings in Word
 
 /***************
-You are given an integer array nums. 
-You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
+Given an array of strings patterns and a string word, return the number of strings in patterns that exist as a substring in word.
 
-Return true if you can reach the last index, or false otherwise.
+A substring is a contiguous sequence of characters within a string.
 
 Example 1:
-Input: nums = [2,3,1,1,4]
-Output: true
-    Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+Input: patterns = ["a","abc","bc","d"], word = "abc"
+Output: 3
+    Explanation:
+    - "a" appears as a substring in "abc".
+    - "abc" appears as a substring in "abc".
+    - "bc" appears as a substring in "abc".
+    - "d" does not appear as a substring in "abc".
+3 of the strings in patterns appear as a substring in word.
 
 Example 2:
-Input: nums = [3,2,1,0,4]
-Output: false
-    Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+
+Input: patterns = ["a","b","c"], word = "aaaaabbbbb"
+Output: 2
+    Explanation:
+    - "a" appears as a substring in "aaaaabbbbb".
+    - "b" appears as a substring in "aaaaabbbbb".
+    - "c" does not appear as a substring in "aaaaabbbbb".
+2 of the strings in patterns appear as a substring in word.
+
+Example 3:
+Input: patterns = ["a","a","a"], word = "ab"
+Output: 3
+    Explanation: Each of the patterns appears as a substring in word "ab".
 ***************/
 
 
