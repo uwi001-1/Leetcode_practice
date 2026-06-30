@@ -1,25 +1,26 @@
 #include<iostream>
 using namespace std;
 
-// 367. Valid Perfect Square
+// 1358. Number of Substrings Containing All Three Characters
 
 /***************
-Given a positive integer num, return true if num is a perfect square or false otherwise.
+Given a string s consisting only of characters a, b and c.
 
-A perfect square is an integer that is the square of an integer. 
-In other words, it is the product of some integer with itself.
-
-You must not use any built-in library function, such as sqrt.
+Return the number of substrings containing at least one occurrence of all these characters a, b and c.
 
 Example 1:
-Input: num = 16
-Output: true
-    Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+Input: s = "abcabc"
+Output: 10
+    Explanation: The substrings containing at least one occurrence of the characters a, b and c are "abc", "abca", "abcab", "abcabc", "bca", "bcab", "bcabc", "cab", "cabc" and "abc" (again). 
 
 Example 2:
-Input: num = 14
-Output: false
-    Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
+Input: s = "aaacb"
+Output: 3
+    Explanation: The substrings containing at least one occurrence of the characters a, b and c are "aaacb", "aacb" and "acb". 
+
+Example 3:
+Input: s = "abc"
+Output: 1
 ***************/
 
 
