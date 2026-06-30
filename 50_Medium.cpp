@@ -24,30 +24,46 @@ Output: 1
 ***************/
 
 
-// to use the pow function
-#include <cmath>
-
 class Solution {
 public:
-    bool isPerfectSquare(int num)
+    int numberOfSubstrings(string s) 
     {
-        if(num == 1) return true;
+        // Brute force checking will cause Time Limit Exceed
+        // check every possible substring and count if it has all three letters
+        
+        // So, do the Sliding Window method
+        // keep a "window" (a range [i, j]) over the string, and you grow or shrink it one step at a time
+        // updating your knowledge instead of recalculating
 
-        // loop from 2
-        int i = 2; 
+        int total = 0;
+        
+        // left edge of the window
+        int i = 0;
 
-        while(true)
+        // counts of 'a', 'b', 'c' currently inside the window
+        // cnt[0] = how many 'a's are in the window, cnt[1] = how many 'b's, cnt[2] = how many 'c's
+        int cnt[3] = {0, 0, 0};
+        
+
+        // j is the right edge, moving one step at a time
+        for(int j = 0; j < s.size(); j++)
         {
-            // if i^2 == num then return true
-            if(num == pow(i,2)) return true;
+            // "include s[j] in the window," and bump up the count for whichever letter it is
+            // s[j] - 'a' converts 'a'→0, 'b'→1, 'c'→2 — just an array index trick
+            cnt[s[j] - 'a'] += 1;
 
-            // as square root of 2^31 that's the max is 46340.95
-            if(i >= 46340) break;
+            // shrink from left while window has all three
+            while(cnt[0] > 0 && cnt[1] > 0 && cnt[2] > 0)
+            {
+                // Once the window [i, j] contains at least one of each letter, we try to shrink it from the left as much as possible while still having all three
+                cnt[s[i] - 'a'] -= 1;
+                i += 1;
+            }
             
-            i += 1;
+            // how many valid substrings end at j
+            total += i; 
         }
 
-        // if never true return false
-        return false;
+        return total;
     }
 };
