@@ -47,7 +47,8 @@
 47. EASY -> 1967. Number of Strings That Appear as Substrings in Word
 48. EASY -> 342. Power of Four
 49. EASY -> 367. Valid Perfect Square
-50. 
+50. MEDIUM -> 1358. Number of Substrings Containing All Three Characters
+51. 
 
 
 // Brute force checking --> check every possible combination of solution
