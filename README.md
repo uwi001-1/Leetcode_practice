@@ -32,6 +32,7 @@ Started: March 2026
 - Binary Search
 - Recursion
 - Bit Manipulation
+- Sliding Window
 - Brainteaser
 - Database
 - Arrays
