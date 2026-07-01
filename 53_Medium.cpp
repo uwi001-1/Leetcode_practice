@@ -17,30 +17,28 @@ Output: false
 ***************/
 
 
-// to use the pow function
-#include <cmath>
-
 class Solution {
 public:
-    bool isPerfectSquare(int num)
+    bool judgeSquareSum(int c) 
     {
-        if(num == 1) return true;
+        // start from a = 0
+        long long a = 0;
+        long long b = (long long)sqrt(c);
 
-        // loop from 2
-        int i = 2; 
-
-        while(true)
+        while(a <= b)
         {
-            // if i^2 == num then return true
-            if(num == pow(i,2)) return true;
-
-            // as square root of 2^31 that's the max is 46340.95
-            if(i >= 46340) break;
+            long long s = a*a + b*b;
             
-            i += 1;
-        }
+            // if s is equal to c then it follows a^2 + b^2 = c
+            if(s == c) return true;
 
-        // if never true return false
+            // if s is not enough then increase a
+            else if(s < c) a += 1;
+
+            // if s is more then decrease b
+            else b -= 1;
+        }
+        
         return false;
     }
 };
