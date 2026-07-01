@@ -21,6 +21,24 @@ Input: nums = [1,1,1,3,3,4,3,2,4,2]
 Output: true
 **************/
 
+
+// With O(N)
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) 
+    {
+        std::sort(nums.begin(), nums.end());
+        
+        for(int i = 0; i < nums.size()-1; i++)
+        {
+            if(nums[i] == nums[i+1]) return true;
+        }
+
+        return false;
+    }
+};
+
+
 // With O(N2)
 class Solution {
 public:
@@ -43,6 +61,3 @@ public:
         return false;
     }
 };
-
-// With O(N)
-// Use hash table 
