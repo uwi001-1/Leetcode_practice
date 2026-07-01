@@ -8,20 +8,17 @@ Given an integer n, return true if it is possible to represent n as the sum of d
 
 An integer y is a power of three if there exists an integer x such that y == 3x.
 
- 
-
 Example 1:
-
 Input: n = 12
 Output: true
-Explanation: 12 = 31 + 32
-Example 2:
+    Explanation: 12 = 31 + 32
 
+Example 2:
 Input: n = 91
 Output: true
-Explanation: 91 = 30 + 32 + 34
-Example 3:
+    Explanation: 91 = 30 + 32 + 34
 
+Example 3:
 Input: n = 21
 Output: false
 ***************/
@@ -32,20 +29,29 @@ Output: false
 
 class Solution {
 public:
-    bool isPowerOfThree(int n)
+    // The number can not be represented as a sum of powers of 3 if it's ternary presentation has a 2 in it
+    bool checkPowersOfThree(int n) 
     {
-        if(n == 1) return true;
+        int value = -1;
 
-        // the power of 3 cannot be negative at all
-        if(n <= 0) return false;
-
-        // loop from 1 to 31 , as that's the max value in the constraints
-        for(int i = 1; i < 32; i++)
+        // try the ternary presentation
+        // till n becomes 0
+        while(true)
         {
-            if(n == pow(3,i)) return true;
+            // get the remainder
+            value = n % 3;
+
+            // divide the number
+            n = n / 3;
+
+            // if the remainder is ever 2 then it's not a sum of powers of three
+            if(value == 2) return false;
+
+            // if number reaches 0 break
+            if(n == 0) break;
         }
 
-        // if never true return false
-        return false;
+        // if never 2 then it's true
+        return true;
     }
-};;
+};
