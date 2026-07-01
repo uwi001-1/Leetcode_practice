@@ -51,7 +51,7 @@
 51. EASY -> 326. Power of Three
 52. MEDIUM -> 1780. Check if Number is a Sum of Powers of Three
 53. MEDIUM -> 633. Sum of Square Numbers
-54. EASY ->
+54. EASY -> 2357. Make Array Zero by Subtracting Equal Amounts
 55. 
 
 
