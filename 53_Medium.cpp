@@ -1,25 +1,19 @@
 #include<iostream>
 using namespace std;
 
-// 367. Valid Perfect Square
+// 633. Sum of Square Numbers
 
 /***************
-Given a positive integer num, return true if num is a perfect square or false otherwise.
-
-A perfect square is an integer that is the square of an integer. 
-In other words, it is the product of some integer with itself.
-
-You must not use any built-in library function, such as sqrt.
+Given a non-negative integer c, decide whether there're two integers a and b such that a^2 + b^2 = c.
 
 Example 1:
-Input: num = 16
+Input: c = 5
 Output: true
-    Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+    Explanation: 1 * 1 + 2 * 2 = 5
 
 Example 2:
-Input: num = 14
+Input: c = 3
 Output: false
-    Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
 ***************/
 
 
