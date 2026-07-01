@@ -49,7 +49,8 @@
 49. EASY -> 367. Valid Perfect Square
 50. MEDIUM -> 1358. Number of Substrings Containing All Three Characters
 51. EASY -> 326. Power of Three
-52. 
+52. MEDIUM -> 
+53. 
 
 
 // Brute force checking --> check every possible combination of solution
