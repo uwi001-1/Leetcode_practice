@@ -52,7 +52,8 @@
 52. MEDIUM -> 1780. Check if Number is a Sum of Powers of Three
 53. MEDIUM -> 633. Sum of Square Numbers
 54. EASY -> 2357. Make Array Zero by Subtracting Equal Amounts
-55. 
+55. EASY -> 100. Same Tree
+56. 
 
 
 // Brute force checking --> check every possible combination of solution
