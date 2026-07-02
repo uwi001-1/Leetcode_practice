@@ -22,22 +22,32 @@ Output: false
 ***************/
 
 
+
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 class Solution {
 public:
-    // the concept that the subraction to zero is the number of distinct elements other than 0
-    int minimumOperations(vector<int>& nums) 
+    // solve it using recursion
+    bool isSameTree(TreeNode* p, TreeNode* q) 
     {
-        std::sort(nums.begin(), nums.end());
+        // base 1
+        if(p == nullptr && q == nullptr) return true;
 
-        int count = 0;
-        
-        for(int i = 0; i < nums.size(); i++)
-        {
-            if(nums[i] == 0) continue;
-            
-            if(i == nums.size() - 1 || nums[i] != nums[i+1]) count += 1;
-        }
-        
-        return count;
+        // base 2
+        if(p == nullptr || q == nullptr) return false;
+
+        // base 3
+        if(p->val != q->val) return false;
+
+        // recursion case to check both the right and left tree
+        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     }
 };
