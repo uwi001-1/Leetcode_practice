@@ -54,7 +54,8 @@
 54. EASY -> 2357. Make Array Zero by Subtracting Equal Amounts
 55. EASY -> 100. Same Tree
 56. MEDIUM -> 120. Triangle
-57. 
+57. EASY -> 58. Length of Last Word
+58. 
 
 
 // Brute force checking --> check every possible combination of solution
