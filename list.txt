@@ -56,7 +56,8 @@
 56. MEDIUM -> 120. Triangle
 57. EASY -> 58. Length of Last Word
 58. EASY -> 383. Ransom Note
-59. 
+59. EASY -> 
+60. 
 
 
 // Brute force checking --> check every possible combination of solution
