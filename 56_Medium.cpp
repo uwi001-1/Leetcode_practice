@@ -1,37 +1,29 @@
 #include<iostream>
 using namespace std;
 
-// 100. Same Tree
+// 120. Triangle
 
 /***************
-Given the roots of two binary trees p and q, write a function to check if they are the same or not.
+Given a triangle array, return the minimum path sum from top to bottom.
 
-Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+For each step, you may move to an adjacent number of the row below. 
+More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
 
 Example 1:
-Input: p = [1,2,3], q = [1,2,3]
-Output: true
+Input: triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
+Output: 11
+    Explanation: The triangle looks like:
+   2
+  3 4
+ 6 5 7
+4 1 8 3
+    The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
 
 Example 2:
-Input: p = [1,2], q = [1,null,2]
-Output: false
-
-Example 3:
-Input: p = [1,2,1], q = [1,1,2]
-Output: false
+Input: triangle = [[-10]]
+Output: -10
 ***************/
 
-
-
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
 
 class Solution {
 public:
