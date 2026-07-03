@@ -1,24 +1,21 @@
 #include<iostream>
 using namespace std;
 
-// 383. Ransom Note
+// 28. Find the Index of the First Occurrence in a String
 
 /***************
-Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
-
-Each letter in magazine can only be used once in ransomNote.
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
 Example 1:
-Input: ransomNote = "a", magazine = "b"
-Output: false
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+    Explanation: "sad" occurs at index 0 and 6.
+    The first occurrence is at index 0, so we return 0.
 
 Example 2:
-Input: ransomNote = "aa", magazine = "ab"
-Output: false
-
-Example 3:
-Input: ransomNote = "aa", magazine = "aab"
-Output: true
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+    Explanation: "leeto" did not occur in "leetcode", so we return -1.
 ***************/
 
 
