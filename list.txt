@@ -53,7 +53,8 @@
 53. MEDIUM -> 633. Sum of Square Numbers
 54. EASY -> 2357. Make Array Zero by Subtracting Equal Amounts
 55. EASY -> 100. Same Tree
-56. 
+56. MEDIUM ->
+57. 
 
 
 // Brute force checking --> check every possible combination of solution
