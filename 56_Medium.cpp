@@ -27,19 +27,32 @@ Output: -10
 
 class Solution {
 public:
-    // solve it using recursion
-    bool isSameTree(TreeNode* p, TreeNode* q) 
+    // At each step, you can only go to one of the two numbers right above you
+    // Find the path with the smallest total sum
+
+    int minimumTotal(vector<vector<int>>& triangle) 
+        // triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
     {
-        // base 1
-        if(p == nullptr && q == nullptr) return true;
+        // bottom-up dynamic programming 
 
-        // base 2
-        if(p == nullptr || q == nullptr) return false;
+        // copy the last row
+        vector<int> dp = triangle.back(); 
+        // dp = [4, 1, 8, 3]
 
-        // base 3
-        if(p->val != q->val) return false;
+        for(int i = triangle.size()-2; i >= 0; i--)
+        {
+            for(int j = 0; j < triangle[i].size(); j++)
+            {
+                // for each cell, pick the better option below
+                // Each number chooses the cheaper child and adds its own value
+                dp[j] = triangle[i][j] + min(dp[j], dp[j+1]);
+            }
+            // with [6,5,7] -> dp = [7,6,10,3]
+            // with [3,4] -> dp = [9,10,10,3]
+            // with [2] -> dp = [11,10,10,3]
+        }
 
-        // recursion case to check both the right and left tree
-        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+        // return 11 in this case
+        return dp[0]; 
     }
 };
