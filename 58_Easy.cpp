@@ -24,34 +24,36 @@ Output: true
 
 class Solution {
 public:
-    int lengthOfLastWord(string s) 
+    bool canConstruct(string ransomNote, string magazine) 
     {
-        int started = false;
-        int count = 0;
+        // if there are not enough length of magazine, then we can't complete the ransomNote
+        if(magazine.size() < ransomNote.size()) return false; 
 
-        // loop from back of s 
-        for(int i = s.size()-1; i >=0; i--)
+        bool once = false;
+
+        // loop the ransomNote
+        int i = 0;
+
+        while(true)
         {
-            // if letter was counted
-            if(started == true)
+            once = false; 
+
+            for(int j = 0; j < magazine.size(); j++)
             {
-                // and we reach a space, then we need to finsih counting
-                if(s[i] == ' ') break;
-            }
-            else
-            {
-                // word hasn't been reached, avoid all the spaces before the last word
-                if(s[i] == ' ') continue;
+                if(ransomNote[i] == magazine[j])
+                {
+                    // change the letter of ransomNote found in magazine to ' ' 
+                    magazine[j] = ' ';
+                    once = true;
+                    break;
+                }
             }
 
-            // if it's not space, then count all the words
-            if(s[i] != ' ')
-            {
-                started = true;
-                count += 1;
-            }
+            i++; 
+            
+            // if one of the letter is not found or we searched all of the ransomNote
+            if(i >= ransomNote.size() || once == false) break;
         }
-        
-        return count;
+        return once;
     }
 };
