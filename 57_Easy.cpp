@@ -4,24 +4,24 @@ using namespace std;
 // 58. Length of Last Word
 
 /***************
-Given a triangle array, return the minimum path sum from top to bottom.
+Given a string s consisting of words and spaces, return the length of the last word in the string.
 
-For each step, you may move to an adjacent number of the row below. 
-More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
+A word is a maximal substring consisting of non-space characters only.
 
 Example 1:
-Input: triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
-Output: 11
-    Explanation: The triangle looks like:
-   2
-  3 4
- 6 5 7
-4 1 8 3
-    The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
+Input: s = "Hello World"
+Output: 5
+    Explanation: The last word is "World" with length 5.
 
 Example 2:
-Input: triangle = [[-10]]
-Output: -10
+Input: s = "   fly me   to   the moon  "
+Output: 4
+    Explanation: The last word is "moon" with length 4.
+
+Example 3:
+Input: s = "luffy is still joyboy"
+Output: 6
+    Explanation: The last word is "joyboy" with length 6.
 ***************/
 
 
