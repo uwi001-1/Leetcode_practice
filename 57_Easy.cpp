@@ -27,32 +27,34 @@ Output: 6
 
 class Solution {
 public:
-    // At each step, you can only go to one of the two numbers right above you
-    // Find the path with the smallest total sum
-
-    int minimumTotal(vector<vector<int>>& triangle) 
-        // triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
+    int lengthOfLastWord(string s) 
     {
-        // bottom-up dynamic programming 
+        int started = false;
+        int count = 0;
 
-        // copy the last row
-        vector<int> dp = triangle.back(); 
-        // dp = [4, 1, 8, 3]
-
-        for(int i = triangle.size()-2; i >= 0; i--)
+        // loop from back of s 
+        for(int i = s.size()-1; i >=0; i--)
         {
-            for(int j = 0; j < triangle[i].size(); j++)
+            // if letter was counted
+            if(started == true)
             {
-                // for each cell, pick the better option below
-                // Each number chooses the cheaper child and adds its own value
-                dp[j] = triangle[i][j] + min(dp[j], dp[j+1]);
+                // and we reach a space, then we need to finsih counting
+                if(s[i] == ' ') break;
             }
-            // with [6,5,7] -> dp = [7,6,10,3]
-            // with [3,4] -> dp = [9,10,10,3]
-            // with [2] -> dp = [11,10,10,3]
-        }
+            else
+            {
+                // word hasn't been reached, avoid all the spaces before the last word
+                if(s[i] == ' ') continue;
+            }
 
-        // return 11 in this case
-        return dp[0]; 
+            // if it's not space, then count all the words
+            if(s[i] != ' ')
+            {
+                started = true;
+                count += 1;
+            }
+        }
+        
+        return count;
     }
 };
