@@ -21,36 +21,48 @@ Output: -1
 
 class Solution {
 public:
-    bool canConstruct(string ransomNote, string magazine) 
+    int strStr(string haystack, string needle) 
     {
-        // if there are not enough length of magazine, then we can't complete the ransomNote
-        if(magazine.size() < ransomNote.size()) return false; 
+        // if haystack is smaller we can't find the needle in it
+        if(haystack.size() < needle.size()) return -1; 
 
-        bool once = false;
+        int sizeNeedle = needle.size();
+        int index = 0; 
+        bool yes = true; 
 
-        // loop the ransomNote
-        int i = 0;
+        // the first char of needle
+        char first = needle[0];
 
-        while(true)
+        for(int i = 0; i < haystack.size() - needle.size() + 1; i++) // this loop as we don't over loop to search the first letter
         {
-            once = false; 
-
-            for(int j = 0; j < magazine.size(); j++)
+            if(haystack[i] == first)
             {
-                if(ransomNote[i] == magazine[j])
-                {
-                    // change the letter of ransomNote found in magazine to ' ' 
-                    magazine[j] = ' ';
-                    once = true;
-                    break;
-                }
-            }
+                // now the first letter is same so search till the needle size
+                index = i;
 
-            i++; 
-            
-            // if one of the letter is not found or we searched all of the ransomNote
-            if(i >= ransomNote.size() || once == false) break;
+                int j = 0; 
+                int k = i;
+
+                while(j < sizeNeedle)
+                {
+                    // check each letter after the first letter was found
+                    if(haystack[k] == needle[j]) yes = true;
+                    else
+                    {
+                        yes = false; 
+                        break;
+                    }
+                    k++;
+                    j++;
+                }
+
+                // if found break.. as we need the index of first occurrence
+                if(yes == true) break;
+            }
+            else yes = false;
         }
-        return once;
+        
+        if(yes) return index;
+        else return -1;
     }
 };
