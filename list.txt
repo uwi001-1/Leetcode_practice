@@ -55,7 +55,7 @@
 55. EASY -> 100. Same Tree
 56. MEDIUM -> 120. Triangle
 57. EASY -> 58. Length of Last Word
-58. EASY ->
+58. EASY -> 383. Ransom Note
 59. 
 
 

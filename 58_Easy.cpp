@@ -1,27 +1,24 @@
 #include<iostream>
 using namespace std;
 
-// 58. Length of Last Word
+// 383. Ransom Note
 
 /***************
-Given a string s consisting of words and spaces, return the length of the last word in the string.
+Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
 
-A word is a maximal substring consisting of non-space characters only.
+Each letter in magazine can only be used once in ransomNote.
 
 Example 1:
-Input: s = "Hello World"
-Output: 5
-    Explanation: The last word is "World" with length 5.
+Input: ransomNote = "a", magazine = "b"
+Output: false
 
 Example 2:
-Input: s = "   fly me   to   the moon  "
-Output: 4
-    Explanation: The last word is "moon" with length 4.
+Input: ransomNote = "aa", magazine = "ab"
+Output: false
 
 Example 3:
-Input: s = "luffy is still joyboy"
-Output: 6
-    Explanation: The last word is "joyboy" with length 6.
+Input: ransomNote = "aa", magazine = "aab"
+Output: true
 ***************/
 
 
