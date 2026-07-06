@@ -58,7 +58,7 @@
 58. EASY -> 383. Ransom Note
 59. EASY -> 28. Find the Index of the First Occurrence in a String
 60. MEDIUM -> 1288. Remove Covered Intervals
-61. MEDIUM -> 
+61. MEDIUM -> 1338. Reduce Array Size to The Half
 62. 
 
 

@@ -1,23 +1,24 @@
 #include<iostream>
 using namespace std;
 
-// 1288. Remove Covered Intervals
+// 1338. Reduce Array Size to The Half
 
 /***************
-Given an array intervals where intervals[i] = [li, ri] represent the interval [li, ri), remove all intervals that are covered by another interval in the list.
+You are given an integer array arr. You can choose a set of integers and remove all the occurrences of these integers in the array.
 
-The interval [a, b) is covered by the interval [c, d) if and only if c <= a and b <= d.
-
-Return the number of remaining intervals.
+Return the minimum size of the set so that at least half of the integers of the array are removed.
 
 Example 1:
-Input: intervals = [[1,4],[3,6],[2,8]]
+Input: arr = [3,3,3,3,5,5,5,2,2,7]
 Output: 2
-    Explanation: Interval [3,6] is covered by [2,8], therefore it is removed.
+    Explanation: Choosing {3,7} will make the new array [5,5,5,2,2] which has size 5 (i.e equal to half of the size of the old array).
+    Possible sets of size 2 are {3,5},{3,2},{5,2}.
+    Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5] which has a size greater than half of the size of the old array.
 
 Example 2:
-Input: intervals = [[1,4],[2,3]]
+Input: arr = [7,7,7,7,7,7]
 Output: 1
+    Explanation: The only possible set you can choose is {7}. This will make the new array empty.
 ***************/
 
 
