@@ -23,48 +23,33 @@ Output: 1
 
 class Solution {
 public:
-    int strStr(string haystack, string needle) 
+    int removeCoveredIntervals(vector<vector<int>>& intervals) 
     {
-        // if haystack is smaller we can't find the needle in it
-        if(haystack.size() < needle.size()) return -1; 
-
-        int sizeNeedle = needle.size();
-        int index = 0; 
-        bool yes = true; 
-
-        // the first char of needle
-        char first = needle[0];
-
-        for(int i = 0; i < haystack.size() - needle.size() + 1; i++) // this loop as we don't over loop to search the first letter
+        // sort from the first index in ascending order 
+        // then sort the second index if same first index in descending order 
+        std::sort(intervals.begin(), intervals.end(), [](vector<int>& a, vector<int>& b)
         {
-            if(haystack[i] == first)
+            if(a[0] == b[0]) return a[1] > b[1]; // same start → longer end first
+            return a[0] < b[0]; // sort by start ascending
+        });
+
+        int maxEnd = 0;
+        int count = 0;
+
+        for(int i = 0; i < intervals.size(); i++)
+        {
+            if(intervals[i][1] <= maxEnd)
             {
-                // now the first letter is same so search till the needle size
-                index = i;
-
-                int j = 0; 
-                int k = i;
-
-                while(j < sizeNeedle)
-                {
-                    // check each letter after the first letter was found
-                    if(haystack[k] == needle[j]) yes = true;
-                    else
-                    {
-                        yes = false; 
-                        break;
-                    }
-                    k++;
-                    j++;
-                }
-
-                // if found break.. as we need the index of first occurrence
-                if(yes == true) break;
+                // covered! don't count it
             }
-            else yes = false;
-        }
-        
-        if(yes) return index;
-        else return -1;
+            else
+            {
+                // not covered
+                maxEnd = intervals[i][1];
+                count += 1;
+            }
+        } 
+
+        return count;
     }
 };
