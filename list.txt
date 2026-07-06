@@ -58,7 +58,9 @@
 58. EASY -> 383. Ransom Note
 59. EASY -> 28. Find the Index of the First Occurrence in a String
 60. MEDIUM -> 1288. Remove Covered Intervals
-61. 
+61. MEDIUM -> 
+62. 
+
 
 
 // Brute force checking --> check every possible combination of solution
