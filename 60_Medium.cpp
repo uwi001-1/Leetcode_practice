@@ -1,21 +1,23 @@
 #include<iostream>
 using namespace std;
 
-// 28. Find the Index of the First Occurrence in a String
+// 1288. Remove Covered Intervals
 
 /***************
-Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+Given an array intervals where intervals[i] = [li, ri] represent the interval [li, ri), remove all intervals that are covered by another interval in the list.
+
+The interval [a, b) is covered by the interval [c, d) if and only if c <= a and b <= d.
+
+Return the number of remaining intervals.
 
 Example 1:
-Input: haystack = "sadbutsad", needle = "sad"
-Output: 0
-    Explanation: "sad" occurs at index 0 and 6.
-    The first occurrence is at index 0, so we return 0.
+Input: intervals = [[1,4],[3,6],[2,8]]
+Output: 2
+    Explanation: Interval [3,6] is covered by [2,8], therefore it is removed.
 
 Example 2:
-Input: haystack = "leetcode", needle = "leeto"
-Output: -1
-    Explanation: "leeto" did not occur in "leetcode", so we return -1.
+Input: intervals = [[1,4],[2,3]]
+Output: 1
 ***************/
 
 

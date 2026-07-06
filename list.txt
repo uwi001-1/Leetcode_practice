@@ -57,7 +57,7 @@
 57. EASY -> 58. Length of Last Word
 58. EASY -> 383. Ransom Note
 59. EASY -> 28. Find the Index of the First Occurrence in a String
-60. MEDIUM -> 
+60. MEDIUM -> 1288. Remove Covered Intervals
 61. 
 
 
