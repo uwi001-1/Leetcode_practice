@@ -24,33 +24,51 @@ Output: 1
 
 class Solution {
 public:
-    int removeCoveredIntervals(vector<vector<int>>& intervals) 
+    int minSetSize(vector<int>& arr) 
     {
-        // sort from the first index in ascending order 
-        // then sort the second index if same first index in descending order 
-        std::sort(intervals.begin(), intervals.end(), [](vector<int>& a, vector<int>& b)
-        {
-            if(a[0] == b[0]) return a[1] > b[1]; // same start → longer end first
-            return a[0] < b[0]; // sort by start ascending
-        });
+        // sort the array to get all the same elements together 
+        std::sort(arr.begin(), arr.end());
 
-        int maxEnd = 0;
-        int count = 0;
+        vector<int> newArr; 
+        int val = 1;
+        int check = 0; 
 
-        for(int i = 0; i < intervals.size(); i++)
+        // count the frequency of each element and push into newArr
+        for(int i = 0; i < arr.size(); i++)
         {
-            if(intervals[i][1] <= maxEnd)
+            if(arr[check] == arr[i])
             {
-                // covered! don't count it
+                if(check == i) continue;
+                val += 1;
             }
             else
             {
-                // not covered
-                maxEnd = intervals[i][1];
-                count += 1;
+                newArr.push_back(val);
+                val = 1;
+                check = i;
             }
-        } 
+        }
+        newArr.push_back(val);
 
-        return count;
+        // sort newArr to get the most repeated number's frequency at the end
+        std::sort(newArr.begin(), newArr.end());
+
+        int size = arr.size();
+        int half = arr.size() / 2;
+
+        int count = 0;
+        int j = newArr.size() -1;
+
+        while(j >= 0)
+        {
+            // return count the number of times we subtract elements till we reach equal or less than half 
+            if(size <= half) return count;
+            size -= newArr[j];
+            j--;
+            count += 1; 
+        }
+
+        // base case to return 1
+        return 1;
     }
 };
