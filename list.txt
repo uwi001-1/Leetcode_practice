@@ -61,7 +61,8 @@
 61. MEDIUM -> 1338. Reduce Array Size to The Half
 62. MEDIUM -> 328. Odd Even Linked List
 63. EASY -> 3754. Concatenate Non-Zero Digits and Multiply by Sum I
-64. 
+64. EASY ->
+65. 
 
 
 
