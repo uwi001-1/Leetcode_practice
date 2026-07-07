@@ -59,11 +59,10 @@
 59. EASY -> 28. Find the Index of the First Occurrence in a String
 60. MEDIUM -> 1288. Remove Covered Intervals
 61. MEDIUM -> 1338. Reduce Array Size to The Half
-62. 
+62. MEDIUM -> 
+63. 
 
 
-
-// Brute force checking --> check every possible combination of solution
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
 
@@ -82,3 +81,5 @@ min:    min({b, a, l/2, o/2, n});
 #might need to use max();
 
 pattern exists in word:     if(word.find(pattern) != string::npos)
+
+// Brute force checking --> check every possible combination of solution
