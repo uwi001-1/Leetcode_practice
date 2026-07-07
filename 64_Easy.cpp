@@ -28,3 +28,49 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) 
+    {
+        // if the linked list is empty 
+        if(head == nullptr) return head;
+        
+        vector<int> arr; 
+
+        // push into an array
+        ListNode* curr = head;  
+        while(curr != nullptr)
+        {
+            arr.push_back(curr->val);
+            curr = curr->next;
+        }
+        
+        // push each element in the head 
+        ListNode* pHead = nullptr;
+
+        for (int i = 0; i < arr.size(); i++)
+        {
+            ListNode* pNew = new ListNode(arr[i]);
+
+            if(pHead == nullptr) pHead = pNew;
+            else
+            {
+                pNew->next = pHead;
+                pHead = pNew;
+            }
+        }
+
+        return pHead;
+    }
+};
