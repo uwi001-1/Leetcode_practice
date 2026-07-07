@@ -1,24 +1,31 @@
 #include<iostream>
 using namespace std;
 
-// 328. Odd Even Linked List
+// 3754. Concatenate Non-Zero Digits and Multiply by Sum I
 
 /***************
-Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
+You are given an integer n.
 
-The first node is considered odd, and the second node is even, and so on.
+Form a new integer x by concatenating all the non-zero digits of n in their original order. If there are no non-zero digits, x = 0.
 
-Note that the relative order inside both the even and odd groups should remain as it was in the input.
+Let sum be the sum of digits in x.
 
-You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+Return an integer representing the value of x * sum.
 
 Example 1:
-Input: head = [1,2,3,4,5]
-Output: [1,3,5,2,4]
+Input: n = 10203004
+Output: 12340
+    Explanation:
+    The non-zero digits are 1, 2, 3, and 4. Thus, x = 1234.
+    The sum of digits is sum = 1 + 2 + 3 + 4 = 10.
+    Therefore, the answer is x * sum = 1234 * 10 = 12340.
 
 Example 2:
-Input: head = [2,1,3,5,6,4,7]
-Output: [2,3,6,7,1,5,4]
+Input: n = 1000
+Output: 1
+    Explanation:
+    The non-zero digit is 1, so x = 1 and sum = 1.
+    Therefore, the answer is x * sum = 1 * 1 = 1.
 ***************/
 
 
