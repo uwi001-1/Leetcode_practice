@@ -29,83 +29,36 @@ Output: 1
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
-// odd - even - odd - even - odd
-// --> odd - odd - odd - even - even
-
 class Solution {
 public:
-    ListNode* oddEvenList(ListNode* head) 
+    long long sumAndMultiply(int n) 
     {
-        vector<int> arr; 
+        // base case
+        if(n == 0) return 0;
 
-        // push into an array
-        ListNode* curr = head;  
-        while(curr != nullptr)
+        int digit;
+        long long  sum = 0; 
+        long long  x = 0;
+        int i = 1; 
+
+        while(n > 0)
         {
-            arr.push_back(curr->val);
-            curr = curr->next;
+            // remainder
+            digit = n % 10;
+
+            // remove one digit from back 
+            n = n / 10;
+
+            // skip if zero
+            if(digit == 0) continue;
+
+            sum += digit; 
+            x += digit * i;
+            i *= 10;
         }
         
-        ListNode* pHead = nullptr;
-        // if even
-        if(arr.size() % 2 == 0) 
-        {
-            // first even indices
-            for(int i = arr.size()-1; i >= 0; i -= 2)
-            {
-                ListNode* pNew = new ListNode(arr[i]);
+        long long ans = sum * x;
 
-                if(pHead == nullptr) pHead = pNew;
-                else
-                {
-                    pNew->next = pHead;
-                    pHead = pNew;
-                }
-            }
-            // then odd indices
-            for(int j = arr.size()-2; j >= 0; j -= 2)
-            {
-                ListNode* pNew = new ListNode(arr[j]);
-
-                pNew->next = pHead;
-                pHead = pNew;
-            }
-        }
-
-        // if odd
-        else
-        {
-            // first even indices 
-            for(int k = arr.size()-2; k >= 0; k -= 2)
-            {
-                ListNode* pNew = new ListNode(arr[k]);
-
-                if(pHead == nullptr) pHead = pNew;
-                else
-                {
-                    pNew->next = pHead;
-                    pHead = pNew;
-                }
-            }
-            // then odd indices
-            for(int l = arr.size()-1; l >= 0; l -= 2)
-            {
-                ListNode* pNew = new ListNode(arr[l]);
-
-                pNew->next = pHead;
-                pHead = pNew;
-            }
-        }
-        
-        return pHead;
+        return ans;
     }
 };
