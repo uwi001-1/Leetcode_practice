@@ -22,53 +22,83 @@ Output: [2,3,6,7,1,5,4]
 ***************/
 
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+// odd - even - odd - even - odd
+// --> odd - odd - odd - even - even
+
 class Solution {
 public:
-    int minSetSize(vector<int>& arr) 
+    ListNode* oddEvenList(ListNode* head) 
     {
-        // sort the array to get all the same elements together 
-        std::sort(arr.begin(), arr.end());
+        vector<int> arr; 
 
-        vector<int> newArr; 
-        int val = 1;
-        int check = 0; 
-
-        // count the frequency of each element and push into newArr
-        for(int i = 0; i < arr.size(); i++)
+        // push into an array
+        ListNode* curr = head;  
+        while(curr != nullptr)
         {
-            if(arr[check] == arr[i])
+            arr.push_back(curr->val);
+            curr = curr->next;
+        }
+        
+        ListNode* pHead = nullptr;
+        // if even
+        if(arr.size() % 2 == 0) 
+        {
+            // first even indices
+            for(int i = arr.size()-1; i >= 0; i -= 2)
             {
-                if(check == i) continue;
-                val += 1;
+                ListNode* pNew = new ListNode(arr[i]);
+
+                if(pHead == nullptr) pHead = pNew;
+                else
+                {
+                    pNew->next = pHead;
+                    pHead = pNew;
+                }
             }
-            else
+            // then odd indices
+            for(int j = arr.size()-2; j >= 0; j -= 2)
             {
-                newArr.push_back(val);
-                val = 1;
-                check = i;
+                ListNode* pNew = new ListNode(arr[j]);
+
+                pNew->next = pHead;
+                pHead = pNew;
             }
         }
-        newArr.push_back(val);
 
-        // sort newArr to get the most repeated number's frequency at the end
-        std::sort(newArr.begin(), newArr.end());
-
-        int size = arr.size();
-        int half = arr.size() / 2;
-
-        int count = 0;
-        int j = newArr.size() -1;
-
-        while(j >= 0)
+        // if odd
+        else
         {
-            // return count the number of times we subtract elements till we reach equal or less than half 
-            if(size <= half) return count;
-            size -= newArr[j];
-            j--;
-            count += 1; 
-        }
+            // first even indices 
+            for(int k = arr.size()-2; k >= 0; k -= 2)
+            {
+                ListNode* pNew = new ListNode(arr[k]);
 
-        // base case to return 1
-        return 1;
+                if(pHead == nullptr) pHead = pNew;
+                else
+                {
+                    pNew->next = pHead;
+                    pHead = pNew;
+                }
+            }
+            // then odd indices
+            for(int l = arr.size()-1; l >= 0; l -= 2)
+            {
+                ListNode* pNew = new ListNode(arr[l]);
+
+                pNew->next = pHead;
+                pHead = pNew;
+            }
+        }
+        
+        return pHead;
     }
 };
