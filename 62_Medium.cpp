@@ -1,24 +1,24 @@
 #include<iostream>
 using namespace std;
 
-// 1338. Reduce Array Size to The Half
+// 328. Odd Even Linked List
 
 /***************
-You are given an integer array arr. You can choose a set of integers and remove all the occurrences of these integers in the array.
+Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
 
-Return the minimum size of the set so that at least half of the integers of the array are removed.
+The first node is considered odd, and the second node is even, and so on.
+
+Note that the relative order inside both the even and odd groups should remain as it was in the input.
+
+You must solve the problem in O(1) extra space complexity and O(n) time complexity.
 
 Example 1:
-Input: arr = [3,3,3,3,5,5,5,2,2,7]
-Output: 2
-    Explanation: Choosing {3,7} will make the new array [5,5,5,2,2] which has size 5 (i.e equal to half of the size of the old array).
-    Possible sets of size 2 are {3,5},{3,2},{5,2}.
-    Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5] which has a size greater than half of the size of the old array.
+Input: head = [1,2,3,4,5]
+Output: [1,3,5,2,4]
 
 Example 2:
-Input: arr = [7,7,7,7,7,7]
-Output: 1
-    Explanation: The only possible set you can choose is {7}. This will make the new array empty.
+Input: head = [2,1,3,5,6,4,7]
+Output: [2,3,6,7,1,5,4]
 ***************/
 
 

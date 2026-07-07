@@ -59,7 +59,7 @@
 59. EASY -> 28. Find the Index of the First Occurrence in a String
 60. MEDIUM -> 1288. Remove Covered Intervals
 61. MEDIUM -> 1338. Reduce Array Size to The Half
-62. MEDIUM -> 
+62. MEDIUM -> 328. Odd Even Linked List
 63. 
 
 
