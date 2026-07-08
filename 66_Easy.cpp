@@ -1,57 +1,54 @@
 #include<iostream>
 using namespace std;
 
-// 3756. Concatenate Non-Zero Digits and Multiply by Sum II
+// 1221. Split a String in Balanced Strings
 
 /***************
-You are given a string s of length m consisting of digits. You are also given a 2D integer array queries, where queries[i] = [li, ri].
+Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
 
-For each queries[i], extract the substring s[li..ri]. Then, perform the following:
+Given a balanced string s, split it into some number of substrings such that:
 
-Form a new integer x by concatenating all the non-zero digits from the substring in their original order. If there are no non-zero digits, x = 0.
-Let sum be the sum of digits in x. The answer is x * sum.
-Return an array of integers answer where answer[i] is the answer to the ith query.
-
-Since the answers may be very large, return them modulo 109 + 7.
+Each substring is balanced.
+Return the maximum number of balanced strings you can obtain.
 
 Example 1:
-Input: s = "10203004", queries = [[0,7],[1,3],[4,6]]
-Output: [12340, 4, 9]
-    Explanation:
-s[0..7] = "10203004"
-x = 1234
-sum = 1 + 2 + 3 + 4 = 10
-Therefore, answer is 1234 * 10 = 12340.
-s[1..3] = "020"
-x = 2
-sum = 2
-Therefore, the answer is 2 * 2 = 4.
-s[4..6] = "300"
-x = 3
-sum = 3
-Therefore, the answer is 3 * 3 = 9.
+Input: s = "RLRRLLRLRL"
+Output: 4
+    Explanation: s can be split into "RL", "RRLL", "RL", "RL", each substring contains same number of 'L' and 'R'.
 
 Example 2:
-Input: s = "1000", queries = [[0,3],[1,1]]
-Output: [1, 0]
-    Explanation:
-s[0..3] = "1000"
-x = 1
-sum = 1
-Therefore, the answer is 1 * 1 = 1.
-s[1..1] = "0"
-x = 0
-sum = 0
-Therefore, the answer is 0 * 0 = 0.
+Input: s = "RLRRRLLRLL"
+Output: 2
+    Explanation: s can be split into "RL", "RRRLLRLL", each substring contains same number of 'L' and 'R'.
+    Note that s cannot be split into "RL", "RR", "RL", "LR", "LL", because the 2nd and 5th substrings are not balanced.
 
 Example 3:
-Input: s = "9876543210", queries = [[0,9]]
-Output: [444444137]
-    Explanation:
-s[0..9] = "9876543210"
-x = 987654321
-sum = 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 = 45
-Therefore, the answer is 987654321 * 45 = 44444444445.
-We return 44444444445 modulo (109 + 7) = 444444137.
+Input: s = "LLLLRRRR"
+Output: 1
+    Explanation: s can be split into "LLLLRRRR".
 ***************/
 
+
+class Solution {
+public:
+    int balancedStringSplit(string s) 
+    {
+        int R = 0; 
+        int L = 0; 
+        int count = 0;
+
+        for(int i = 0; i < s.size(); i++)
+        {
+            if(s[i] == 'L') L += 1;
+            if(s[i] == 'R') R += 1;
+
+            if(L == R) 
+            {
+                count += 1; 
+                L = 0; 
+                R = 0;
+            }
+        }
+        return count;
+    }
+};
