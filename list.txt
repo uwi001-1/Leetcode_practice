@@ -62,7 +62,7 @@
 62. MEDIUM -> 328. Odd Even Linked List
 63. EASY -> 3754. Concatenate Non-Zero Digits and Multiply by Sum I
 64. EASY -> 206. Reverse Linked List
-65. MEDIUM -> 
+65. MEDIUM -> 3756. Concatenate Non-Zero Digits and Multiply by Sum II
 66. 
 
 

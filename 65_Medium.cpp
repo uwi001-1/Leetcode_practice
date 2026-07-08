@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-// 3754. Concatenate Non-Zero Digits and Multiply by Sum I
+// 3756. Concatenate Non-Zero Digits and Multiply by Sum II
 
 /***************
 You are given an integer n.
