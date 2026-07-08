@@ -15,10 +15,10 @@ Started: March 2026
 
 | Difficulty | Solved |
 |------------|---------|
-| Easy       | 33 |
+| Easy       | 34 |
 | Medium     | 31 |
 | Hard       | 2 |
-| Total      | 66 |
+| Total      | 67 |
 
 
 ## Topics Covered
@@ -29,9 +29,11 @@ Started: March 2026
 - Math
 - Hash Table
 - Greedy Algorithms
-- Binary Search
 - Recursion
+- Binary Search
 - Bit Manipulation
+- Tree
+- Binary Tree
 - Sliding Window
 - Brainteaser
 - Database
