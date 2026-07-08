@@ -1,54 +1,60 @@
 #include<iostream>
 using namespace std;
 
-// 1221. Split a String in Balanced Strings
+// 14. Longest Common Prefix
 
 /***************
-Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+Write a function to find the longest common prefix string amongst an array of strings.
 
-Given a balanced string s, split it into some number of substrings such that:
-
-Each substring is balanced.
-Return the maximum number of balanced strings you can obtain.
+If there is no common prefix, return an empty string "".
 
 Example 1:
-Input: s = "RLRRLLRLRL"
-Output: 4
-    Explanation: s can be split into "RL", "RRLL", "RL", "RL", each substring contains same number of 'L' and 'R'.
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
 
 Example 2:
-Input: s = "RLRRRLLRLL"
-Output: 2
-    Explanation: s can be split into "RL", "RRRLLRLL", each substring contains same number of 'L' and 'R'.
-    Note that s cannot be split into "RL", "RR", "RL", "LR", "LL", because the 2nd and 5th substrings are not balanced.
-
-Example 3:
-Input: s = "LLLLRRRR"
-Output: 1
-    Explanation: s can be split into "LLLLRRRR".
+Input: strs = ["dog","racecar","car"]
+Output: ""
+    Explanation: There is no common prefix among the input strings.
 ***************/
 
 
 class Solution {
 public:
-    int balancedStringSplit(string s) 
+    string longestCommonPrefix(vector<string>& strs) 
     {
-        int R = 0; 
-        int L = 0; 
-        int count = 0;
+        int first = strs[0].size();
+        int i = 0;
+        bool same = false;
+        string newChar = "";
+        char letter;
 
-        for(int i = 0; i < s.size(); i++)
+        while(i < first)
         {
-            if(s[i] == 'L') L += 1;
-            if(s[i] == 'R') R += 1;
-
-            if(L == R) 
+            same = false;
+            for(int j = 0; j < strs.size(); j++)
             {
-                count += 1; 
-                L = 0; 
-                R = 0;
+                letter = strs[0][i];
+
+                if(i >= strs[j].size())
+                {
+                    same = false;
+                    break;
+                }
+                
+                if(letter == strs[j][i]) same = true;
+                else
+                {
+                    same = false; 
+                    break;
+                }
             }
+            if(same) newChar = newChar + letter;
+            else break;
+            
+            i++;
         }
-        return count;
+
+        return newChar;  
     }
 };
