@@ -62,7 +62,8 @@
 62. MEDIUM -> 328. Odd Even Linked List
 63. EASY -> 3754. Concatenate Non-Zero Digits and Multiply by Sum I
 64. EASY -> 206. Reverse Linked List
-65. 
+65. MEDIUM -> 
+66. 
 
 
 
@@ -85,3 +86,11 @@ min:    min({b, a, l/2, o/2, n});
 pattern exists in word:     if(word.find(pattern) != string::npos)
 
 // Brute force checking --> check every possible combination of solution
+
+extract theh substring 
+for(int i = 0; i < queries.size(); i++)
+{
+    int l = queries[i][0];
+    int r = queries[i][1];
+    string sub = s.substr(l, r - l + 1);
+}
