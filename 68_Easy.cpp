@@ -18,40 +18,12 @@ Output: false
 
 class Solution {
 public:
-    string longestCommonPrefix(vector<string>& strs) 
+    bool isAnagram(string s, string t) 
     {
-        int first = strs[0].size();
-        int i = 0;
-        bool same = false;
-        string newChar = "";
-        char letter;
+        std::sort(s.begin(), s.end());
+        std::sort(t.begin(), t.end());
 
-        while(i < first)
-        {
-            same = false;
-            for(int j = 0; j < strs.size(); j++)
-            {
-                letter = strs[0][i];
-
-                if(i >= strs[j].size())
-                {
-                    same = false;
-                    break;
-                }
-                
-                if(letter == strs[j][i]) same = true;
-                else
-                {
-                    same = false; 
-                    break;
-                }
-            }
-            if(same) newChar = newChar + letter;
-            else break;
-            
-            i++;
-        }
-
-        return newChar;  
+        if(s == t) return true;
+        return false;
     }
 };
