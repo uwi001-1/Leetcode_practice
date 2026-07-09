@@ -65,7 +65,8 @@
 65. MEDIUM -> 3756. Concatenate Non-Zero Digits and Multiply by Sum II
 66. EASY -> 1221. Split a String in Balanced Strings
 67. EASY -> 14. Longest Common Prefix
-68. 
+68. EASY -> 
+69. 
 
 
 
