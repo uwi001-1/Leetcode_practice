@@ -67,7 +67,7 @@
 67. EASY -> 14. Longest Common Prefix
 68. EASY -> 242. Valid Anagram
 69. EASY -> 1431. Kids With the Greatest Number of Candies
-70. EASY ->
+70. EASY -> 283. Move Zeroes
 71. 
 
 
