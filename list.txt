@@ -65,9 +65,8 @@
 65. MEDIUM -> 3756. Concatenate Non-Zero Digits and Multiply by Sum II
 66. EASY -> 1221. Split a String in Balanced Strings
 67. EASY -> 14. Longest Common Prefix
-68. EASY -> 
+68. EASY -> 242. Valid Anagram
 69. 
-
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
@@ -90,7 +89,7 @@ pattern exists in word:     if(word.find(pattern) != string::npos)
 
 // Brute force checking --> check every possible combination of solution
 
-extract theh substring 
+extract the substring 
 for(int i = 0; i < queries.size(); i++)
 {
     int l = queries[i][0];

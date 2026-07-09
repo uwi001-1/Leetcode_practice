@@ -1,21 +1,18 @@
 #include<iostream>
 using namespace std;
 
-// 14. Longest Common Prefix
+// 242. Valid Anagram
 
 /***************
-Write a function to find the longest common prefix string amongst an array of strings.
-
-If there is no common prefix, return an empty string "".
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
 Example 1:
-Input: strs = ["flower","flow","flight"]
-Output: "fl"
+Input: s = "anagram", t = "nagaram"
+Output: true
 
 Example 2:
-Input: strs = ["dog","racecar","car"]
-Output: ""
-    Explanation: There is no common prefix among the input strings.
+Input: s = "rat", t = "car"
+Output: false
 ***************/
 
 
