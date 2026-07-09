@@ -34,12 +34,22 @@ Output: [true,false,true]
 
 class Solution {
 public:
-    bool isAnagram(string s, string t) 
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) 
     {
-        std::sort(s.begin(), s.end());
-        std::sort(t.begin(), t.end());
+        vector<int> arr = candies;
+        std::sort(arr.begin(), arr.end());
 
-        if(s == t) return true;
-        return false;
+        // as arr is sorted 
+        int max = arr[candies.size() -1]; 
+
+        vector<bool> ans;
+
+        for(int i = 0; i < candies.size(); i++)
+        {
+            if(candies[i] + extraCandies >= max) ans.push_back(true);
+            else ans.push_back(false);
+        }
+
+        return ans;
     }
 };
