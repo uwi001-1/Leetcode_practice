@@ -20,22 +20,24 @@ Output: [0]
 
 class Solution {
 public:
-    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) 
+    void moveZeroes(vector<int>& nums) 
     {
-        vector<int> arr = candies;
-        std::sort(arr.begin(), arr.end());
+        // first push the elements other than 0 into an array
+        vector<int> arr;
+        int count = 0; 
 
-        // as arr is sorted 
-        int max = arr[candies.size() -1]; 
-
-        vector<bool> ans;
-
-        for(int i = 0; i < candies.size(); i++)
+        for(int i = 0; i < nums.size(); i++)
         {
-            if(candies[i] + extraCandies >= max) ans.push_back(true);
-            else ans.push_back(false);
+            if(nums[i] != 0) arr.push_back(nums[i]);
+            else count += 1;
         }
 
-        return ans;
+        while(count > 0)
+        {
+            arr.push_back(0);
+            count--;
+        }    
+
+        nums = arr;
     }
 };
