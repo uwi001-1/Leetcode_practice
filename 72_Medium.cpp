@@ -47,19 +47,31 @@ Number 4848: the second digit 8 is a peak, and the third digit 4 is a valley, gi
 
 class Solution {
 public:
-    // Trailing zeros come from factors of 10
-    int trailingZeroes(int n) 
+    int totalWaviness(int num1, int num2) 
     {
-        if(n == 0) return 0;
-
+        // use brute force
         int count = 0;
-        
-        // n/5 + n/25 + n/125 + n/625 + ...
-        while(n >= 5)
+
+        for(int i = num1; i <= num2; i++)
         {
-            n /= 5;
-            count += n;
+            // change it into a string so we can loop it
+            string s = to_string(i);
+
+            // base case; if size is less than 3 cannot have waviness
+            if(s.size() < 3) continue;
+
+            for(int j = 1; j < s.size()-1; j++)
+            {
+                // peak
+                if(s[j] > s[j-1] && s[j] > s[j+1]) count += 1;
+
+                // value
+                else if(s[j] < s[j-1] && s[j] < s[j+1]) count += 1;
+                
+                else continue;
+            }
         }
-        return count;     
+
+        return count;
     }
 };
