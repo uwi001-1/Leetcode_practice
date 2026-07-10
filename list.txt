@@ -68,7 +68,8 @@
 68. EASY -> 242. Valid Anagram
 69. EASY -> 1431. Kids With the Greatest Number of Candies
 70. EASY -> 283. Move Zeroes
-71. 
+71. MEDIUM -> 
+72. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
