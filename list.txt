@@ -69,7 +69,7 @@
 69. EASY -> 1431. Kids With the Greatest Number of Candies
 70. EASY -> 283. Move Zeroes
 71. MEDIUM -> 172. Factorial Trailing Zeroes
-72. MEDIUM -> 
+72. MEDIUM -> 3751. Total Waviness of Numbers in Range I
 73. 
 
 
