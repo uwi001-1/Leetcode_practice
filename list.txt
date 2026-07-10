@@ -69,7 +69,8 @@
 69. EASY -> 1431. Kids With the Greatest Number of Candies
 70. EASY -> 283. Move Zeroes
 71. MEDIUM -> 172. Factorial Trailing Zeroes
-72. 
+72. MEDIUM -> 
+73. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
