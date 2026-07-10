@@ -27,24 +27,19 @@ Output: 0
 
 class Solution {
 public:
-    void moveZeroes(vector<int>& nums) 
+    // Trailing zeros come from factors of 10
+    int trailingZeroes(int n) 
     {
-        // first push the elements other than 0 into an array
-        vector<int> arr;
-        int count = 0; 
+        if(n == 0) return 0;
 
-        for(int i = 0; i < nums.size(); i++)
+        int count = 0;
+        
+        // n/5 + n/25 + n/125 + n/625 + ...
+        while(n >= 5)
         {
-            if(nums[i] != 0) arr.push_back(nums[i]);
-            else count += 1;
+            n /= 5;
+            count += n;
         }
-
-        while(count > 0)
-        {
-            arr.push_back(0);
-            count--;
-        }    
-
-        nums = arr;
+        return count;     
     }
 };
