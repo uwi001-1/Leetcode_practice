@@ -70,7 +70,8 @@
 70. EASY -> 283. Move Zeroes
 71. MEDIUM -> 172. Factorial Trailing Zeroes
 72. MEDIUM -> 3751. Total Waviness of Numbers in Range I
-73. MEDIUM ->
+73. MEDIUM -> 34. Find First and Last Position of Element in Sorted Array
+74. 
 
 
 
