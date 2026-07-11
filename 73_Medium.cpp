@@ -26,31 +26,22 @@ Output: [-1,-1]
 
 class Solution {
 public:
-    int totalWaviness(int num1, int num2) 
+    vector<int> searchRange(vector<int>& nums, int target) 
     {
-        // use brute force
-        int count = 0;
+        // base case
+        vector<int> ans = {-1, -1};
 
-        for(int i = num1; i <= num2; i++)
+        for(int i = 0; i < nums.size(); i++)
         {
-            // change it into a string so we can loop it
-            string s = to_string(i);
-
-            // base case; if size is less than 3 cannot have waviness
-            if(s.size() < 3) continue;
-
-            for(int j = 1; j < s.size()-1; j++)
+            if(nums[i] == target)
             {
-                // peak
-                if(s[j] > s[j-1] && s[j] > s[j+1]) count += 1;
+                // first occurence
+                if(ans[0] == -1) ans[0] = i;
 
-                // value
-                else if(s[j] < s[j-1] && s[j] < s[j+1]) count += 1;
-                
-                else continue;
+                // second occurence till the end
+                ans[1] = i;
             }
         }
-
-        return count;
+        return ans;
     }
 };
