@@ -70,7 +70,8 @@
 70. EASY -> 283. Move Zeroes
 71. MEDIUM -> 172. Factorial Trailing Zeroes
 72. MEDIUM -> 3751. Total Waviness of Numbers in Range I
-73. 
+73. MEDIUM ->
+
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
