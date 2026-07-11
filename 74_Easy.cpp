@@ -24,22 +24,18 @@ Output: 2
 
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) 
+    int mySqrt(int x) 
     {
-        // base case
-        vector<int> ans = {-1, -1};
+        long long val = x;
 
-        for(int i = 0; i < nums.size(); i++)
+        for(long long i = 0; i < 46341; i++)
         {
-            if(nums[i] == target)
-            {
-                // first occurence
-                if(ans[0] == -1) ans[0] = i;
+            if(i * i == val) return i;
 
-                // second occurence till the end
-                ans[1] = i;
-            }
-        }
-        return ans;
+            // as for example
+            // 5 lies between 2^2 and 3^2, the square root should be 2
+            if(val > i * i && val < (i+1) * (i+1)) return i;
+        } 
+        return 0;  
     }
 };
