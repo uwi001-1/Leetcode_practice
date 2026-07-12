@@ -29,47 +29,53 @@ Output: []
 ***************/
 
 
-// HASH TABLE
 class Solution {
 public:
-    vector<int> arrayRankTransform(vector<int>& arr) 
+    vector<int> numOfBurgers(int tomatoSlices, int cheeseSlices) 
     {
-        // in a temp array and sort it
-        vector<int> s = arr;
-        std::sort(s.begin(), s.end());   
+        vector<int> arr;
 
-        // The rank of each element is the number of unique elements smaller than it in the sorted array plus one.
+        // if both are zero
+        if(cheeseSlices == 0 && tomatoSlices == 0)
+        {
+            arr.push_back(0);
+            arr.push_back(0);
+
+            return arr;
+        }
+
+        // when cheeseSlices is greater than tomatoSlices
+        if(cheeseSlices >= tomatoSlices) return arr;
+
+        // when tomatoSlices is odd number
+        if(tomatoSlices % 2 == 1) return arr;
+
         
-        // create a hash table (dictionary)
-        // stores number -> rank
-        unordered_map<int, int> rankMap;
+        // check out other cases
 
-        int rank = 1;
+        // 4jumbo + 2small = tomatoslices
+        // jumbo + small = cheeseSlices
 
-        // loop through the sorted array
-        for(int i = 0; i < s.size(); i++)
+        int jumbo;
+        int small;
+
+        int result = (tomatoSlices - (2*cheeseSlices)) / 2;
+
+        if(result != (int)result) return arr;
+
+        else if(result < 0) return arr;
+        
+        else
         {
-            // not seen before
-            if(rankMap.find(s[i]) == rankMap.end()) // If this number is not already in the hash table, give it a new rank. 
-            {
-                rankMap[s[i]] = rank;
-                rank++;
-            }
-            // seen before ignore as the same rank
-
-            // 10 -> 1
-            // 20 -> 2
-
-            // It's stored like this 
-            // rankMap[40] = 4
+            jumbo = result;
+            small = cheeseSlices - jumbo;
         }
 
-        // loop through the original array
-        for(int j = 0; j < arr.size(); j++)
-        {
-            arr[j] = rankMap[arr[j]];
-        }
+        if(small < 0) return arr;
 
+        arr.push_back(jumbo);
+        arr.push_back(small);
+        
         return arr;
     }
 };
