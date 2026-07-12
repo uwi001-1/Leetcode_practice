@@ -74,7 +74,8 @@
 74. EASY -> 69. Sqrt(x)
 75. HARD -> 899. Orderly Queue
 76. EASY -> 1331. Rank Transform of an Array
-77. 
+77. ❤️ MEDIUM -> 
+78. 
 
 
 
