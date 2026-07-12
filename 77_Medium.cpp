@@ -1,31 +1,31 @@
 #include<iostream>
 using namespace std;
 
-// 1331. Rank Transform of an Array
+// 1276. Number of Burgers with No Waste of Ingredients
 
 /***************
-Given an array of integers arr, replace each element with its rank.
+Given two integers tomatoSlices and cheeseSlices. The ingredients of different burgers are as follows:
 
-The rank represents how large the element is. The rank has the following rules:
+Jumbo Burger: 4 tomato slices and 1 cheese slice.
+Small Burger: 2 Tomato slices and 1 cheese slice.
 
-Rank is an integer starting from 1.
-The larger the element, the larger the rank. If two elements are equal, their rank must be the same.
-Rank should be as small as possible.
- 
+Return [total_jumbo, total_small] so that the number of remaining tomatoSlices equal to 0 and the number of remaining cheeseSlices equal to 0. If it is not possible to make the remaining tomatoSlices and cheeseSlices equal to 0 return [].
 
 Example 1:
-Input: arr = [40,10,20,30]
-Output: [4,1,2,3]
-    Explanation: 40 is the largest element. 10 is the smallest. 20 is the second smallest. 30 is the third smallest.
+Input: tomatoSlices = 16, cheeseSlices = 7
+Output: [1,6]
+    Explantion: To make one jumbo burger and 6 small burgers we need 4*1 + 2*6 = 16 tomato and 1 + 6 = 7 cheese.
+    There will be no remaining ingredients.
 
 Example 2:
-Input: arr = [100,100,100]
-Output: [1,1,1]
-    Explanation: Same elements share the same rank.
+Input: tomatoSlices = 17, cheeseSlices = 4
+Output: []
+    Explantion: There will be no way to use all ingredients to make small and jumbo burgers.
 
 Example 3:
-Input: arr = [37,12,28,9,100,56,80,5,12]
-Output: [5,3,4,2,8,6,7,1,3]
+Input: tomatoSlices = 4, cheeseSlices = 17
+Output: []
+    Explantion: Making 1 jumbo burger there will be 16 cheese remaining and making 2 small burgers there will be 15 cheese remaining.
 ***************/
 
 
