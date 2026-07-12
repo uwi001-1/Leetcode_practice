@@ -29,35 +29,47 @@ Output: [5,3,4,2,8,6,7,1,3]
 ***************/
 
 
+// HASH TABLE
 class Solution {
 public:
-    string orderlyQueue(string s, int k) 
+    vector<int> arrayRankTransform(vector<int>& arr) 
     {
-        // you're allowed to pick one of the first k letters and move it to the end 
-        // if k == 1 --> answer = smallest rotation
-        // else if k >= 2 --> answer = sorted string  
+        // in a temp array and sort it
+        vector<int> s = arr;
+        std::sort(s.begin(), s.end());   
 
-        // When k ≥ 2, you can eventually rearrange the letters into any order you want
+        // The rank of each element is the number of unique elements smaller than it in the sorted array plus one.
+        
+        // create a hash table (dictionary)
+        // stores number -> rank
+        unordered_map<int, int> rankMap;
 
-        if(k == 1)
+        int rank = 1;
+
+        // loop through the sorted array
+        for(int i = 0; i < s.size(); i++)
         {
-            string ans = s;
-
-            for (int i = 1; i < s.size(); i++) 
+            // not seen before
+            if(rankMap.find(s[i]) == rankMap.end()) // If this number is not already in the hash table, give it a new rank. 
             {
-                // when i = 1 -> "cba"
-                // rotated = "ba" + "c"
-                string rotated = s.substr(i) + s.substr(0, i);
-
-                // ans = min("cba","bac") -> bac
-                ans = min(ans, rotated);
+                rankMap[s[i]] = rank;
+                rank++;
             }
+            // seen before ignore as the same rank
 
-            return ans;
+            // 10 -> 1
+            // 20 -> 2
+
+            // It's stored like this 
+            // rankMap[40] = 4
         }
 
-        // the ans is the sorted string
-        std::sort(s.begin(), s.end());
-        return s;
+        // loop through the original array
+        for(int j = 0; j < arr.size(); j++)
+        {
+            arr[j] = rankMap[arr[j]];
+        }
+
+        return arr;
     }
 };
