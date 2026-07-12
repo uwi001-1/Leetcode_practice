@@ -72,7 +72,7 @@
 72. MEDIUM -> 3751. Total Waviness of Numbers in Range I
 73. MEDIUM -> 34. Find First and Last Position of Element in Sorted Array
 74. EASY -> 69. Sqrt(x)
-75. HARD ->
+75. HARD -> 899. Orderly Queue
 76. 
 
 

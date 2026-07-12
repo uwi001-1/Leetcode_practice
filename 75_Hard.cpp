@@ -1,24 +1,26 @@
 #include<iostream>
 using namespace std;
 
-// 69. Sqrt(x)
+// 899. Orderly Queue
 
 /***************
-Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+You are given a string s and an integer k. You can choose one of the first k letters of s and append it at the end of the string.
 
-You must not use any built-in exponent function or operator.
+Return the lexicographically smallest string you could have after applying the mentioned step any number of moves.
 
-For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
- 
 Example 1:
-Input: x = 4
-Output: 2
-    Explanation: The square root of 4 is 2, so we return 2.
+Input: s = "cba", k = 1
+Output: "acb"
+    Explanation: 
+    In the first move, we move the 1st character 'c' to the end, obtaining the string "bac".
+    In the second move, we move the 1st character 'b' to the end, obtaining the final result "acb".
 
 Example 2:
-Input: x = 8
-Output: 2
-    Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+Input: s = "baaca", k = 3
+Output: "aaabc"
+    Explanation: 
+    In the first move, we move the 1st character 'b' to the end, obtaining the string "aacab".
+    In the second move, we move the 3rd character 'c' to the end, obtaining the final result "aaabc".
 ***************/
 
 
