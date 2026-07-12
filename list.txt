@@ -73,7 +73,8 @@
 73. MEDIUM -> 34. Find First and Last Position of Element in Sorted Array
 74. EASY -> 69. Sqrt(x)
 75. HARD -> 899. Orderly Queue
-76. 
+76. EASY ->
+77. 
 
 
 
@@ -104,3 +105,8 @@ for(int i = 0; i < queries.size(); i++)
     int r = queries[i][1];
     string sub = s.substr(l, r - l + 1);
 }
+
+Hash table 
+// stores number -> rank
+    unordered_map<int, int> rankMap;
+rankMap[40] = 4
