@@ -26,6 +26,7 @@ Started: March 2026
 - Dynamic Programming
 - Divide and Conquer
 - Segment Tree
+- Trie
 - Math
 - Hash Table
 - Greedy Algorithms
@@ -43,4 +44,5 @@ Started: March 2026
 - Sorting
 - Simulation
 - Two Pointers
+- Enumeration
 - Stacks & Queues

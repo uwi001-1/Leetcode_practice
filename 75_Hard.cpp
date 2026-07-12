@@ -26,18 +26,33 @@ Output: "aaabc"
 
 class Solution {
 public:
-    int mySqrt(int x) 
+    string orderlyQueue(string s, int k) 
     {
-        long long val = x;
+        // you're allowed to pick one of the first k letters and move it to the end 
+        // if k == 1 --> answer = smallest rotation
+        // else if k >= 2 --> answer = sorted string  
 
-        for(long long i = 0; i < 46341; i++)
+        // When k ≥ 2, you can eventually rearrange the letters into any order you want
+
+        if(k == 1)
         {
-            if(i * i == val) return i;
+            string ans = s;
 
-            // as for example
-            // 5 lies between 2^2 and 3^2, the square root should be 2
-            if(val > i * i && val < (i+1) * (i+1)) return i;
-        } 
-        return 0;  
+            for (int i = 1; i < s.size(); i++) 
+            {
+                // when i = 1 -> "cba"
+                // rotated = "ba" + "c"
+                string rotated = s.substr(i) + s.substr(0, i);
+
+                // ans = min("cba","bac") -> bac
+                ans = min(ans, rotated);
+            }
+
+            return ans;
+        }
+
+        // the ans is the sorted string
+        std::sort(s.begin(), s.end());
+        return s;
     }
 };
