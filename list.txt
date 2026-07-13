@@ -80,7 +80,6 @@
 80. 
 
 
-
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
 
 sorting method:     std::sort(m.begin(), m.end());

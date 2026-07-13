@@ -24,25 +24,46 @@ Output: [1,1,1,1]
 ***************/
 
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
-    vector<int> sequentialDigits(int low, int high) 
+    ListNode* removeNodes(ListNode* head) 
     {
-        // there are only about 45 numbers for 9-digit range
-        // all are substrings of "123456789"
-        string s = "123456789";
-
+        // push the values into an array
         vector<int> arr;
+        ListNode* curr = head;
 
-        for(int i = 2; i <= 9; i++)
+        while(curr != nullptr)
         {
-            for(int j = 0; i+j <= 9; j++)
+            arr.push_back(curr->val);
+            curr = curr->next;
+        }
+
+        int max = arr[arr.size()-1];
+        
+        // push the first one to the head as it will always be there
+        ListNode* pHead = new ListNode(max);
+
+        // now loop from behind to select the max values
+        for(int i = arr.size()-2; i >= 0; i--)
+        {
+            if(arr[i] >= max)
             {
-                int n = stoi(s.substr(j,i));
-                if(n >= low && n <= high) arr.push_back(n);
+                max = arr[i];
+                ListNode* pNew = new ListNode(max);
+                pNew->next = pHead;
+                pHead = pNew;
             }
         }
 
-        return arr;   
+        return pHead;
     }
 };
