@@ -76,7 +76,8 @@
 76. EASY -> 1331. Rank Transform of an Array
 77. ❤️ MEDIUM -> 1276. Number of Burgers with No Waste of Ingredients
 78. MEDIUM -> 1291. Sequential Digits
-79. 
+79. MEDIUM ->
+80. 
 
 
 
@@ -98,8 +99,6 @@ min:    min({b, a, l/2, o/2, n});
 
 pattern exists in word:     if(word.find(pattern) != string::npos)
 
-// Brute force checking --> check every possible combination of solution
-
 extract the substring:      s.substr(start, len);
 
 string to integer:      int n = stoi(s);
@@ -108,3 +107,5 @@ Hash table
 // stores number -> rank
     unordered_map<int, int> rankMap;
 rankMap[40] = 4
+
+// Brute force checking --> check every possible combination of solution
