@@ -20,51 +20,23 @@ Output: [1234,2345,3456,4567,5678,6789,12345]
 
 class Solution {
 public:
-    vector<int> numOfBurgers(int tomatoSlices, int cheeseSlices) 
+    vector<int> sequentialDigits(int low, int high) 
     {
+        // there are only about 45 numbers for 9-digit range
+        // all are substrings of "123456789"
+        string s = "123456789";
+
         vector<int> arr;
 
-        // if both are zero
-        if(cheeseSlices == 0 && tomatoSlices == 0)
+        for(int i = 2; i <= 9; i++)
         {
-            arr.push_back(0);
-            arr.push_back(0);
-
-            return arr;
+            for(int j = 0; i+j <= 9; j++)
+            {
+                int n = stoi(s.substr(j,i));
+                if(n >= low && n <= high) arr.push_back(n);
+            }
         }
 
-        // when cheeseSlices is greater than tomatoSlices
-        if(cheeseSlices >= tomatoSlices) return arr;
-
-        // when tomatoSlices is odd number
-        if(tomatoSlices % 2 == 1) return arr;
-
-        
-        // check out other cases
-
-        // 4jumbo + 2small = tomatoslices
-        // jumbo + small = cheeseSlices
-
-        int jumbo;
-        int small;
-
-        int result = (tomatoSlices - (2*cheeseSlices)) / 2;
-
-        if(result != (int)result) return arr;
-
-        else if(result < 0) return arr;
-        
-        else
-        {
-            jumbo = result;
-            small = cheeseSlices - jumbo;
-        }
-
-        if(small < 0) return arr;
-
-        arr.push_back(jumbo);
-        arr.push_back(small);
-        
-        return arr;
+        return arr;   
     }
 };
