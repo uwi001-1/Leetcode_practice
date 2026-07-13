@@ -75,7 +75,8 @@
 75. HARD -> 899. Orderly Queue
 76. EASY -> 1331. Rank Transform of an Array
 77. ❤️ MEDIUM -> 1276. Number of Burgers with No Waste of Ingredients
-78. 
+78. MEDIUM ->
+79. 
 
 
 
