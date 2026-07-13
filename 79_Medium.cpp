@@ -1,20 +1,26 @@
 #include<iostream>
 using namespace std;
 
-// 1291. Sequential Digits
+// 2487. Remove Nodes From Linked List
 
 /***************
-An integer has sequential digits if and only if each digit in the number is one more than the previous digit.
+You are given the head of a linked list.
+Remove every node which has a node with a greater value anywhere to the right side of it.
 
-Return a sorted list of all the integers in the range [low, high] inclusive that have sequential digits.
+Return the head of the modified linked list.
 
 Example 1:
-Input: low = 100, high = 300
-Output: [123,234]
+Input: head = [5,2,13,3,8]
+Output: [13,8]
+    Explanation: The nodes that should be removed are 5, 2 and 3.
+    - Node 13 is to the right of node 5.
+    - Node 13 is to the right of node 2.
+    - Node 8 is to the right of node 3.
 
 Example 2:
-Input: low = 1000, high = 13000
-Output: [1234,2345,3456,4567,5678,6789,12345]
+Input: head = [1,1,1,1]
+Output: [1,1,1,1]
+    Explanation: Every node has value 1, so no nodes are removed.
 ***************/
 
 
