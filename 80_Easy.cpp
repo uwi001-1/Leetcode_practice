@@ -1,26 +1,19 @@
 #include<iostream>
 using namespace std;
 
-// 2487. Remove Nodes From Linked List
+// 349. Intersection of Two Arrays
 
 /***************
-You are given the head of a linked list.
-Remove every node which has a node with a greater value anywhere to the right side of it.
-
-Return the head of the modified linked list.
+Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
 
 Example 1:
-Input: head = [5,2,13,3,8]
-Output: [13,8]
-    Explanation: The nodes that should be removed are 5, 2 and 3.
-    - Node 13 is to the right of node 5.
-    - Node 13 is to the right of node 2.
-    - Node 8 is to the right of node 3.
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
 
 Example 2:
-Input: head = [1,1,1,1]
-Output: [1,1,1,1]
-    Explanation: Every node has value 1, so no nodes are removed.
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [9,4]
+    Explanation: [4,9] is also accepted.
 ***************/
 
 

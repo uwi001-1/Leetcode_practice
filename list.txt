@@ -77,7 +77,7 @@
 77. ❤️ MEDIUM -> 1276. Number of Burgers with No Waste of Ingredients
 78. MEDIUM -> 1291. Sequential Digits
 79. MEDIUM -> 2487. Remove Nodes From Linked List
-80. EASY -> 
+80. EASY -> 349. Intersection of Two Arrays
 81. 
 
 
