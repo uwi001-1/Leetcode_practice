@@ -17,46 +17,36 @@ Output: [9,4]
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution {
 public:
-    ListNode* removeNodes(ListNode* head) 
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) 
     {
-        // push the values into an array
-        vector<int> arr;
-        ListNode* curr = head;
+        vector<int> arr; 
 
-        while(curr != nullptr)
+        // let's sort both the array first
+        std::sort(nums1.begin(), nums1.end());
+        std::sort(nums2.begin(), nums2.end()); 
+
+        for(int i = 0; i < nums1.size(); i++)
         {
-            arr.push_back(curr->val);
-            curr = curr->next;
-        }
-
-        int max = arr[arr.size()-1];
-        
-        // push the first one to the head as it will always be there
-        ListNode* pHead = new ListNode(max);
-
-        // now loop from behind to select the max values
-        for(int i = arr.size()-2; i >= 0; i--)
-        {
-            if(arr[i] >= max)
+            if(i > 0)
             {
-                max = arr[i];
-                ListNode* pNew = new ListNode(max);
-                pNew->next = pHead;
-                pHead = pNew;
+                if(nums1[i] == nums1[i-1]) continue;
             }
-        }
 
-        return pHead;
+            for(int j = 0; j < nums2.size(); j++)
+            {
+                if(j > 0)
+                {
+                    if(nums2[j] == nums2[j-1]) continue;
+                }
+                
+                if(nums1[i] == nums2[j]) arr.push_back(nums1[i]);
+
+                if(nums1[i] > nums2[j]) continue;
+            }
+        } 
+
+        return arr;  
     }
 };
