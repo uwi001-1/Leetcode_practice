@@ -1,19 +1,30 @@
 #include<iostream>
 using namespace std;
 
-// 349. Intersection of Two Arrays
+// 3658. GCD of Odd and Even Sums
 
 /***************
-Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+You are given an integer n. Your task is to compute the GCD (greatest common divisor) of two values:
+sumOdd: the sum of the smallest n positive odd numbers.
+sumEven: the sum of the smallest n positive even numbers.
+
+Return the GCD of sumOdd and sumEven.
 
 Example 1:
-Input: nums1 = [1,2,2,1], nums2 = [2,2]
-Output: [2]
+Input: n = 4
+Output: 4
+    Explanation:
+Sum of the first 4 odd numbers sumOdd = 1 + 3 + 5 + 7 = 16
+Sum of the first 4 even numbers sumEven = 2 + 4 + 6 + 8 = 20
+Hence, GCD(sumOdd, sumEven) = GCD(16, 20) = 4.
 
 Example 2:
-Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
-Output: [9,4]
-    Explanation: [4,9] is also accepted.
+Input: n = 5
+Output: 5
+    Explanation:
+Sum of the first 5 odd numbers sumOdd = 1 + 3 + 5 + 7 + 9 = 25
+Sum of the first 5 even numbers sumEven = 2 + 4 + 6 + 8 + 10 = 30
+Hence, GCD(sumOdd, sumEven) = GCD(25, 30) = 5.
 ***************/
 
 
