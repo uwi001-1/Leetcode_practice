@@ -28,37 +28,28 @@ Hence, GCD(sumOdd, sumEven) = GCD(25, 30) = 5.
 ***************/
 
 
-// Linear Search 
 class Solution {
 public:
-    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) 
+    int gcdOfOddEvenSums(int n) 
     {
-        vector<int> arr; 
-
-        // let's sort both the array first
-        std::sort(nums1.begin(), nums1.end());
-        std::sort(nums2.begin(), nums2.end()); 
-
-        for(int i = 0; i < nums1.size(); i++)
-        {
-            if(i > 0)
-            {
-                if(nums1[i] == nums1[i-1]) continue;
-            }
-
-            for(int j = 0; j < nums2.size(); j++)
-            {
-                if(j > 0)
-                {
-                    if(nums2[j] == nums2[j-1]) continue;
-                }
-                
-                if(nums1[i] == nums2[j]) arr.push_back(nums1[i]);
-
-                if(nums1[i] > nums2[j]) continue;
-            }
-        } 
-
-        return arr;  
+        // as the calc is same as the num
+        return n;
     }
 };
+
+/********************* 
+#include<numeric> 
+
+class Solution {
+public:
+    int gcdOfOddEvenSums(int n) 
+    {
+        int odd = n*n;
+        int even = n*(n+1);  
+
+        int result = std::gcd(odd, even);
+
+        return result;
+    }
+};
+*********************/
