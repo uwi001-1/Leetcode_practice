@@ -80,7 +80,8 @@
 80. EASY -> 349. Intersection of Two Arrays
 81. EASY -> 3658. GCD of Odd and Even Sums
 82. MEDIUM -> 3867. Sum of GCD of Formed Pairs
-83. 
+83. EASY ->
+84. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
