@@ -15,10 +15,10 @@ Started: March 2026
 
 | Difficulty | Solved |
 |------------|---------|
-| Easy       | 41 |
+| Easy       | 42 |
 | Medium     | 38 |
 | Hard       | 3 |
-| Total      | 82 |
+| Total      | 83 |
 
 
 ## Topics Covered
