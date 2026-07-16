@@ -79,7 +79,8 @@
 79. MEDIUM -> 2487. Remove Nodes From Linked List
 80. EASY -> 349. Intersection of Two Arrays
 81. EASY -> 3658. GCD of Odd and Even Sums
-82. 
+82. MEDIUM ->
+83. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
@@ -103,6 +104,8 @@ pattern exists in word:     if(word.find(pattern) != string::npos)
 extract the substring:      s.substr(start, len);
 
 string to integer:      int n = stoi(s);
+
+gcd of two numbers      std::gcd(num1, num2)
 
 Hash table 
 // stores number -> rank
