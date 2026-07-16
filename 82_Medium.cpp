@@ -1,30 +1,52 @@
 #include<iostream>
 using namespace std;
 
-// 3658. GCD of Odd and Even Sums
+// 3867. Sum of GCD of Formed Pairs
 
 /***************
-You are given an integer n. Your task is to compute the GCD (greatest common divisor) of two values:
-sumOdd: the sum of the smallest n positive odd numbers.
-sumEven: the sum of the smallest n positive even numbers.
+You are given an integer array nums of length n.
 
-Return the GCD of sumOdd and sumEven.
+Construct an array prefixGcd where for each index i:
+    Let mxi = max(nums[0], nums[1], ..., nums[i]).
+    prefixGcd[i] = gcd(nums[i], mxi).
+
+After constructing prefixGcd:
+    Sort prefixGcd in non-decreasing order.
+    Form pairs by taking the smallest unpaired element and the largest unpaired element.
+    Repeat this process until no more pairs can be formed.
+    For each formed pair, compute the gcd of the two elements.
+    If n is odd, the middle element in the prefixGcd array remains unpaired and should be ignored.
+Return an integer denoting the sum of the GCD values of all formed pairs.
+
+The term gcd(a, b) denotes the greatest common divisor of a and b.
+ 
 
 Example 1:
-Input: n = 4
-Output: 4
+Input: nums = [2,6,4]
+Output: 2
     Explanation:
-Sum of the first 4 odd numbers sumOdd = 1 + 3 + 5 + 7 = 16
-Sum of the first 4 even numbers sumEven = 2 + 4 + 6 + 8 = 20
-Hence, GCD(sumOdd, sumEven) = GCD(16, 20) = 4.
+Construct prefixGcd:
+i	nums[i]	mxi	prefixGcd[i]
+0	2	2	2
+1	6	6	6
+2	4	6	2
+
+prefixGcd = [2, 6, 2]. After sorting, it forms [2, 2, 6].
+Pair the smallest and largest elements: gcd(2, 6) = 2. The remaining middle element 2 is ignored. Thus, the sum is 2.
 
 Example 2:
-Input: n = 5
+Input: nums = [3,6,2,8]
 Output: 5
     Explanation:
-Sum of the first 5 odd numbers sumOdd = 1 + 3 + 5 + 7 + 9 = 25
-Sum of the first 5 even numbers sumEven = 2 + 4 + 6 + 8 + 10 = 30
-Hence, GCD(sumOdd, sumEven) = GCD(25, 30) = 5.
+Construct prefixGcd:
+i	nums[i]	mxi	prefixGcd[i]
+0	3	3	3
+1	6	6	6
+2	2	6	2
+3	8	8	8
+
+prefixGcd = [3, 6, 2, 8]. After sorting, it forms [2, 3, 6, 8].
+Form pairs: gcd(2, 8) = 2 and gcd(3, 6) = 3. Thus, the sum is 2 + 3 = 5.
 ***************/
 
 
