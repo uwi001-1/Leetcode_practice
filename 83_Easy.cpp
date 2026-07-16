@@ -30,48 +30,32 @@ Output: false
 
 class Solution {
 public:
-    int gcd(int a, int b)
-    {
-        while(b) { a %= b; swap(a,b); }
-        return a;
-    }    
+    bool isHappy(int n) {
+        bool happy = false;
+        int count = 0;
+        
+        if(n == 1) return true;
 
-    long long gcdSum(vector<int>& nums) 
-    {
-        long long max = 0;
-        vector<int> prefixGcd;
-
-        for(int i =0; i < nums.size(); i++)
+        while(happy == false && count < 50)
         {
-            // change the max value to the new value if it's higher
-            if(max <= nums[i]) max = nums[i];
+            int sum = 0;
 
-            prefixGcd.push_back(gcd(nums[i], max));
-        } 
-        // now we are done with the prefixGcd array
+            while(n > 0)
+            {
+                // one of the digit
+                int last = n % 10;
+                
+                sum = sum + (last * last);
 
-        // next we sort the array
-        std::sort(prefixGcd.begin(), prefixGcd.end());
+                // reduce the number
+                n = n / 10;
+            }
 
-        int front = 0;
-        int back = prefixGcd.size() -1;
+            if(sum == 1) happy = true;
 
-        long long sum = 0;
-
-        while(true)
-        {
-            // avoid unpaired            
-            if(front == back || front > back) break;
-
-            // sum the gcd of the pairs 
-            sum += gcd(prefixGcd[front], prefixGcd[back]);
-
-            front++;
-            back--;
+            count += 1;
+            n = sum;
         }
-
-        // return the sum of the gcd pairs of the prefixGcd array
-        return sum;
+        return happy;
     }
 };
-
