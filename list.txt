@@ -81,7 +81,8 @@
 81. EASY -> 3658. GCD of Odd and Even Sums
 82. MEDIUM -> 3867. Sum of GCD of Formed Pairs
 83. EASY -> 202. Happy Number
-84. 
+84. EASY -> 
+85. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);

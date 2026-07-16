@@ -27,6 +27,7 @@ Started: March 2026
 - Divide and Conquer
 - Segment Tree
 - Trie
+- Monotonic Stack
 - Math
 - Hash Table
 - Greedy Algorithms
@@ -46,3 +47,4 @@ Started: March 2026
 - Two Pointers
 - Enumeration
 - Stacks & Queues
+- Number Theory
