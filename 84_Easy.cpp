@@ -22,32 +22,23 @@ Output: 0
 
 class Solution {
 public:
-    bool isHappy(int n) {
-        bool happy = false;
-        int count = 0;
-        
-        if(n == 1) return true;
+    int addDigits(int num) 
+    {
+        // if one digit then return it
+        if(num < 10) return num;
 
-        while(happy == false && count < 50)
+        while(num >= 10)
         {
             int sum = 0;
 
-            while(n > 0)
+            while(num > 0)
             {
-                // one of the digit
-                int last = n % 10;
-                
-                sum = sum + (last * last);
-
-                // reduce the number
-                n = n / 10;
+                int last = num % 10;
+                sum += last;
+                num = num / 10;
             }
-
-            if(sum == 1) happy = true;
-
-            count += 1;
-            n = sum;
+            num = sum;
         }
-        return happy;
+        return num;
     }
 };
