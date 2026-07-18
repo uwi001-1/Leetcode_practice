@@ -36,23 +36,13 @@ The greatest common divisor of 3 and 3 is 3.
 
 class Solution {
 public:
-    int addDigits(int num) 
+    int findGCD(vector<int>& nums) 
     {
-        // if one digit then return it
-        if(num < 10) return num;
+        // first sort the array
+        std::sort(nums.begin(), nums.end());  
 
-        while(num >= 10)
-        {
-            int sum = 0;
+        // int Gcd = std::gcd(nums[0], nums[nums.size()-1]);
 
-            while(num > 0)
-            {
-                int last = num % 10;
-                sum += last;
-                num = num / 10;
-            }
-            num = sum;
-        }
-        return num;
+        // return Gcd;
     }
 };
