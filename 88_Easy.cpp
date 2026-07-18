@@ -23,16 +23,19 @@ Output: 2
 
 class Solution {
 public:
-    char nextGreatestLetter(vector<char>& letters, char target) 
+    int countElements(vector<int>& nums) 
     {
-        // if not found return letters[0];
-        char ifNth = letters[0];
- 
-        for(int i = 0; i < letters.size(); i++)
-        {
-            if(letters[i] > target) return letters[i];
-        }
+        std::sort(nums.begin(),nums.end());
+        
+        int count = 0;
 
-        return ifNth;
+        for(int i = 1; i < nums.size() - 1; i++)
+        {
+            if(nums[i] != nums[0] && nums[i] != nums[nums.size()-1])
+            {
+                count += 1;
+            }
+        }
+        return count;  
     }
 };
