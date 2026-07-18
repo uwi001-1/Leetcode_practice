@@ -1,26 +1,23 @@
 #include<iostream>
 using namespace std;
 
-// 2487. Remove Nodes From Linked List
+// 1669. Merge In Between Linked Lists
 
 /***************
-You are given the head of a linked list.
-Remove every node which has a node with a greater value anywhere to the right side of it.
+You are given two linked lists: list1 and list2 of sizes n and m respectively.
 
-Return the head of the modified linked list.
+Remove list1's nodes from the ath node to the bth node, and put list2 in their place.
 
-Example 1:
-Input: head = [5,2,13,3,8]
-Output: [13,8]
-    Explanation: The nodes that should be removed are 5, 2 and 3.
-    - Node 13 is to the right of node 5.
-    - Node 13 is to the right of node 2.
-    - Node 8 is to the right of node 3.
+Build the result list and return its head.
+
+Example 1:  
+Input: list1 = [10,1,13,6,9,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
+Output: [10,1,13,1000000,1000001,1000002,5]
+    Explanation: We remove the nodes 3 and 4 and put the entire list2 in their place.
 
 Example 2:
-Input: head = [1,1,1,1]
-Output: [1,1,1,1]
-    Explanation: Every node has value 1, so no nodes are removed.
+Input: list1 = [0,1,2,3,4,5,6], a = 2, b = 5, list2 = [1000000,1000001,1000002,1000003,1000004]
+Output: [0,1,1000000,1000001,1000002,1000003,1000004,6]
 ***************/
 
 
