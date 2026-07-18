@@ -32,35 +32,47 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* removeNodes(ListNode* head) 
+    ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) 
     {
-        // push the values into an array
-        vector<int> arr;
-        ListNode* curr = head;
+        // let's first find x = a-1 and y = b+1
+        int index = -1;
 
-        while(curr != nullptr)
+        ListNode* curr1 = list1;
+        ListNode* x = list1;
+        ListNode* y = list1;
+
+        while(curr1 != nullptr)
         {
-            arr.push_back(curr->val);
-            curr = curr->next;
+            index++;
+
+            if(index == a-1) x = curr1;
+            if(index == b+1) y = curr1;
+
+            // to loop through the list1
+            curr1 = curr1->next;
+
+            // if both x and y has been assigned, break the loop of list1
+            if(x != list1 && y != list1) break;
         }
+        // if b is the last element and y had not been assigned
+        if(y == list1) y = nullptr;
 
-        int max = arr[arr.size()-1];
-        
-        // push the first one to the head as it will always be there
-        ListNode* pHead = new ListNode(max);
+        // now connect x and list2
+        x->next = list2;
 
-        // now loop from behind to select the max values
-        for(int i = arr.size()-2; i >= 0; i--)
+        // no need to connect list1 and list2 at the end
+        if(y == nullptr) return list1;
+
+        // loop list2 to now connect with list1 
+        // reach the end of list2
+        ListNode* curr2 = list2;
+        while(curr2->next != nullptr)
         {
-            if(arr[i] >= max)
-            {
-                max = arr[i];
-                ListNode* pNew = new ListNode(max);
-                pNew->next = pHead;
-                pHead = pNew;
-            }
+            curr2 = curr2->next;
         }
+        curr2->next = y;
 
-        return pHead;
+        // every changes has been made to list1 so return it
+        return list1;
     }
 };
