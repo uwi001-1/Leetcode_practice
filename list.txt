@@ -82,7 +82,7 @@
 82. MEDIUM -> 3867. Sum of GCD of Formed Pairs
 83. EASY -> 202. Happy Number
 84. EASY -> 258. Add Digits
-85. HARD -> 
+85. HARD -> 3312. Sorted GCD Pair Queries
 86. 
 
 
