@@ -1,36 +1,29 @@
 #include<iostream>
 using namespace std;
 
-// 1979. Find Greatest Common Divisor of Array
+// 744. Find Smallest Letter Greater Than Target
 
 /***************
-Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
+You are given an array of characters letters that is sorted in non-decreasing order, and a character target. 
+There are at least two different characters in letters.
 
-The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+Return the smallest character in letters that is lexicographically greater than target.
+ If such a character does not exist, return the first character in letters.
 
 Example 1:
-Input: nums = [2,5,6,9,10]
-Output: 2
-Explanation:
-The smallest number in nums is 2.
-The largest number in nums is 10.
-The greatest common divisor of 2 and 10 is 2.
+Input: letters = ["c","f","j"], target = "a"
+Output: "c"
+    Explanation: The smallest character that is lexicographically greater than 'a' in letters is 'c'.
 
 Example 2:
-Input: nums = [7,5,6,8,3]
-Output: 1
-Explanation:
-The smallest number in nums is 3.
-The largest number in nums is 8.
-The greatest common divisor of 3 and 8 is 1.
+Input: letters = ["c","f","j"], target = "c"
+Output: "f"
+    Explanation: The smallest character that is lexicographically greater than 'c' in letters is 'f'.
 
 Example 3:
-Input: nums = [3,3]
-Output: 3
-Explanation:
-The smallest number in nums is 3.
-The largest number in nums is 3.
-The greatest common divisor of 3 and 3 is 3.
+Input: letters = ["x","x","y","y"], target = "z"
+Output: "x"
+    Explanation: There are no characters in letters that is lexicographically greater than 'z' so we return letters[0].
 ***************/
 
 
