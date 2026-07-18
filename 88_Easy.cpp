@@ -1,29 +1,23 @@
 #include<iostream>
 using namespace std;
 
-// 744. Find Smallest Letter Greater Than Target
+// 2148. Count Elements With Strictly Smaller and Greater Elements 
 
 /***************
-You are given an array of characters letters that is sorted in non-decreasing order, and a character target. 
-There are at least two different characters in letters.
-
-Return the smallest character in letters that is lexicographically greater than target.
- If such a character does not exist, return the first character in letters.
+Given an integer array nums, return the number of elements that have both a strictly smaller and a strictly greater element appear in nums.
 
 Example 1:
-Input: letters = ["c","f","j"], target = "a"
-Output: "c"
-    Explanation: The smallest character that is lexicographically greater than 'a' in letters is 'c'.
+Input: nums = [11,7,2,15]
+Output: 2
+    Explanation: The element 7 has the element 2 strictly smaller than it and the element 11 strictly greater than it.
+    Element 11 has element 7 strictly smaller than it and element 15 strictly greater than it.
+    In total there are 2 elements having both a strictly smaller and a strictly greater element appear in nums.
 
 Example 2:
-Input: letters = ["c","f","j"], target = "c"
-Output: "f"
-    Explanation: The smallest character that is lexicographically greater than 'c' in letters is 'f'.
-
-Example 3:
-Input: letters = ["x","x","y","y"], target = "z"
-Output: "x"
-    Explanation: There are no characters in letters that is lexicographically greater than 'z' so we return letters[0].
+Input: nums = [-3,3,3,90]
+Output: 2
+    Explanation: The element 3 has the element -3 strictly smaller than it and the element 90 strictly greater than it.
+    Since there are two elements with the value 3, in total there are 2 elements having both a strictly smaller and a strictly greater element appear in nums.
 ***************/
 
 
