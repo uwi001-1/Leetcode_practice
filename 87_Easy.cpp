@@ -29,13 +29,16 @@ Output: "x"
 
 class Solution {
 public:
-    int findGCD(vector<int>& nums) 
+    char nextGreatestLetter(vector<char>& letters, char target) 
     {
-        // first sort the array
-        std::sort(nums.begin(), nums.end());  
+        // if not found return letters[0];
+        char ifNth = letters[0];
+ 
+        for(int i = 0; i < letters.size(); i++)
+        {
+            if(letters[i] > target) return letters[i];
+        }
 
-        // int Gcd = std::gcd(nums[0], nums[nums.size()-1]);
-
-        // return Gcd;
+        return ifNth;
     }
 };
