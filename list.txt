@@ -83,7 +83,7 @@
 83. EASY -> 202. Happy Number
 84. EASY -> 258. Add Digits
 85. HARD -> 3312. Sorted GCD Pair Queries
-86. EASY ->
+86. EASY -> 1979. Find Greatest Common Divisor of Array
 87. 
 
 
