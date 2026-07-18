@@ -82,7 +82,8 @@
 82. MEDIUM -> 3867. Sum of GCD of Formed Pairs
 83. EASY -> 202. Happy Number
 84. EASY -> 258. Add Digits
-85. 
+85. HARD -> 
+86. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
@@ -107,7 +108,7 @@ extract the substring:      s.substr(start, len);
 
 string to integer:      int n = stoi(s);
 
-gcd of two numbers      std::gcd(num1, num2)
+gcd of two numbers      std::gcd(num1, num2);
 
 Hash table 
 // stores number -> rank
