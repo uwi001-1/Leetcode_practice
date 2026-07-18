@@ -85,7 +85,8 @@
 85. HARD -> 3312. Sorted GCD Pair Queries
 86. EASY -> 1979. Find Greatest Common Divisor of Array
 87. EASY -> 744. Find Smallest Letter Greater Than Target
-88. 
+88. EASY ->
+89. 
 
 
 
