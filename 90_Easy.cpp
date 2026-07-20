@@ -1,23 +1,28 @@
 #include<iostream>
 using namespace std;
 
-// 1669. Merge In Between Linked Lists
+// 1260. Shift 2D Grid
 
 /***************
-You are given two linked lists: list1 and list2 of sizes n and m respectively.
+Given a 2D grid of size m x n and an integer k. You need to shift the grid k times.
 
-Remove list1's nodes from the ath node to the bth node, and put list2 in their place.
+In one shift operation:
+    Element at grid[i][j] moves to grid[i][j + 1].
+    Element at grid[i][n - 1] moves to grid[i + 1][0].
+    Element at grid[m - 1][n - 1] moves to grid[0][0].
+    Return the 2D grid after applying shift operation k times.
 
-Build the result list and return its head.
-
-Example 1:  
-Input: list1 = [10,1,13,6,9,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
-Output: [10,1,13,1000000,1000001,1000002,5]
-    Explanation: We remove the nodes 3 and 4 and put the entire list2 in their place.
+Example 1:
+Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
+Output: [[9,1,2],[3,4,5],[6,7,8]]
 
 Example 2:
-Input: list1 = [0,1,2,3,4,5,6], a = 2, b = 5, list2 = [1000000,1000001,1000002,1000003,1000004]
-Output: [0,1,1000000,1000001,1000002,1000003,1000004,6]
+Input: grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
+Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
+
+Example 3:
+Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 9
+Output: [[1,2,3],[4,5,6],[7,8,9]]
 ***************/
 
 
