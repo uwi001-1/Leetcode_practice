@@ -26,58 +26,49 @@ Output: [[1,2,3],[4,5,6],[7,8,9]]
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution {
 public:
-    ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) 
+    vector<vector<int>> shiftGrid(vector<vector<int>>& grid, int k) 
     {
-        // let's first find x = a-1 and y = b+1
-        int index = -1;
-
-        ListNode* curr1 = list1;
-        ListNode* x = list1;
-        ListNode* y = list1;
-
-        while(curr1 != nullptr)
+        // covert the 2D into 1D
+        vector<int> arr; 
+        for(int i = 0; i < grid.size(); i++)
         {
-            index++;
-
-            if(index == a-1) x = curr1;
-            if(index == b+1) y = curr1;
-
-            // to loop through the list1
-            curr1 = curr1->next;
-
-            // if both x and y has been assigned, break the loop of list1
-            if(x != list1 && y != list1) break;
+            for(int j = 0; j < grid[i].size(); j++)
+            {
+                arr.push_back(grid[i][j]);
+            }
         }
-        // if b is the last element and y had not been assigned
-        if(y == list1) y = nullptr;
 
-        // now connect x and list2
-        x->next = list2;
+        // handle k
+        k = k % arr.size();
 
-        // no need to connect list1 and list2 at the end
-        if(y == nullptr) return list1;
+        // base case where k == 0, then we don't need to anything
+        if(k == 0) return grid;
 
-        // loop list2 to now connect with list1 
-        // reach the end of list2
-        ListNode* curr2 = list2;
-        while(curr2->next != nullptr)
+        // now push into another 1D aray, after moving it based on k
+        vector<int> flat;
+        for(int m = arr.size() - k; m < arr.size(); m++)
         {
-            curr2 = curr2->next;
+            flat.push_back(arr[m]);
         }
-        curr2->next = y;
+        // now push the rest of the array
+        for(int n = 0; n < arr.size() - k; n++)
+        {
+            flat.push_back(arr[n]);
+        }
 
-        // every changes has been made to list1 so return it
-        return list1;
+        // convert 1D array to 2D array
+        int idx = 0;
+        for(int i = 0; i < grid.size(); i++)
+        {
+            for(int j = 0; j < grid[i].size(); j++)
+            {
+                grid[i][j] = flat[idx];
+                idx++;
+            }
+        }
+
+        return grid;
     }
 };
