@@ -24,47 +24,18 @@ Output: 1
 
 class Solution {
 public:
-    vector<vector<int>> shiftGrid(vector<vector<int>>& grid, int k) 
+    int singleNumber(vector<int>& nums) 
     {
-        // covert the 2D into 1D
-        vector<int> arr; 
-        for(int i = 0; i < grid.size(); i++)
+        if(nums.size() == 1) return nums[0];
+
+        std::sort(nums.begin(), nums.end());
+
+        for(int i = 0; i < nums.size(); i = i + 2)
         {
-            for(int j = 0; j < grid[i].size(); j++)
-            {
-                arr.push_back(grid[i][j]);
-            }
+            if(nums[i] == nums[i+1]) continue;
+            else return nums[i];
         }
 
-        // handle k
-        k = k % arr.size();
-
-        // base case where k == 0, then we don't need to anything
-        if(k == 0) return grid;
-
-        // now push into another 1D aray, after moving it based on k
-        vector<int> flat;
-        for(int m = arr.size() - k; m < arr.size(); m++)
-        {
-            flat.push_back(arr[m]);
-        }
-        // now push the rest of the array
-        for(int n = 0; n < arr.size() - k; n++)
-        {
-            flat.push_back(arr[n]);
-        }
-
-        // convert 1D array to 2D array
-        int idx = 0;
-        for(int i = 0; i < grid.size(); i++)
-        {
-            for(int j = 0; j < grid[i].size(); j++)
-            {
-                grid[i][j] = flat[idx];
-                idx++;
-            }
-        }
-
-        return grid;
+        return 0;  
     }
 };
