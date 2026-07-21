@@ -1,28 +1,24 @@
 #include<iostream>
 using namespace std;
 
-// 1260. Shift 2D Grid
+// 136. Single Number
 
 /***************
-Given a 2D grid of size m x n and an integer k. You need to shift the grid k times.
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 
-In one shift operation:
-    Element at grid[i][j] moves to grid[i][j + 1].
-    Element at grid[i][n - 1] moves to grid[i + 1][0].
-    Element at grid[m - 1][n - 1] moves to grid[0][0].
-    Return the 2D grid after applying shift operation k times.
+You must implement a solution with a linear runtime complexity and use only constant extra space.
 
 Example 1:
-Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
-Output: [[9,1,2],[3,4,5],[6,7,8]]
+Input: nums = [2,2,1]
+Output: 1
 
 Example 2:
-Input: grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
-Output: [[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
+Input: nums = [4,1,2,1,2]
+Output: 4
 
 Example 3:
-Input: grid = [[1,2,3],[4,5,6],[7,8,9]], k = 9
-Output: [[1,2,3],[4,5,6],[7,8,9]]
+Input: nums = [1]
+Output: 1
 ***************/
 
 
