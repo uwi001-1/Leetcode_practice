@@ -37,18 +37,41 @@ Output: [-6,2,4]
 
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) 
+    vector<int> asteroidCollision(vector<int>& asteroids) 
     {
-        if(nums.size() == 1) return nums[0];
+        stack<int> st;
 
-        std::sort(nums.begin(), nums.end());
-
-        for(int i = 0; i < nums.size(); i = i + 2)
+        for(int asteroid : asteroids)
         {
-            if(nums[i] == nums[i+1]) continue;
-            else return nums[i];
-        }
+            bool alive = true;
 
-        return 0;  
+            while(alive && !st.empty() && asteroid < 0 && st.top() > 0)
+            {
+                // collision happening!
+                if(st.top() < -asteroid)       // top explodes
+                {
+                    st.pop();
+                }
+                else if(st.top() == -asteroid) // both explode
+                {
+                    st.pop();
+                    alive = false;
+                }
+                else                           // current explodes
+                {
+                    alive = false;
+                }
+            }
+
+            if(alive) st.push(asteroid);
+        }
+        vector<int> result;
+        while(!st.empty())
+        {
+            result.push_back(st.top());
+            st.pop();
+        }
+        std::reverse(result.begin(), result.end());
+        return result;
     }
 };
