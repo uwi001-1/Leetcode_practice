@@ -22,16 +22,40 @@ Output: [0,1,2]
 
 class Solution {
 public:
-    int countPairs(vector<int>& nums, int target) 
+    void sortColors(vector<int>& nums) 
     {
-        int count = 0;
-        for(int i = 0; i < nums.size()-1; i++)
+        // Could easily do this too
+        // std::sort(nums.begin(), nums.end()); 
+
+        int count0 = 0;
+        int count1 = 0;
+        int count2 = 0;
+
+        for(int i = 0; i < nums.size(); i++)
         {
-            for(int j = i+1; j < nums.size(); j++)
-            {
-                if((nums[i] + nums[j]) < target) count++;
-            }
+            if(nums[i] == 0) count0++;
+            if(nums[i] == 1) count1++;
+            if(nums[i] == 2) count2++;
         }
-        return count;    
+
+        vector<int> arr;
+        
+        while(count0 > 0) 
+        {
+            arr.push_back(0);
+            count0--;
+        }
+        while(count1 > 0)
+        {
+            arr.push_back(1);
+            count1--;
+        }
+        while(count2 > 0)
+        {
+            arr.push_back(2);
+            count2--;
+        }
+
+        nums = arr; 
     }
 };
