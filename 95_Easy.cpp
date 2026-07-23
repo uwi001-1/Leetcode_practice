@@ -33,40 +33,33 @@ The smallest integer is 1 and the largest is 5, so the full range should be [1,2
 
 class Solution {
 public:
-    void sortColors(vector<int>& nums) 
+    vector<int> findMissingElements(vector<int>& nums) 
     {
-        // Could easily do this too
-        // std::sort(nums.begin(), nums.end()); 
+        // first sort it
+        std::sort(nums.begin(), nums.end());
 
-        int count0 = 0;
-        int count1 = 0;
-        int count2 = 0;
+        // let's check if all are there
+        if(nums.size() == (nums[nums.size()-1] - nums[0]) + 1) return {};
 
-        for(int i = 0; i < nums.size(); i++)
-        {
-            if(nums[i] == 0) count0++;
-            if(nums[i] == 1) count1++;
-            if(nums[i] == 2) count2++;
-        }
-
+        // insert the missing in this array
         vector<int> arr;
-        
-        while(count0 > 0) 
-        {
-            arr.push_back(0);
-            count0--;
-        }
-        while(count1 > 0)
-        {
-            arr.push_back(1);
-            count1--;
-        }
-        while(count2 > 0)
-        {
-            arr.push_back(2);
-            count2--;
-        }
 
-        nums = arr; 
+        for(int i = nums[0]; i < nums[nums.size()-1]; i++)
+        {
+            bool found = false;
+
+            for(int j = 0; j < nums.size()-1; j++)
+            {
+                if(i == nums[j])
+                {
+                    found = true;
+                    break;
+                }
+            }
+            
+            if(!found) arr.push_back(i);
+        }
+        
+        return arr;
     }
 };
