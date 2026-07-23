@@ -1,12 +1,22 @@
 #include<iostream>
 using namespace std;
 
-// 2824. Count Pairs Whose Sum is Less than Target
+// 75. Sort Colors
 
 /***************
-Given a 0-indexed integer array nums of length n and an integer target, return the number of pairs (i, j) where 0 <= i < j < n and nums[i] + nums[j] < target.
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
 
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
 
+You must solve this problem without using the library's sort function.
+
+Example 1:
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+
+Example 2:
+Input: nums = [2,0,1]
+Output: [0,1,2]
 ***************/
 
 

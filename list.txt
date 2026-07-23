@@ -91,7 +91,7 @@
 91. EASY -> 136. Single Number
 92. MEDIUM -> 735. Asteroid Collision
 93. EASY -> 2824. Count Pairs Whose Sum is Less than Target
-94. MEDIUM -> 
+94. MEDIUM -> 75. Sort Colors
 95. 
 
 
