@@ -90,7 +90,8 @@
 90. EASY -> 1260. Shift 2D Grid
 91. EASY -> 136. Single Number
 92. MEDIUM -> 735. Asteroid Collision
-93. 
+93. EASY ->
+94. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
