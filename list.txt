@@ -92,7 +92,7 @@
 92. MEDIUM -> 735. Asteroid Collision
 93. EASY -> 2824. Count Pairs Whose Sum is Less than Target
 94. MEDIUM -> 75. Sort Colors
-95. EASY ->
+95. EASY -> 3731. Find Missing Elements
 96. 
 
 
