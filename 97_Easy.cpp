@@ -27,18 +27,15 @@ Explanation: You cannot buy 2 chocolates without going in debt, so we return 3.
 
 class Solution {
 public:
-    int heightChecker(vector<int>& heights) 
+    int buyChoco(vector<int>& prices, int money) 
     {
-        int count = 0;
+        // sort the array 
+        std::sort(prices.begin(), prices.end());
 
-        vector<int> arr = heights;
-        std::sort(arr.begin(), arr.end());
+        int cost = prices[0] + prices[1];
 
-        for(int i = 0; i < heights.size(); i++)
-        {
-            if(arr[i] != heights[i]) count++;
-        } 
-
-        return count;   
+        if(cost > money) return money;
+        if(cost == money) return 0;
+        return money - cost;   
     }
 };
