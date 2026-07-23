@@ -34,41 +34,16 @@ Explanation: There are 10 pairs of indices that satisfy the conditions in the st
 
 class Solution {
 public:
-    vector<int> asteroidCollision(vector<int>& asteroids) 
+    int countPairs(vector<int>& nums, int target) 
     {
-        stack<int> st;
-
-        for(int asteroid : asteroids)
+        int count = 0;
+        for(int i = 0; i < nums.size()-1; i++)
         {
-            bool alive = true;
-
-            while(alive && !st.empty() && asteroid < 0 && st.top() > 0)
+            for(int j = i+1; j < nums.size(); j++)
             {
-                // collision happening!
-                if(st.top() < -asteroid)       // top explodes
-                {
-                    st.pop();
-                }
-                else if(st.top() == -asteroid) // both explode
-                {
-                    st.pop();
-                    alive = false;
-                }
-                else                           // current explodes
-                {
-                    alive = false;
-                }
+                if((nums[i] + nums[j]) < target) count++;
             }
-
-            if(alive) st.push(asteroid);
         }
-        vector<int> result;
-        while(!st.empty())
-        {
-            result.push_back(st.top());
-            st.pop();
-        }
-        std::reverse(result.begin(), result.end());
-        return result;
+        return count;    
     }
 };
