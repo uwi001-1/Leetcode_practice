@@ -91,7 +91,8 @@
 91. EASY -> 136. Single Number
 92. MEDIUM -> 735. Asteroid Collision
 93. EASY -> 2824. Count Pairs Whose Sum is Less than Target
-94. 
+94. MEDIUM -> 
+95. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
