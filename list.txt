@@ -93,7 +93,8 @@
 93. EASY -> 2824. Count Pairs Whose Sum is Less than Target
 94. MEDIUM -> 75. Sort Colors
 95. EASY -> 3731. Find Missing Elements
-96. 
+96. EASY ->
+
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
