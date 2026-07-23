@@ -1,33 +1,40 @@
 #include<iostream>
 using namespace std;
 
-// 3731. Find Missing Elements
+// 1051. Height Checker
 
 /***************
-You are given an integer array nums consisting of unique integers.
+A school is trying to take an annual photo of all the students. 
+The students are asked to stand in a single file line in non-decreasing order by height. 
+Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.
 
-Originally, nums contained every integer within a certain range. However, some integers might have gone missing from the array.
-The smallest and largest integers of the original range are still present in nums.
-
-Return a sorted list of all the missing integers in this range. If no integers are missing, return an empty list.
+You are given an integer array heights representing the current order that the students are standing in. 
+Each heights[i] is the height of the ith student in line (0-indexed).
+Return the number of indices where heights[i] != expected[i].
 
 Example 1:
-Input: nums = [1,4,2,5]
-Output: [3]
-Explanation:
-The smallest integer is 1 and the largest is 5, so the full range should be [1,2,3,4,5]. Among these, only 3 is missing.
+Input: heights = [1,1,4,2,1,3]
+Output: 3
+Explanation: 
+heights:  [1,1,4,2,1,3]
+expected: [1,1,1,2,3,4]
+Indices 2, 4, and 5 do not match.
 
 Example 2:
-Input: nums = [7,8,6,9]
-Output: []
+Input: heights = [5,1,2,3,4]
+Output: 5
 Explanation:
-The smallest integer is 6 and the largest is 9, so the full range is [6,7,8,9]. All integers are already present, so no integer is missing.
+heights:  [5,1,2,3,4]
+expected: [1,2,3,4,5]
+All indices do not match.
 
 Example 3:
-Input: nums = [5,1]
-Output: [2,3,4]
+Input: heights = [1,2,3,4,5]
+Output: 0
 Explanation:
-The smallest integer is 1 and the largest is 5, so the full range should be [1,2,3,4,5]. The missing integers are 2, 3, and 4.
+heights:  [1,2,3,4,5]
+expected: [1,2,3,4,5]
+All indices match
 ***************/
 
 
