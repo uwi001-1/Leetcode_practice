@@ -94,7 +94,8 @@
 94. MEDIUM -> 75. Sort Colors
 95. EASY -> 3731. Find Missing Elements
 96. EASY -> 1051. Height Checker
-97. 
+97. EASY ->
+98. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
