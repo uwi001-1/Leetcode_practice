@@ -40,33 +40,18 @@ All indices match
 
 class Solution {
 public:
-    vector<int> findMissingElements(vector<int>& nums) 
+    int heightChecker(vector<int>& heights) 
     {
-        // first sort it
-        std::sort(nums.begin(), nums.end());
+        int count = 0;
 
-        // let's check if all are there
-        if(nums.size() == (nums[nums.size()-1] - nums[0]) + 1) return {};
+        vector<int> arr = heights;
+        std::sort(arr.begin(), arr.end());
 
-        // insert the missing in this array
-        vector<int> arr;
-
-        for(int i = nums[0]; i < nums[nums.size()-1]; i++)
+        for(int i = 0; i < heights.size(); i++)
         {
-            bool found = false;
+            if(arr[i] != heights[i]) count++;
+        } 
 
-            for(int j = 0; j < nums.size()-1; j++)
-            {
-                if(i == nums[j])
-                {
-                    found = true;
-                    break;
-                }
-            }
-            
-            if(!found) arr.push_back(i);
-        }
-        
-        return arr;
+        return count;   
     }
 };
