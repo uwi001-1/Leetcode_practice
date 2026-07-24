@@ -95,7 +95,8 @@
 95. EASY -> 3731. Find Missing Elements
 96. EASY -> 1051. Height Checker
 97. EASY -> 2706. Buy Two Chocolates
-98. 
+98. EASY ->
+99. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
