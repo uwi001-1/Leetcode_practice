@@ -30,21 +30,19 @@ The maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.
 
 class Solution {
 public:
-    vector<int> numberGame(vector<int>& nums) 
+    int minPairSum(vector<int>& nums) 
     {
-        // sort nums 
+        // Sort of the array
         std::sort(nums.begin(), nums.end());
-        vector<int> arr;
+        int sum;
+        int max = 0;
 
-        for(int i = 0; i < nums.size(); i = i+2)
+        for(int i = 0; i < nums.size()/2; i++)
         {
-            int Alice = nums[i];
-            int Bob = nums[i+1];
+            sum = nums[i] + nums[nums.size()-1-i];
+            if(sum > max) max = sum;
+        }
 
-            arr.push_back(Bob);
-            arr.push_back(Alice);
-        }        
-
-        return arr;
+        return max;
     }
 };
