@@ -1,27 +1,29 @@
 #include<iostream>
 using namespace std;
 
-// 2706. Buy Two Chocolates
+// 3467. Transform Array by Parity
 
 /***************
-You are given an integer array prices representing the prices of various chocolates in a store. 
-You are also given a single integer money, which represents your initial amount of money.
+You are given an integer array nums. Transform nums by performing the following operations in the exact order specified:
 
-You must buy exactly two chocolates in such a way that you still have some non-negative leftover money. 
-You would like to minimize the sum of the prices of the two chocolates you buy.
-
-Return the amount of money you will have leftover after buying the two chocolates. 
-If there is no way for you to buy two chocolates without ending up in debt, return money. Note that the leftover must be non-negative. 
+Replace each even number with 0.
+Replace each odd numbers with 1.
+Sort the modified array in non-decreasing order.
+Return the resulting array after performing these operations.
 
 Example 1:
-Input: prices = [1,2,2], money = 3
-Output: 0
-Explanation: Purchase the chocolates priced at 1 and 2 units respectively. You will have 3 - 3 = 0 units of money afterwards. Thus, we return 0.
+Input: nums = [4,3,2,1]
+Output: [0,0,1,1]
+Explanation:
+Replace the even numbers (4 and 2) with 0 and the odd numbers (3 and 1) with 1. Now, nums = [0, 1, 0, 1].
+After sorting nums in non-descending order, nums = [0, 0, 1, 1].
 
 Example 2:
-Input: prices = [3,2,3], money = 3
-Output: 3
-Explanation: You cannot buy 2 chocolates without going in debt, so we return 3.
+Input: nums = [1,5,1,4,2]
+Output: [0,0,1,1,1]
+Explanation:
+Replace the even numbers (4 and 2) with 0 and the odd numbers (1, 5 and 1) with 1. Now, nums = [1, 1, 1, 0, 0].
+After sorting nums in non-descending order, nums = [0, 0, 1, 1, 1].
 ***************/
 
 
