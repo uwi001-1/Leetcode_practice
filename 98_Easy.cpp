@@ -29,15 +29,16 @@ After sorting nums in non-descending order, nums = [0, 0, 1, 1, 1].
 
 class Solution {
 public:
-    int buyChoco(vector<int>& prices, int money) 
+    vector<int> transformArray(vector<int>& nums) 
     {
-        // sort the array 
-        std::sort(prices.begin(), prices.end());
+        vector<int> arr;
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(nums[i] % 2 == 0) arr.push_back(0);
+            else arr.push_back(1);
+        }
+        std::sort(arr.begin(), arr.end());
 
-        int cost = prices[0] + prices[1];
-
-        if(cost > money) return money;
-        if(cost == money) return 0;
-        return money - cost;   
+        return arr;
     }
 };
