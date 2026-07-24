@@ -96,7 +96,7 @@
 96. EASY -> 1051. Height Checker
 97. EASY -> 2706. Buy Two Chocolates
 98. EASY -> 3467. Transform Array by Parity
-99. EASY ->
+99. EASY -> 2974. Minimum Number Game
 100. 
 
 

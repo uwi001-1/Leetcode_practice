@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-// 3467. Transform Array by Parity
+// 2974. Minimum Number Game
 
 /***************
 You are given an integer array nums. Transform nums by performing the following operations in the exact order specified:
