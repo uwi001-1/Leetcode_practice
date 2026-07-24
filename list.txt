@@ -97,7 +97,8 @@
 97. EASY -> 2706. Buy Two Chocolates
 98. EASY -> 3467. Transform Array by Parity
 99. EASY -> 2974. Minimum Number Game
-100. 
+100. MEDIUM -> 
+101. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
