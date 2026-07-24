@@ -97,7 +97,7 @@
 97. EASY -> 2706. Buy Two Chocolates
 98. EASY -> 3467. Transform Array by Parity
 99. EASY -> 2974. Minimum Number Game
-100. MEDIUM -> 
+100. MEDIUM -> 1877. Minimize Maximum Pair Sum in Array
 101. 
 
 
