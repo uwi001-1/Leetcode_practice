@@ -4,40 +4,46 @@ using namespace std;
 // 2974. Minimum Number Game
 
 /***************
-You are given an integer array nums. Transform nums by performing the following operations in the exact order specified:
+You are given a 0-indexed integer array nums of even length and there is also an empty array arr. 
+Alice and Bob decided to play a game where in every round Alice and Bob will do one move. The rules of the game are as follows:
 
-Replace each even number with 0.
-Replace each odd numbers with 1.
-Sort the modified array in non-decreasing order.
-Return the resulting array after performing these operations.
+Every round, first Alice will remove the minimum element from nums, and then Bob does the same.
+Now, first Bob will append the removed element in the array arr, and then Alice does the same.
+The game continues until nums becomes empty.
+Return the resulting array arr.
 
 Example 1:
-Input: nums = [4,3,2,1]
-Output: [0,0,1,1]
-Explanation:
-Replace the even numbers (4 and 2) with 0 and the odd numbers (3 and 1) with 1. Now, nums = [0, 1, 0, 1].
-After sorting nums in non-descending order, nums = [0, 0, 1, 1].
+Input: nums = [5,4,2,3]
+Output: [3,2,5,4]
+Explanation: In round one, first Alice removes 2 and then Bob removes 3. 
+Then in arr firstly Bob appends 3 and then Alice appends 2. So arr = [3,2].
+At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then Bob removes 5.
+Then both append in arr which becomes [3,2,5,4].
 
 Example 2:
-Input: nums = [1,5,1,4,2]
-Output: [0,0,1,1,1]
-Explanation:
-Replace the even numbers (4 and 2) with 0 and the odd numbers (1, 5 and 1) with 1. Now, nums = [1, 1, 1, 0, 0].
-After sorting nums in non-descending order, nums = [0, 0, 1, 1, 1].
+Input: nums = [2,5]
+Output: [5,2]
+Explanation: In round one, first Alice removes 2 and then Bob removes 5. 
+Then in arr firstly Bob appends and then Alice appends. So arr = [5,2].
 ***************/
 
 
 class Solution {
 public:
-    vector<int> transformArray(vector<int>& nums) 
+    vector<int> numberGame(vector<int>& nums) 
     {
+        // sort nums 
+        std::sort(nums.begin(), nums.end());
         vector<int> arr;
-        for(int i = 0; i < nums.size(); i++)
+
+        for(int i = 0; i < nums.size(); i = i+2)
         {
-            if(nums[i] % 2 == 0) arr.push_back(0);
-            else arr.push_back(1);
-        }
-        std::sort(arr.begin(), arr.end());
+            int Alice = nums[i];
+            int Bob = nums[i+1];
+
+            arr.push_back(Bob);
+            arr.push_back(Alice);
+        }        
 
         return arr;
     }
