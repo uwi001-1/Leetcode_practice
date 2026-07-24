@@ -96,7 +96,8 @@
 96. EASY -> 1051. Height Checker
 97. EASY -> 2706. Buy Two Chocolates
 98. EASY -> 3467. Transform Array by Parity
-99. 
+99. EASY ->
+100. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
