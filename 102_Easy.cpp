@@ -1,38 +1,37 @@
 #include<iostream>
 using namespace std;
 
-// 3536. Maximum Product of Two Digits
+// 1768. Merge Strings Alternately
 
 /***************
-You are given a positive integer n.
+You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. 
+If a string is longer than the other, append the additional letters onto the end of the merged string.
 
-Return the maximum product of any two digits in n.
-
-Note: You may use the same digit twice if it appears more than once in n.
+Return the merged string.
 
 Example 1:
-Input: n = 31
-Output: 3
-Explanation:
-The digits of n are [3, 1].
-The possible products of any two digits are: 3 * 1 = 3.
-The maximum product is 3.
+Input: word1 = "abc", word2 = "pqr"
+Output: "apbqcr"
+Explanation: The merged string will be merged as so:
+word1:  a   b   c
+word2:    p   q   r
+merged: a p b q c r
 
 Example 2:
-Input: n = 22
-Output: 4
-Explanation:
-The digits of n are [2, 2].
-The possible products of any two digits are: 2 * 2 = 4.
-The maximum product is 4.
+Input: word1 = "ab", word2 = "pqrs"
+Output: "apbqrs"
+Explanation: Notice that as word2 is longer, "rs" is appended to the end.
+word1:  a   b 
+word2:    p   q   r   s
+merged: a p b q   r   s
 
 Example 3:
-Input: n = 124
-Output: 8
-Explanation:
-The digits of n are [1, 2, 4].
-The possible products of any two digits are: 1 * 2 = 2, 1 * 4 = 4, 2 * 4 = 8.
-The maximum product is 8.
+Input: word1 = "abcd", word2 = "pq"
+Output: "apbqcd"
+Explanation: Notice that as word1 is longer, "cd" is appended to the end.
+word1:  a   b   c   d
+word2:    p   q 
+merged: a p b q c   d
 ***************/
 
 
