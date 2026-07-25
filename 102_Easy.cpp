@@ -37,25 +37,18 @@ merged: a p b q c   d
 
 class Solution {
 public:
-    int maxProduct(int n) 
+    string mergeAlternately(string word1, string word2) 
     {
-        int ans = 0;
-        vector<int> arr;
+        // loop throug both the string and add it to the new string
+        // whichever finishes first, add the other one to the end 
+        int maxSize = max(word1.size(), word2.size());
+        string newWord = "";
 
-        while(n > 0)
+        for(int i = 0; i < maxSize; i++)
         {
-            int num = n % 10;
-            arr.push_back(num);
-            n = n/10;
-        }    
-
-        for(int i = 0; i < arr.size()-1; i++)
-        {
-            for(int j = i+1; j < arr.size(); j++)
-            {
-                ans = max(ans, arr[i] * arr[j]);
-            }
+            if(i <= word1.size()-1) newWord += word1[i];
+            if(i <= word2.size()-1) newWord += word2[i];
         }
-        return ans;
+        return newWord;    
     }
 };
