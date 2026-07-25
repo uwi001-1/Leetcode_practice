@@ -38,19 +38,25 @@ The maximum product is 8.
 
 class Solution {
 public:
-    int minPairSum(vector<int>& nums) 
+    int maxProduct(int n) 
     {
-        // Sort of the array
-        std::sort(nums.begin(), nums.end());
-        int sum;
-        int max = 0;
+        int ans = 0;
+        vector<int> arr;
 
-        for(int i = 0; i < nums.size()/2; i++)
+        while(n > 0)
         {
-            sum = nums[i] + nums[nums.size()-1-i];
-            if(sum > max) max = sum;
-        }
+            int num = n % 10;
+            arr.push_back(num);
+            n = n/10;
+        }    
 
-        return max;
+        for(int i = 0; i < arr.size()-1; i++)
+        {
+            for(int j = i+1; j < arr.size(); j++)
+            {
+                ans = max(ans, arr[i] * arr[j]);
+            }
+        }
+        return ans;
     }
 };
