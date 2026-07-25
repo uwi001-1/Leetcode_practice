@@ -1,30 +1,38 @@
 #include<iostream>
 using namespace std;
 
-// 1877. Minimize Maximum Pair Sum in Array
+// 3536. Maximum Product of Two Digits
 
 /***************
-The pair sum of a pair (a,b) is equal to a + b. The maximum pair sum is the largest pair sum in a list of pairs.
+You are given a positive integer n.
 
-For example, if we have pairs (1,5), (2,3), and (4,4), the maximum pair sum would be max(1+5, 2+3, 4+4) = max(6, 5, 8) = 8.
-Given an array nums of even length n, pair up the elements of nums into n / 2 pairs such that:
+Return the maximum product of any two digits in n.
 
-Each element of nums is in exactly one pair, and
-The maximum pair sum is minimized.
-Return the minimized maximum pair sum after optimally pairing up the elements.
-
+Note: You may use the same digit twice if it appears more than once in n.
 
 Example 1:
-Input: nums = [3,5,2,3]
-Output: 7
-Explanation: The elements can be paired up into pairs (3,3) and (5,2).
-The maximum pair sum is max(3+3, 5+2) = max(6, 7) = 7.
+Input: n = 31
+Output: 3
+Explanation:
+The digits of n are [3, 1].
+The possible products of any two digits are: 3 * 1 = 3.
+The maximum product is 3.
 
 Example 2:
-Input: nums = [3,5,4,2,4,6]
+Input: n = 22
+Output: 4
+Explanation:
+The digits of n are [2, 2].
+The possible products of any two digits are: 2 * 2 = 4.
+The maximum product is 4.
+
+Example 3:
+Input: n = 124
 Output: 8
-Explanation: The elements can be paired up into pairs (3,5), (4,4), and (6,2).
-The maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.
+Explanation:
+The digits of n are [1, 2, 4].
+The possible products of any two digits are: 1 * 2 = 2, 1 * 4 = 4, 2 * 4 = 8.
+The maximum product is 8.
 ***************/
 
 

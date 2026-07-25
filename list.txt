@@ -98,7 +98,7 @@
 98. EASY -> 3467. Transform Array by Parity
 99. EASY -> 2974. Minimum Number Game
 100. MEDIUM -> 1877. Minimize Maximum Pair Sum in Array
-101. EASY -> 
+101. EASY -> 3536. Maximum Product of Two Digits
 102. 
 
 
