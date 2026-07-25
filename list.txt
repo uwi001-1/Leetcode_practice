@@ -98,7 +98,8 @@
 98. EASY -> 3467. Transform Array by Parity
 99. EASY -> 2974. Minimum Number Game
 100. MEDIUM -> 1877. Minimize Maximum Pair Sum in Array
-101. 
+101. EASY -> 
+102. 
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
