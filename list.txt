@@ -99,7 +99,9 @@
 99. EASY -> 2974. Minimum Number Game
 100. MEDIUM -> 1877. Minimize Maximum Pair Sum in Array
 101. EASY -> 3536. Maximum Product of Two Digits
-102. 
+102. EASY -> 
+103. 
+
 
 
 create an vector array and push value:      vector<int> arr;    arr.push_back(val);
