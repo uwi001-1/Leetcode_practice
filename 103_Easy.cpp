@@ -21,18 +21,54 @@ Output: false
 
 class Solution {
 public:
-    string mergeAlternately(string word1, string word2) 
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) 
     {
-        // loop throug both the string and add it to the new string
-        // whichever finishes first, add the other one to the end 
-        int maxSize = max(word1.size(), word2.size());
-        string newWord = "";
+        if(n == 0) return true;
+        
+        int count = 0;
+        int size = flowerbed.size();
 
-        for(int i = 0; i < maxSize; i++)
+        if(size == 1) 
         {
-            if(i <= word1.size()-1) newWord += word1[i];
-            if(i <= word2.size()-1) newWord += word2[i];
+            if(flowerbed[0] == 0) return true;
+            else return false;
         }
-        return newWord;    
+
+        // first check first and last
+        if(flowerbed[0] == 0) 
+        {
+            if(flowerbed[1] == 0)
+            {
+                flowerbed[0] = 1;
+                count++;
+            }
+        }
+        if(flowerbed[size-1] == 0)
+        {
+            if(flowerbed[size-2] == 0)
+            {
+                flowerbed[size-1] = 1;
+                count++;
+            }
+        }
+
+        // and then loop around the array
+        for(int i = 1; i < size; i++)
+        {
+            if(flowerbed[i] == 1) continue;
+
+            if(flowerbed[i-1] == 1) continue;
+
+            if(flowerbed[i+1] == 1) continue;
+
+            if(flowerbed[i-1] == 0 && flowerbed[i+1] == 0)
+            {
+                flowerbed[i] = 1;
+                count++;
+            }
+        } 
+
+        if(count >= n) return true;
+        return false;  
     }
 };
