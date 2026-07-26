@@ -28,28 +28,63 @@ Explanation: word is already valid. No modifications are needed.
 
 class Solution {
 public:
-    int maximumProduct(vector<int>& nums) 
+    int addMinimum(string word) 
     {
-        std::sort(nums.begin(), nums.end());
+        int count = 0;
 
-        // for last three
-        int product = nums[nums.size() - 1] * nums[nums.size() - 2] * nums[nums.size() - 3];
-
-        // for taking the negative higher first two and last 1
-        int pro = product;
-        if(nums[0] < 0 && nums[1] < 0)
+        // loop the string and add to count as needed
+        int i;
+        for (i = 0; i < word.size(); i++)
         {
-            pro = nums[0] * nums[1] * nums[nums.size()-1];
-        }
+            // a
+            if(word[i] == 'a')
+            {
+                // if a is in the end
+                if(i == word.size()-1) 
+                {
+                    count = count + 2;
+                    continue;
+                }
 
-        int ans = max(pro, product);
+                if(i + 2 < word.size() && word[i+1] == 'b' && word[i+2] == 'c') i = i+2;
+                else if(i + 1 < word.size() && word[i+1] == 'b')
+                {
+                    i++; 
+                    count++; 
+                } 
+                else if(i + 1 < word.size() && word[i+1] == 'c') 
+                {
+                    i++; 
+                    count++;
+                }
+                else count = count + 2;
+            }
 
-        // if ans is negative and we have a zero in the array
-        if(ans < 0)
-        {
-            for(int i = 0; i < nums.size(); i++) if(nums[i] == 0) return 0;
-        }
+            // b
+            else if(word[i] == 'b')
+            {
+                // we need to add for a first
+                count++;
 
-        return ans;    
+                // for c, if b is in the end
+                if(i == word.size()-1)
+                {
+                    count++;
+                    continue;
+                }
+                
+                if(i + 1 < word.size() && word[i+1] == 'c') i++;
+                else count++;
+            }
+
+            // b
+            else if(word[i] == 'c')
+            {
+                // handle c when it's the only letter
+                count = count + 2;
+            }
+        } 
+
+        return count;   
     }
 };
