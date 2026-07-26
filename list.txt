@@ -101,7 +101,8 @@
 101. EASY -> 3536. Maximum Product of Two Digits
 102. EASY -> 1768. Merge Strings Alternately
 103. EASY -> 605. Can Place Flowers
-104. 
+104. EASY -> 
+105. 
 
 
 
