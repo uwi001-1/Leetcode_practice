@@ -22,54 +22,28 @@ Output: -6
 
 class Solution {
 public:
-    bool canPlaceFlowers(vector<int>& flowerbed, int n) 
+    int maximumProduct(vector<int>& nums) 
     {
-        if(n == 0) return true;
-        
-        int count = 0;
-        int size = flowerbed.size();
+        std::sort(nums.begin(), nums.end());
 
-        if(size == 1) 
+        // for last three
+        int product = nums[nums.size() - 1] * nums[nums.size() - 2] * nums[nums.size() - 3];
+
+        // for taking the negative higher first two and last 1
+        int pro = product;
+        if(nums[0] < 0 && nums[1] < 0)
         {
-            if(flowerbed[0] == 0) return true;
-            else return false;
+            pro = nums[0] * nums[1] * nums[nums.size()-1];
         }
 
-        // first check first and last
-        if(flowerbed[0] == 0) 
+        int ans = max(pro, product);
+
+        // if ans is negative and we have a zero in the array
+        if(ans < 0)
         {
-            if(flowerbed[1] == 0)
-            {
-                flowerbed[0] = 1;
-                count++;
-            }
-        }
-        if(flowerbed[size-1] == 0)
-        {
-            if(flowerbed[size-2] == 0)
-            {
-                flowerbed[size-1] = 1;
-                count++;
-            }
+            for(int i = 0; i < nums.size(); i++) if(nums[i] == 0) return 0;
         }
 
-        // and then loop around the array
-        for(int i = 1; i < size; i++)
-        {
-            if(flowerbed[i] == 1) continue;
-
-            if(flowerbed[i-1] == 1) continue;
-
-            if(flowerbed[i+1] == 1) continue;
-
-            if(flowerbed[i-1] == 0 && flowerbed[i+1] == 0)
-            {
-                flowerbed[i] = 1;
-                count++;
-            }
-        } 
-
-        if(count >= n) return true;
-        return false;  
+        return ans;    
     }
 };
