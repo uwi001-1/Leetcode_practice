@@ -1,21 +1,22 @@
 #include<iostream>
 using namespace std;
 
-// 605. Can Place Flowers
+// 628. Maximum Product of Three Numbers
 
 /***************
-You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.
-
-Given an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, and an integer n, 
-return true if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule and false otherwise.
+Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
 
 Example 1:
-Input: flowerbed = [1,0,0,0,1], n = 1
-Output: true
+Input: nums = [1,2,3]
+Output: 6
 
 Example 2:
-Input: flowerbed = [1,0,0,0,1], n = 2
-Output: false
+Input: nums = [1,2,3,4]
+Output: 24
+
+Example 3:
+Input: nums = [-1,-2,-3]
+Output: -6
 ***************/
 
 
