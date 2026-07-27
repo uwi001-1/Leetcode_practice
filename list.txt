@@ -103,7 +103,8 @@
 103. EASY -> 605. Can Place Flowers
 104. EASY -> 628. Maximum Product of Three Numbers
 105. MEDIUM -> 2645. Minimum Additions to Make Valid String
-106. 
+106. EASY -> 
+107. 
 
 
 
