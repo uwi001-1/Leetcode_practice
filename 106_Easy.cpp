@@ -1,28 +1,26 @@
 #include<iostream>
 using namespace std;
 
-// 2645. Minimum Additions to Make Valid String
+// 1464. Maximum Product of Two Elements in an Array
 
 /***************
-Given a string word to which you can insert letters "a", "b" or "c" anywhere and any number of times, 
-return the minimum number of letters that must be inserted so that word becomes valid.
-
-A string is called valid if it can be formed by concatenating the string "abc" several times.
+Given the array of integers nums, you will choose two different indices i and j of that array. 
+Return the maximum value of (nums[i]-1)*(nums[j]-1).
 
 Example 1:
-Input: word = "b"
-Output: 2
-Explanation: Insert the letter "a" right before "b", and the letter "c" right next to "b" to obtain the valid string "abc".
+Input: nums = [3,4,5,2]
+Output: 12 
+Explanation: If you choose the indices i=1 and j=2 (indexed from 0), you will get the maximum value, 
+that is, (nums[1]-1)*(nums[2]-1) = (4-1)*(5-1) = 3*4 = 12. 
 
 Example 2:
-Input: word = "aaa"
-Output: 6
-Explanation: Insert letters "b" and "c" next to each "a" to obtain the valid string "abcabcabc".
+Input: nums = [1,5,4,5]
+Output: 16
+Explanation: Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
 
 Example 3:
-Input: word = "abc"
-Output: 0
-Explanation: word is already valid. No modifications are needed.
+Input: nums = [3,7]
+Output: 12
 ***************/
 
 
