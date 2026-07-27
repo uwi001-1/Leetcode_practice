@@ -26,63 +26,12 @@ Output: 12
 
 class Solution {
 public:
-    int addMinimum(string word) 
+    int maxProduct(vector<int>& nums) 
     {
-        int count = 0;
+        std::sort(nums.begin(), nums.end());
 
-        // loop the string and add to count as needed
-        int i;
-        for (i = 0; i < word.size(); i++)
-        {
-            // a
-            if(word[i] == 'a')
-            {
-                // if a is in the end
-                if(i == word.size()-1) 
-                {
-                    count = count + 2;
-                    continue;
-                }
+        int ans = (nums[nums.size()-1]-1) * (nums[nums.size()-2]-1);
 
-                if(i + 2 < word.size() && word[i+1] == 'b' && word[i+2] == 'c') i = i+2;
-                else if(i + 1 < word.size() && word[i+1] == 'b')
-                {
-                    i++; 
-                    count++; 
-                } 
-                else if(i + 1 < word.size() && word[i+1] == 'c') 
-                {
-                    i++; 
-                    count++;
-                }
-                else count = count + 2;
-            }
-
-            // b
-            else if(word[i] == 'b')
-            {
-                // we need to add for a first
-                count++;
-
-                // for c, if b is in the end
-                if(i == word.size()-1)
-                {
-                    count++;
-                    continue;
-                }
-                
-                if(i + 1 < word.size() && word[i+1] == 'c') i++;
-                else count++;
-            }
-
-            // b
-            else if(word[i] == 'c')
-            {
-                // handle c when it's the only letter
-                count = count + 2;
-            }
-        } 
-
-        return count;   
+        return ans;   
     }
 };
