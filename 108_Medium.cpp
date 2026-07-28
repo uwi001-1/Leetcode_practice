@@ -21,38 +21,17 @@ Output: 99
 
 class Solution {
 public:
-    string smallestPalindrome(string s) 
+    int singleNumber(vector<int>& nums) 
     {
-        // base case - less than 3
-        if(s.size() < 3) return s;
-
-        string word = "";
-        string extra = "";
-        std::sort(s.begin(), s.end());
+        // first sort it
+        std::sort(nums.begin(), nums.end());
 
         int i;
-        for(i = 0; i < s.size(); i++)
+        for(i = 0; i < nums.size() -1; i += 3)
         {
-            if(s[i+1] == s[i]) 
-            {
-                word += s[i];
-                i++;
-            }
-            else extra = s[i];
-        }
-        word += extra;
-
-        // even
-        if(s.size() % 2 == 0)
-        {
-            for(int i = word.size()-1; i >= 0; i--) word += word[i];
-        }
-        // odd
-        else
-        {
-            for(int i = word.size()-2; i >= 0; i--) word += word[i];
+            if (nums[i] != nums[i + 1]) return nums[i];
         }
 
-        return word;  
+        return nums.back();       
     }
 };
