@@ -30,12 +30,38 @@ Rearranging "daccad" → "acddca" gives the smallest lexicographic palindrome.
 
 class Solution {
 public:
-    int maxProduct(vector<int>& nums) 
+    string smallestPalindrome(string s) 
     {
-        std::sort(nums.begin(), nums.end());
+        // base case - less than 3
+        if(s.size() < 3) return s;
 
-        int ans = (nums[nums.size()-1]-1) * (nums[nums.size()-2]-1);
+        string word = "";
+        string extra = "";
+        std::sort(s.begin(), s.end());
 
-        return ans;   
+        int i;
+        for(i = 0; i < s.size(); i++)
+        {
+            if(s[i+1] == s[i]) 
+            {
+                word += s[i];
+                i++;
+            }
+            else extra = s[i];
+        }
+        word += extra;
+
+        // even
+        if(s.size() % 2 == 0)
+        {
+            for(int i = word.size()-1; i >= 0; i--) word += word[i];
+        }
+        // odd
+        else
+        {
+            for(int i = word.size()-2; i >= 0; i--) word += word[i];
+        }
+
+        return word;  
     }
 };
