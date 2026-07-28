@@ -16,9 +16,9 @@ Started: March 2026
 | Difficulty | Solved |
 |------------|---------|
 | Easy       | 59 |
-| Medium     | 43 |
+| Medium     | 44 |
 | Hard       | 4 |
-| Total      | 106 |
+| Total      | 107 |
 
 
 ## Topics Covered
@@ -43,6 +43,7 @@ Started: March 2026
 - Linked Lists
 - Strings
 - Sorting
+- Counting Sort
 - Simulation
 - Two Pointers
 - Enumeration

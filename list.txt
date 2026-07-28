@@ -104,7 +104,7 @@
 104. EASY -> 628. Maximum Product of Three Numbers
 105. MEDIUM -> 2645. Minimum Additions to Make Valid String
 106. EASY -> 1464. Maximum Product of Two Elements in an Array
-107. MEDIUM ->
+107. MEDIUM -> 3517. Smallest Palindromic Rearrangement I
 108. 
 
 
