@@ -32,17 +32,10 @@ Explanation: The original array was [11,13,15,17] and it was rotated 4 times.
 
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) 
+    int findMin(vector<int>& nums) 
     {
-        // first sort it
         std::sort(nums.begin(), nums.end());
 
-        int i;
-        for(i = 0; i < nums.size() -1; i += 3)
-        {
-            if (nums[i] != nums[i + 1]) return nums[i];
-        }
-
-        return nums.back();       
+        return nums[0];    
     }
 };

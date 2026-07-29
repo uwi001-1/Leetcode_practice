@@ -115,6 +115,8 @@ create an vector array and push value:      vector<int> arr;    arr.push_back(va
 
 sorting method:     std::sort(m.begin(), m.end());
 
+add two vector array:       a.insert(a.end(), b.begin(), b.end());      # a + b
+
 reverse method:     std::reverse(n.begin(), n.end());
     int reversed = 0;
     while(num > 0)
