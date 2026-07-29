@@ -107,7 +107,8 @@
 107. MEDIUM -> 3517. Smallest Palindromic Rearrangement I
 108. MEDIUM -> 137. Single Number II
 109. MEDIUM -> 153. Find Minimum in Rotated Sorted Array
-110. 
+110. HARD -> 
+111. 
 
 
 
