@@ -17,8 +17,8 @@ Started: March 2026
 |------------|---------|
 | Easy       | 59 |
 | Medium     | 46 |
-| Hard       | 4 |
-| Total      | 109 |
+| Hard       | 5 |
+| Total      | 110 |
 
 
 ## Topics Covered
