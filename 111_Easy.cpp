@@ -50,28 +50,24 @@ It can be shown that no other mapping can provide a lower cost.
 
 class Solution {
 public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) 
+    int minimumPushes(string word) 
     {
-        // add the two arrays
-        nums1.insert(nums1.end(), nums2.begin(), nums2.end());    
+        // has distinct lowercase letters 
+        int count = 0;
 
-        // now let's sort it 
-        std::sort(nums1.begin(), nums1.end());
+        int size = word.size();
 
-        double med; 
+        if(size <= 8) return size;
 
-        // odd
-        if(nums1.size() % 2 == 1)
+        int index = 1;
+        while(size > 8)
         {
-            med = nums1[nums1.size() / 2];
-        }
+            count += (8 * index);
+            size -= 8;
+            index++;
+        }  
+        count += (size * index);  
 
-        // even
-        else 
-        {
-            med = (nums1[nums1.size() / 2 - 1] + nums1[nums1.size() / 2]) / 2.0;
-        }
-
-        return med;
+        return count;
     }
 };
