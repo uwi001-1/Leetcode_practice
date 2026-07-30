@@ -33,24 +33,19 @@ The sum is 0, which is divisible by 6.
 
 class Solution {
 public:
-    int minimumPushes(string word) 
+    int minOperations(vector<int>& nums, int k) 
     {
-        // has distinct lowercase letters 
-        int count = 0;
+        int sum = 0;
 
-        int size = word.size();
-
-        if(size <= 8) return size;
-
-        int index = 1;
-        while(size > 8)
+        for(int i = 0; i < nums.size(); i++)
         {
-            count += (8 * index);
-            size -= 8;
-            index++;
-        }  
-        count += (size * index);  
+            sum += nums[i];
+        }    
 
-        return count;
+        if(sum % k == 0) return 0;
+
+        int sub = sum % k;
+        
+        return sub;
     }
 };
