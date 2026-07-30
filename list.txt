@@ -108,7 +108,8 @@
 108. MEDIUM -> 137. Single Number II
 109. MEDIUM -> 153. Find Minimum in Rotated Sorted Array
 110. HARD -> 4. Median of Two Sorted Arrays
-111. 
+111. EASY -> 
+112. 
 
 
 
