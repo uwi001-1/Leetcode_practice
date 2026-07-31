@@ -1,33 +1,58 @@
 #include<iostream>
 using namespace std;
 
-// 3512. Minimum Operations to Make Array Sum Divisible by K
+// 3016. Minimum Number of Pushes to Type Word II
 
 /***************
-You are given an integer array nums and an integer k. You can perform the following operation any number of times:
+You are given a string word containing lowercase English letters.
 
-Select an index i and replace nums[i] with nums[i] - 1.
-Return the minimum number of operations required to make the sum of the array divisible by k.
+Telephone keypads have keys mapped with distinct collections of lowercase English letters, which can be used to form words by pushing them. 
+For example, the key 2 is mapped with ["a","b","c"], we need to push the key one time to type "a", two times to type "b", and three times to type "c" .
+
+It is allowed to remap the keys numbered 2 to 9 to distinct collections of letters. 
+The keys can be remapped to any amount of letters, but each letter must be mapped to exactly one key. 
+You need to find the minimum number of times the keys will be pushed to type the string word.
+
+Return the minimum number of pushes needed to type word after remapping the keys.
 
 Example 1:
-Input: nums = [3,9,7], k = 5
-Output: 4
-Explanation:
-Perform 4 operations on nums[1] = 9. Now, nums = [3, 5, 7].
-The sum is 15, which is divisible by 5.
+Input: word = "abcde"
+Output: 5
+Explanation: The remapped keypad given in the image provides the minimum cost.
+"a" -> one push on key 2
+"b" -> one push on key 3
+"c" -> one push on key 4
+"d" -> one push on key 5
+"e" -> one push on key 6
+Total cost is 1 + 1 + 1 + 1 + 1 = 5.
+It can be shown that no other mapping can provide a lower cost.
 
 Example 2:
-Input: nums = [4,1,3], k = 4
-Output: 0
-Explanation:
-The sum is 8, which is already divisible by 4. Hence, no operations are needed.
+Input: word = "xyzxyzxyzxyz"
+Output: 12
+Explanation: The remapped keypad given in the image provides the minimum cost.
+"x" -> one push on key 2
+"y" -> one push on key 3
+"z" -> one push on key 4
+Total cost is 1 * 4 + 1 * 4 + 1 * 4 = 12
+It can be shown that no other mapping can provide a lower cost.
+Note that the key 9 is not mapped to any letter: it is not necessary to map letters to every key, but to map all the letters.
 
 Example 3:
-Input: nums = [3,2], k = 6
-Output: 5
-Explanation:
-Perform 3 operations on nums[0] = 3 and 2 operations on nums[1] = 2. Now, nums = [0, 0].
-The sum is 0, which is divisible by 6.
+Input: word = "aabbccddeeffgghhiiiiii"
+Output: 24
+Explanation: The remapped keypad given in the image provides the minimum cost.
+"a" -> one push on key 2
+"b" -> one push on key 3
+"c" -> one push on key 4
+"d" -> one push on key 5
+"e" -> one push on key 6
+"f" -> one push on key 7
+"g" -> one push on key 8
+"h" -> two pushes on key 9
+"i" -> one push on key 9
+Total cost is 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 1 * 2 + 2 * 2 + 6 * 1 = 24.
+It can be shown that no other mapping can provide a lower cost.
 ***************/
 
 

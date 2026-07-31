@@ -110,7 +110,7 @@
 110. HARD -> 4. Median of Two Sorted Arrays
 111. EASY -> 3014. Minimum Number of Pushes to Type Word I
 112. EASY -> 3512. Minimum Operations to Make Array Sum Divisible by K
-113. MEDIUM -> 
+113. MEDIUM -> 3016. Minimum Number of Pushes to Type Word II
 114. 
 
 
