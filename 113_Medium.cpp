@@ -58,19 +58,37 @@ It can be shown that no other mapping can provide a lower cost.
 
 class Solution {
 public:
-    int minOperations(vector<int>& nums, int k) 
+    int minimumPushes(string word) 
     {
-        int sum = 0;
+        // sort the word
+        std::sort(word.begin(), word.end());
+        vector<int> arr;
+        int count = 1;
 
-        for(int i = 0; i < nums.size(); i++)
+        // in the array with the size of the word
+        for(int i = 0; i < word.size(); i++)
         {
-            sum += nums[i];
-        }    
+            if(word[i] == word[i+1]) count++;
+            else
+            {
+                arr.push_back(count);
+                count = 1;
+            }
+        }
 
-        if(sum % k == 0) return 0;
+        // sort the array in descending order
+        std::sort(arr.begin(), arr.end(), greater<int>());
+        int ans = 0;
 
-        int sub = sum % k;
-        
-        return sub;
+        // add the arr element based on size
+        for(int j = 0; j < arr.size(); j++)
+        {
+            if(j < 8) ans += arr[j];
+            else if(j < 16) ans += (arr[j] * 2);
+            else if(j < 24) ans += (arr[j] * 3);
+            else ans += (arr[j] * 4);
+        }
+
+        return ans;
     }
 };
