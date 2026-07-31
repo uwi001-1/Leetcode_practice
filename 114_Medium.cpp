@@ -34,37 +34,16 @@ Only one substring can start with 'a'. Thus, the answer is 1.
 
 class Solution {
 public:
-    int minimumPushes(string word) 
+    int maxDistinct(string s) 
     {
-        // sort the word
-        std::sort(word.begin(), word.end());
-        vector<int> arr;
-        int count = 1;
+        std::sort(s.begin(), s.end());
+        int count = 0;
 
-        // in the array with the size of the word
-        for(int i = 0; i < word.size(); i++)
+        for(int i = 0; i < s.size(); i++)
         {
-            if(word[i] == word[i+1]) count++;
-            else
-            {
-                arr.push_back(count);
-                count = 1;
-            }
-        }
+            if(s[i] != s[i+1]) count++;
+        }    
 
-        // sort the array in descending order
-        std::sort(arr.begin(), arr.end(), greater<int>());
-        int ans = 0;
-
-        // add the arr element based on size
-        for(int j = 0; j < arr.size(); j++)
-        {
-            if(j < 8) ans += arr[j];
-            else if(j < 16) ans += (arr[j] * 2);
-            else if(j < 24) ans += (arr[j] * 3);
-            else ans += (arr[j] * 4);
-        }
-
-        return ans;
+        return count;
     }
 };
