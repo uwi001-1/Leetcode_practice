@@ -30,16 +30,33 @@ Bob picks 1 coin with a value of 75 and 4 coins with a value of 10.
 
 class Solution {
 public:
-    int maxDistinct(string s) 
+    string winningPlayer(int x, int y) 
     {
-        std::sort(s.begin(), s.end());
-        int count = 0;
+        // base case - when Alice can't play at first 
+        if(y < 4) return "Bob";
 
-        for(int i = 0; i < s.size(); i++)
+        bool Alice = false;
+        bool Bob = true;
+
+        while(x >= 1 && y >= 4)
         {
-            if(s[i] != s[i+1]) count++;
-        }    
+            // reduce it by needed 
+            x -= 1;
+            y -= 4;
 
-        return count;
+            if(Bob) 
+            {
+                Alice = true;
+                Bob = false;
+            }
+            else 
+            {
+                Bob = true;
+                Alice = false;
+            }
+        }
+
+        if(Bob) return "Bob";
+        return "Alice";   
     }
 };
