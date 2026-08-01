@@ -1,22 +1,18 @@
 #include<iostream>
 using namespace std;
 
-// 345. Reverse Vowels of a String
+// 61. Rotate List
 
 /***************
-Given a string s, reverse only all the vowels in the string and return it.
-
-The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+Given the head of a linked list, rotate the list to the right by k places.
 
 Example 1:
-Input: s = "IceCreAm"
-Output: "AceCreIm"
-Explanation:
-The vowels in s are ['I', 'e', 'e', 'A']. On reversing the vowels, s becomes "AceCreIm".
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
 
 Example 2:
-Input: s = "leetcode"
-Output: "leotcede"
+Input: head = [0,1,2], k = 4
+Output: [2,0,1]
 ***************/
 
 

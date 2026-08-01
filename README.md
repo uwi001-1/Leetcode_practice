@@ -16,9 +16,9 @@ Started: March 2026
 | Difficulty | Solved |
 |------------|---------|
 | Easy       | 63 |
-| Medium     | 48 |
+| Medium     | 49 |
 | Hard       | 5 |
-| Total      | 116 |
+| Total      | 117 |
 
 
 ## Topics Covered
