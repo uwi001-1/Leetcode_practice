@@ -1,34 +1,30 @@
 #include<iostream>
 using namespace std;
 
-// 3760. Maximum Substrings With Distinct Start
+// 3222. Find the Winning Player in Coin Game
 
 /***************
-You are given a string s consisting of lowercase English letters.
+You are given two positive integers x and y, denoting the number of coins with values 75 and 10 respectively.
 
-Return an integer denoting the maximum number of substrings you can split s into such that each substring starts with a distinct character 
-(i.e., no two substrings start with the same character).
+Alice and Bob are playing a game. Each turn, starting with Alice, 
+the player must pick up coins with a total value 115. If the player is unable to do so, they lose the game.
+
+Return the name of the player who wins the game if both players play optimally.
 
 Example 1:
-Input: s = "abab"
-Output: 2
+Input: x = 2, y = 7
+Output: "Alice"
 Explanation:
-Split "abab" into "a" and "bab".
-Each substring starts with a distinct character i.e 'a' and 'b'. Thus, the answer is 2.
+The game ends in a single turn:
+Alice picks 1 coin with a value of 75 and 4 coins with a value of 10.
 
 Example 2:
-Input: s = "abcd"
-Output: 4
+Input: x = 4, y = 11
+Output: "Bob"
 Explanation:
-Split "abcd" into "a", "b", "c", and "d".
-Each substring starts with a distinct character. Thus, the answer is 4.
-
-Example 3:
-Input: s = "aaaa"
-Output: 1
-Explanation:
-All characters in "aaaa" are 'a'.
-Only one substring can start with 'a'. Thus, the answer is 1.
+The game ends in 2 turns:
+Alice picks 1 coin with a value of 75 and 4 coins with a value of 10.
+Bob picks 1 coin with a value of 75 and 4 coins with a value of 10.
 ***************/
 
 

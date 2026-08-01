@@ -112,7 +112,7 @@
 112. EASY -> 3512. Minimum Operations to Make Array Sum Divisible by K
 113. MEDIUM -> 3016. Minimum Number of Pushes to Type Word II
 114. MEDIUM -> 3760. Maximum Substrings With Distinct Start
-115. EASY -> 
+115. EASY -> 3222. Find the Winning Player in Coin Game
 116. 
 
 
