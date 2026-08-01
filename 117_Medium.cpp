@@ -16,45 +16,65 @@ Output: [2,0,1]
 ***************/
 
 
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {} 
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
-    string reverseVowels(string s) 
+    ListNode* rotateRight(ListNode* head, int k) 
     {
-        vector<char> arr;
-        vector<bool> is;
+        // base case 
+        if(k == 0 || head == nullptr) return head; 
 
-        // if vowel pushed into char array
-        // and the bool array index becomes true
-        for(int i = 0; i < s.size(); i++)
+        // first insert the linkedlist into array
+        vector<int> arr;
+        ListNode* current = head;
+        while(current != nullptr)
         {
-            if(s[i] == 'a' || 
-            s[i] == 'A' ||
-            s[i] == 'e' ||
-            s[i] == 'E' ||
-            s[i] == 'i' ||
-            s[i] == 'I' ||
-            s[i] == 'o' ||
-            s[i] == 'O' ||
-            s[i] == 'u' ||
-            s[i] == 'U')
+            arr.push_back(current->val);
+            current = current->next;
+        }    
+
+        // do this to loop as needed; no over loop
+        k = k % arr.size();
+
+        // no need to loop 
+        if(k == 0) return head; 
+
+        // loop the rotated side
+        ListNode* pHead = nullptr; 
+        ListNode* pCurr = pHead;
+        for(int i = arr.size() - k; i < arr.size(); i++)
+        {
+            ListNode* pNew = new ListNode(arr[i]);
+            
+            // if first element in the linked list 
+            if(pHead == nullptr)
             {
-                arr.push_back(s[i]);
-                is.push_back(true);
+                pHead = pNew;
+                pCurr = pHead; 
             }
-            else is.push_back(false);
-        } 
-
-        int index = 1;
-        // based on it being array or not insert the arr from back
-        for(int j = 0; j < is.size(); j++)
-        {
-            if(is[j] == true)
+            else
             {
-                s[j] = arr[arr.size() - index];
-                index++;
+                pCurr->next = pNew;
+                pCurr = pNew;
             }
         }
 
-        return s;  
+        // loop the left over 
+        for(int j = 0; j < arr.size() - k; j++)
+        {
+            ListNode* pNew = new ListNode(arr[j]);
+            pCurr->next = pNew;
+            pCurr = pNew;
+        }
+
+        return pHead;
     }
 };
