@@ -22,33 +22,43 @@ Output: "leotcede"
 
 class Solution {
 public:
-    string winningPlayer(int x, int y) 
+    string reverseVowels(string s) 
     {
-        // base case - when Alice can't play at first 
-        if(y < 4) return "Bob";
+        vector<char> arr;
+        vector<bool> is;
 
-        bool Alice = false;
-        bool Bob = true;
-
-        while(x >= 1 && y >= 4)
+        // if vowel pushed into char array
+        // and the bool array index becomes true
+        for(int i = 0; i < s.size(); i++)
         {
-            // reduce it by needed 
-            x -= 1;
-            y -= 4;
-
-            if(Bob) 
+            if(s[i] == 'a' || 
+            s[i] == 'A' ||
+            s[i] == 'e' ||
+            s[i] == 'E' ||
+            s[i] == 'i' ||
+            s[i] == 'I' ||
+            s[i] == 'o' ||
+            s[i] == 'O' ||
+            s[i] == 'u' ||
+            s[i] == 'U')
             {
-                Alice = true;
-                Bob = false;
+                arr.push_back(s[i]);
+                is.push_back(true);
             }
-            else 
+            else is.push_back(false);
+        } 
+
+        int index = 1;
+        // based on it being array or not insert the arr from back
+        for(int j = 0; j < is.size(); j++)
+        {
+            if(is[j] == true)
             {
-                Bob = true;
-                Alice = false;
+                s[j] = arr[arr.size() - index];
+                index++;
             }
         }
 
-        if(Bob) return "Bob";
-        return "Alice";   
+        return s;  
     }
 };
