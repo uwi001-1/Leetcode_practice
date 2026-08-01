@@ -113,7 +113,7 @@
 113. MEDIUM -> 3016. Minimum Number of Pushes to Type Word II
 114. MEDIUM -> 3760. Maximum Substrings With Distinct Start
 115. EASY -> 3222. Find the Winning Player in Coin Game
-116. EASY -> 
+116. EASY -> 345. Reverse Vowels of a String
 117. 
 
 
