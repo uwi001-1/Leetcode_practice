@@ -31,28 +31,28 @@ Output: true
 
 class Solution {
 public:
-    // solve with recursion and dynamic programming
-    vector<vector<int>> dp;
-
-    int solve(vector<int>& nums, int l, int r)
+    // as the array is already sorted, solve by two pointers
+    vector<int> twoSum(vector<int>& numbers, int target) 
     {
-        // base case
-        if (l == r) return nums[l];
+        int left = 0;
+        int right = numbers.size() - 1;
 
-        if (dp[l][r] != INT_MIN)
-            return dp[l][r];
-        
-        int takeLeft = nums[l] - solve(nums, l + 1, r);
-        int takeRight = nums[r] - solve(nums, l, r - 1);
+        while (left < right)
+        {
+            int sum = numbers[left] + numbers[right];
 
-        return dp[l][r] = max(takeLeft, takeRight);
-    }
+            // if equal return the index
+            if (sum == target)
+                return {left + 1, right + 1};
 
-    bool stoneGame(vector<int>& piles) 
-    {
-        int n = piles.size();
-        dp.assign(n, vector<int>(n, INT_MIN));
+            if (sum < target)
+                // increase sum
+                left++;
+            else
+                // decrease sum
+                right--;
+        }
 
-        return solve(piles, 0, n - 1) >= 0;
+        return {};   
     }
 };
