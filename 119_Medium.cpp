@@ -48,11 +48,11 @@ public:
         return dp[l][r] = max(takeLeft, takeRight);
     }
 
-    bool predictTheWinner(vector<int>& nums) 
+    bool stoneGame(vector<int>& piles) 
     {
-        int n = nums.size();
+        int n = piles.size();
         dp.assign(n, vector<int>(n, INT_MIN));
 
-        return solve(nums, 0, n - 1) >= 0;
+        return solve(piles, 0, n - 1) >= 0;
     }
 };
