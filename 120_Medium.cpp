@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-// 877. Stone Game
+// 8167. Two Sum II - Input Array Is Sorted
 
 /***************
 Alice and Bob play a game with piles of stones. There are an even number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].
