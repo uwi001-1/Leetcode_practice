@@ -28,65 +28,30 @@ Finally, player 1 has more score (234) than player 2 (12), so you need to return
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {} 
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution {
 public:
-    ListNode* rotateRight(ListNode* head, int k) 
+    // solve with recursion and dynamic programming
+    vector<vector<int>> dp;
+
+    int solve(vector<int>& nums, int l, int r)
     {
-        // base case 
-        if(k == 0 || head == nullptr) return head; 
+        // base case
+        if (l == r) return nums[l];
 
-        // first insert the linkedlist into array
-        vector<int> arr;
-        ListNode* current = head;
-        while(current != nullptr)
-        {
-            arr.push_back(current->val);
-            current = current->next;
-        }    
+        if (dp[l][r] != INT_MIN)
+            return dp[l][r];
+        
+        int takeLeft = nums[l] - solve(nums, l + 1, r);
+        int takeRight = nums[r] - solve(nums, l, r - 1);
 
-        // do this to loop as needed; no over loop
-        k = k % arr.size();
+        return dp[l][r] = max(takeLeft, takeRight);
+    }
 
-        // no need to loop 
-        if(k == 0) return head; 
+    bool predictTheWinner(vector<int>& nums) 
+    {
+        int n = nums.size();
+        dp.assign(n, vector<int>(n, INT_MIN));
 
-        // loop the rotated side
-        ListNode* pHead = nullptr; 
-        ListNode* pCurr = pHead;
-        for(int i = arr.size() - k; i < arr.size(); i++)
-        {
-            ListNode* pNew = new ListNode(arr[i]);
-            
-            // if first element in the linked list 
-            if(pHead == nullptr)
-            {
-                pHead = pNew;
-                pCurr = pHead; 
-            }
-            else
-            {
-                pCurr->next = pNew;
-                pCurr = pNew;
-            }
-        }
-
-        // loop the left over 
-        for(int j = 0; j < arr.size() - k; j++)
-        {
-            ListNode* pNew = new ListNode(arr[j]);
-            pCurr->next = pNew;
-            pCurr = pNew;
-        }
-
-        return pHead;
+        return solve(nums, 0, n - 1) >= 0;
     }
 };
