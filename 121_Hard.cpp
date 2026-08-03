@@ -42,28 +42,37 @@ Explanation: Alice cannot win this game. She can end the game in a draw if she d
 
 class Solution {
 public:
-    // solve with recursion and dynamic programming
-    vector<vector<int>> dp;
-
-    int solve(vector<int>& nums, int l, int r)
+    string stoneGameIII(vector<int>& stoneValue) 
     {
-        // base case
-        if (l == r) return nums[l];
+        int n = stoneValue.size();
 
-        if (dp[l][r] != INT_MIN)
-            return dp[l][r];
-        
-        int takeLeft = nums[l] - solve(nums, l + 1, r);
-        int takeRight = nums[r] - solve(nums, l, r - 1);
+        vector<int> dp(n + 1, INT_MIN);
 
-        return dp[l][r] = max(takeLeft, takeRight);
-    }
+        // No stones left.
+        dp[n] = 0;
 
-    bool stoneGame(vector<int>& piles) 
-    {
-        int n = piles.size();
-        dp.assign(n, vector<int>(n, INT_MIN));
+        for (int i = n - 1; i >= 0; i--) 
+        {
+            int take = 0;
 
-        return solve(piles, 0, n - 1) >= 0;
+            // Try taking 1, 2 or 3 stones.
+            for (int k = 0; k < 3 && i + k < n; k++) 
+            {
+                take += stoneValue[i + k];
+
+                dp[i] = max(
+                    dp[i],
+                    take - dp[i + k + 1]
+                );
+            }
+        }
+
+        if (dp[0] > 0)
+            return "Alice";
+
+        if (dp[0] < 0)
+            return "Bob";
+
+        return "Tie";
     }
 };
