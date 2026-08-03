@@ -33,37 +33,22 @@ Explanation: The entire string is removed, so we return an empty string.
 
 class Solution {
 public:
-    string stoneGameIII(vector<int>& stoneValue) 
+    string removeStars(string s) 
     {
-        int n = stoneValue.size();
+        // Use stack 
+        string x = "";
 
-        vector<int> dp(n + 1, INT_MIN);
-
-        // No stones left.
-        dp[n] = 0;
-
-        for (int i = n - 1; i >= 0; i--) 
+        for(int i = 0; i < s.size(); i++)
         {
-            int take = 0;
+            if(s[i] != '*')  x.push_back(s[i]);
 
-            // Try taking 1, 2 or 3 stones.
-            for (int k = 0; k < 3 && i + k < n; k++) 
+            else
             {
-                take += stoneValue[i + k];
-
-                dp[i] = max(
-                    dp[i],
-                    take - dp[i + k + 1]
-                );
+                if(x.empty()) continue;
+                x.pop_back();
             }
-        }
+        }            
 
-        if (dp[0] > 0)
-            return "Alice";
-
-        if (dp[0] < 0)
-            return "Bob";
-
-        return "Tie";
+        return x;
     }
 };
