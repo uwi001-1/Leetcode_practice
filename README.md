@@ -27,6 +27,7 @@ Started: March 2026
 
 - Dynamic Programming
 - Divide and Conquer
+- Game Theory
 - Segment Tree
 - Trie
 - Monotonic Stack
@@ -41,6 +42,8 @@ Started: March 2026
 - Sliding Window
 - Brainteaser
 - Database
+- Dept-First Search
+- Breadth-First Search
 - Arrays
 - Linked Lists
 - Strings

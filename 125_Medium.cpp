@@ -38,26 +38,63 @@ All methods are suspicious. We can remove them.
 
 class Solution {
 public:
-// no need to make a vector array of the sum and sort it 
-// rather, keep checking with each new sum and min()
-// and ans with MAX VALUE
-
-    int minElement(vector<int>& nums) 
+    // DFS (Dept-First Search)
+    
+    void dfs(int node, vector<vector<int>>& graph, vector<bool>& suspicious)
     {
-        int ans = INT_MAX;
+        suspicious[node] = true;
 
-        for(int i = 0; i < nums.size(); i++)
+        for (int nei : graph[node])
         {
-            int sum = 0;
-
-            while(nums[i] > 0)
+            if (!suspicious[nei])
             {
-                sum += nums[i] % 10;
-                nums[i] = nums[i] / 10;
+                dfs(nei, graph, suspicious);
             }
+        }
+    }
 
-            ans = min(ans,sum);
-        }    
+    vector<int> remainingMethods(int n, int k, vector<vector<int>>& invocations) 
+    {
+        // Step 1: Build adjacency list
+        vector<vector<int>> graph(n);
+
+        for (auto &edge : invocations)
+        {
+            graph[edge[0]].push_back(edge[1]);
+        }
+
+        // Step 2: Find all suspicious methods
+        vector<bool> suspicious(n, false);
+        dfs(k, graph, suspicious);
+
+        // Step 3: Check if any non-suspicious method calls a suspicious method
+        for (auto &edge : invocations)
+        {
+            int u = edge[0];
+            int v = edge[1];
+
+            if (!suspicious[u] && suspicious[v])
+            {
+                // Cannot remove anything
+                vector<int> ans;
+                for (int i = 0; i < n; i++)
+                {
+                    ans.push_back(i);
+                }
+                return ans;
+            }
+        }
+
+        // Step 4: Return all remaining (non-suspicious) methods
+        vector<int> ans;
+
+        for (int i = 0; i < n; i++)
+        {
+            if (!suspicious[i])
+            {
+                ans.push_back(i);
+            }
+        }
 
         return ans;
     }
