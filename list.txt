@@ -122,7 +122,8 @@
 122. MEDIUM -> 2390. Removing Stars From a String
 123. MEDIUM -> 2161. Partition Array According to Given Pivot
 124. EASY -> 3300. Minimum Element After Replacement With Digit Sum
-125. 
+125. MEDIUM -> 
+126. 
 
 
 
@@ -141,6 +142,7 @@ reverse method:     std::reverse(n.begin(), n.end());
     }
 
 absolute value:     abs(element - digit);
+
 
 // to find min- we can assign this:     INT_MAX
 min:    min({b, a, l/2, o/2, n});
