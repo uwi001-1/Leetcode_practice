@@ -121,7 +121,8 @@
 121. HARD -> 1406. Stone Game III
 122. MEDIUM -> 2390. Removing Stars From a String
 123. MEDIUM -> 2161. Partition Array According to Given Pivot
-124. 
+124. EASY -> 
+125. 
 
 
 
