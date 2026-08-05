@@ -32,32 +32,27 @@ nums becomes [27, 10, 19] after all replacements, with minimum element 10.
 
 class Solution {
 public:
-    vector<int> pivotArray(vector<int>& nums, int pivot) 
-    {
-        vector<int> arr;
-        int num = 0;
+// no need to make a vector array of the sum and sort it 
+// rather, keep checking with each new sum and min()
+// and ans with MAX VALUE
 
-        // less than pivot
+    int minElement(vector<int>& nums) 
+    {
+        int ans = INT_MAX;
+
         for(int i = 0; i < nums.size(); i++)
         {
-            if(nums[i] < pivot) arr.push_back(nums[i]);
+            int sum = 0;
 
-            if(nums[i] == pivot) num++;
-        }   
+            while(nums[i] > 0)
+            {
+                sum += nums[i] % 10;
+                nums[i] = nums[i] / 10;
+            }
 
-        // no. of pivots to the array
-        while(num > 0)
-        {
-            arr.push_back(pivot);
-            num--;
-        }
+            ans = min(ans,sum);
+        }    
 
-        // more than pivot
-        for(int j = 0; j < nums.size(); j++)
-        {
-            if(nums[j] > pivot) arr.push_back(nums[j]);
-        }
-
-        return arr; 
+        return ans;
     }
 };
