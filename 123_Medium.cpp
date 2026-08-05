@@ -10,20 +10,18 @@ Every element less than pivot appears before every element greater than pivot.
 Every element equal to pivot appears in between the elements less than and greater than pivot.
 The relative order of the elements less than pivot and the elements greater than pivot is maintained.
 More formally, consider every pi, pj where pi is the new position of the ith element and pj is the new position of the jth element. If i < j and both elements are smaller (or larger) than pivot, then pi < pj.
+
 Return nums after the rearrangement.
 
- 
-
 Example 1:
-
 Input: nums = [9,12,5,10,14,3,10], pivot = 10
 Output: [9,5,3,10,10,12,14]
 Explanation: 
 The elements 9, 5, and 3 are less than the pivot so they are on the left side of the array.
 The elements 12 and 14 are greater than the pivot so they are on the right side of the array.
 The relative ordering of the elements less than and greater than pivot is also maintained. [9, 5, 3] and [12, 14] are the respective orderings.
-Example 2:
 
+Example 2:
 Input: nums = [-3,4,3,2], pivot = 2
 Output: [-3,2,4,3]
 Explanation: 
@@ -35,22 +33,32 @@ The relative ordering of the elements less than and greater than pivot is also m
 
 class Solution {
 public:
-    string removeStars(string s) 
+    vector<int> pivotArray(vector<int>& nums, int pivot) 
     {
-        // Use stack 
-        string x = "";
+        vector<int> arr;
+        int num = 0;
 
-        for(int i = 0; i < s.size(); i++)
+        // less than pivot
+        for(int i = 0; i < nums.size(); i++)
         {
-            if(s[i] != '*')  x.push_back(s[i]);
+            if(nums[i] < pivot) arr.push_back(nums[i]);
 
-            else
-            {
-                if(x.empty()) continue;
-                x.pop_back();
-            }
-        }            
+            if(nums[i] == pivot) num++;
+        }   
 
-        return x;
+        // no. of pivots to the array
+        while(num > 0)
+        {
+            arr.push_back(pivot);
+            num--;
+        }
+
+        // more than pivot
+        for(int j = 0; j < nums.size(); j++)
+        {
+            if(nums[j] > pivot) arr.push_back(nums[j]);
+        }
+
+        return arr; 
     }
 };
