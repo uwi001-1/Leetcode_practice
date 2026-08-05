@@ -10,6 +10,7 @@ Language Used: C++
 
 Started: March 2026
 
+---
 
 ## 📊 Progress
 
@@ -20,6 +21,7 @@ Started: March 2026
 | Hard       | 6 |
 | Total      | 122 |
 
+---
 
 ## Topics Covered
 
