@@ -124,7 +124,8 @@
 124. EASY -> 3300. Minimum Element After Replacement With Digit Sum
 125. MEDIUM -> 3310. Remove Methods From Project
 126. EASY -> 3345. Smallest Divisible Digit Product I
-127. 
+127. MEDIUM -> 
+128. 
 
 
 
