@@ -123,7 +123,8 @@
 123. MEDIUM -> 2161. Partition Array According to Given Pivot
 124. EASY -> 3300. Minimum Element After Replacement With Digit Sum
 125. MEDIUM -> 3310. Remove Methods From Project
-126. 
+126. EASY -> 
+127. 
 
 
 
