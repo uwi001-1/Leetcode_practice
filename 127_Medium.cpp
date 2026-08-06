@@ -32,29 +32,24 @@ So nums is rearranged to [1,-1].
 
 class Solution {
 public:
-    int smallestNumber(int n, int t) 
+    vector<int> rearrangeArray(vector<int>& nums) 
     {
-        int num = n;
+        vector<int> positive;
+        vector<int> negative;
+        vector<int> arr;
 
-        while(true)
+        for(int i = 0; i < nums.size(); i++)
         {
-            int pro = 1;
-            int x = num; 
+            if(nums[i] < 0) negative.push_back(nums[i]);
+            else positive.push_back(nums[i]);
+        }    
 
-            if (x == 0)
-                pro = 0;
-            else 
-            {
-                while(x > 0)
-                {
-                    pro *= x % 10;
-                    x = x / 10;
-                }
-            }
-
-            if(pro % t == 0) return num;
-
-            num++;
+        for(int j = 0; j < nums.size() / 2; j++)
+        {
+            arr.push_back(positive[j]);
+            arr.push_back(negative[j]);
         }
+
+        return arr;
     }
 };
