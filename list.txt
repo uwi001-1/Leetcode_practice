@@ -126,7 +126,8 @@
 126. EASY -> 3345. Smallest Divisible Digit Product I
 127. MEDIUM -> 2149. Rearrange Array Elements by Sign
 128. MEDIUM -> 82. Remove Duplicates from Sorted List II
-129. 
+129. EASY -> 
+130. 
 
 
 
