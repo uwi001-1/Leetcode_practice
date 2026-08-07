@@ -23,73 +23,22 @@ Output: 0
 ***************/
 
 
-// Definition for singly-linked list.
-struct ListNode 
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 class Solution {
 public:
-    ListNode* deleteDuplicates(ListNode* head) 
+    int minimumOperations(vector<int>& nums) 
     {
-        vector<int> arr;
+        // we could totally use MOD
+        int count = 0;
 
-        //push into an array
-        ListNode* curr = head;
-        int rep = -200;
-        while(curr != nullptr)
+        for(int i = 0; i < nums.size(); i++)
         {
-            // if rep don't push just head ahead
-            if(curr->val == rep)
-            {
-                curr = curr->next;
-                continue;
-            }
-
-            if(curr->next != nullptr)
-            {
-                // check for repetition
-                if(curr->next->val != curr->val) 
-                {
-                    arr.push_back(curr->val);
-                }
-                else rep = curr->val;
-            }
+            if(nums[i] % 3 == 0) continue;
             else
             {
-                // push the last value if it not rep
-                if(curr->val != rep) arr.push_back(curr->val);
+                count += min(nums[i] % 3, 3 - (nums[i] % 3));
             }
-            
-            curr = curr->next;
-        }
+        }  
 
-        // if array is empty 
-        if(arr.empty()) return nullptr;
-
-        // now push the array into a linked list in the head
-        ListNode* pHead = nullptr;
-        for(int i = arr.size()-1; i >=0; i--)
-        {
-            ListNode* pNew = new ListNode(arr[i]);
-
-            // enter new
-            if(pHead == nullptr)
-            {
-                pHead = pNew;
-            }
-            else
-            {
-                pNew->next = pHead;
-                pHead = pNew;
-            }
-        }
-        
-        return pHead;    
+        return count;  
     }
 };
