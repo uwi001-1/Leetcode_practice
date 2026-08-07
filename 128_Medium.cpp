@@ -17,26 +17,73 @@ Output: [2,3]
 ***************/
 
 
+// Definition for singly-linked list.
+struct ListNode 
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
-    vector<int> rearrangeArray(vector<int>& nums) 
+    ListNode* deleteDuplicates(ListNode* head) 
     {
-        vector<int> positive;
-        vector<int> negative;
         vector<int> arr;
 
-        for(int i = 0; i < nums.size(); i++)
+        //push into an array
+        ListNode* curr = head;
+        int rep = -200;
+        while(curr != nullptr)
         {
-            if(nums[i] < 0) negative.push_back(nums[i]);
-            else positive.push_back(nums[i]);
-        }    
+            // if rep don't push just head ahead
+            if(curr->val == rep)
+            {
+                curr = curr->next;
+                continue;
+            }
 
-        for(int j = 0; j < nums.size() / 2; j++)
-        {
-            arr.push_back(positive[j]);
-            arr.push_back(negative[j]);
+            if(curr->next != nullptr)
+            {
+                // check for repetition
+                if(curr->next->val != curr->val) 
+                {
+                    arr.push_back(curr->val);
+                }
+                else rep = curr->val;
+            }
+            else
+            {
+                // push the last value if it not rep
+                if(curr->val != rep) arr.push_back(curr->val);
+            }
+            
+            curr = curr->next;
         }
 
-        return arr;
+        // if array is empty 
+        if(arr.empty()) return nullptr;
+
+        // now push the array into a linked list in the head
+        ListNode* pHead = nullptr;
+        for(int i = arr.size()-1; i >=0; i--)
+        {
+            ListNode* pNew = new ListNode(arr[i]);
+
+            // enter new
+            if(pHead == nullptr)
+            {
+                pHead = pNew;
+            }
+            else
+            {
+                pNew->next = pHead;
+                pHead = pNew;
+            }
+        }
+        
+        return pHead;    
     }
 };
