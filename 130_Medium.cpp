@@ -48,20 +48,45 @@ Output: [0,1]
 
 class Solution {
 public:
-    int minimumOperations(vector<int>& nums) 
+    vector<int> validSequence(string word1, string word2) 
     {
-        // we could totally use MOD
-        int count = 0;
-
-        for(int i = 0; i < nums.size(); i++)
-        {
-            if(nums[i] % 3 == 0) continue;
-            else
-            {
-                count += min(nums[i] % 3, 3 - (nums[i] % 3));
+        int n = word1.size(), m = word2.size();
+        
+        // suf[i] = smallest index in word2 that can be matched EXACTLY 
+        // as a subsequence using word1[i..n-1]
+        vector<int> suf(n + 1, m);
+        
+        for (int i = n - 1; i >= 0; i--) {
+            suf[i] = suf[i + 1];
+            if (suf[i] > 0 && word1[i] == word2[suf[i] - 1]) {
+                suf[i]--;   // one more character matched from the back
             }
-        }  
-
-        return count;  
+        }
+        
+        vector<int> res;
+        int i = 0, j = 0;
+        bool mismatchUsed = false;
+        
+        while (j < m) {
+            if (i >= n) return {};   // ran out of word1, impossible
+            
+            if (word1[i] == word2[j]) {
+                // free match, take it
+                res.push_back(i);
+                i++; j++;
+            }
+            else if (!mismatchUsed && suf[i + 1] <= j + 1) {
+                // use this as our ONE allowed change
+                res.push_back(i);
+                i++; j++;
+                mismatchUsed = true;
+            }
+            else {
+                // skip this index of word1, look further
+                i++;
+            }
+        }
+        
+        return res;    
     }
 };
