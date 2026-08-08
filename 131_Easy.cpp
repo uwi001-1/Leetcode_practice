@@ -40,45 +40,28 @@ Thus, the string formed by concatenating the mapped characters is "g".
 
 class Solution {
 public:
-    vector<int> validSequence(string word1, string word2) 
+    string mapWordWeights(vector<string>& words, vector<int>& weights) 
     {
-        int n = word1.size(), m = word2.size();
-        
-        // suf[i] = smallest index in word2 that can be matched EXACTLY 
-        // as a subsequence using word1[i..n-1]
-        vector<int> suf(n + 1, m);
-        
-        for (int i = n - 1; i >= 0; i--) {
-            suf[i] = suf[i + 1];
-            if (suf[i] > 0 && word1[i] == word2[suf[i] - 1]) {
-                suf[i]--;   // one more character matched from the back
-            }
-        }
-        
-        vector<int> res;
-        int i = 0, j = 0;
-        bool mismatchUsed = false;
-        
-        while (j < m) {
-            if (i >= n) return {};   // ran out of word1, impossible
+        string ans = "";
+
+        for(int i = 0; i < words.size(); i++)
+        {
+            int sum = 0;
             
-            if (word1[i] == word2[j]) {
-                // free match, take it
-                res.push_back(i);
-                i++; j++;
+            for(int j = 0; j < words[i].size(); j++)
+            {
+                int index = words[i][j] - 'a';
+
+                sum += weights[index];
             }
-            else if (!mismatchUsed && suf[i + 1] <= j + 1) {
-                // use this as our ONE allowed change
-                res.push_back(i);
-                i++; j++;
-                mismatchUsed = true;
-            }
-            else {
-                // skip this index of word1, look further
-                i++;
-            }
+
+            int num = sum % 26;
+
+            char letter = 'z' - num;
+
+            ans += letter;
         }
-        
-        return res;    
+
+        return ans;
     }
 };
