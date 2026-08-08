@@ -17,9 +17,9 @@ Started: March 2026
 | Difficulty | Solved |
 |------------|---------|
 | Easy       | 66 |
-| Medium     | 57 |
+| Medium     | 58 |
 | Hard       | 6 |
-| Total      | 129 |
+| Total      | 130 |
 
 ---
 
