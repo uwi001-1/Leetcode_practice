@@ -37,46 +37,44 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 ***************/
 
 
+// this uses two array 
+
+
+// this is 900ms 💀
+// as we calculate each time 
 class Solution {
 public:
-    int stoneGameII(vector<int>& piles) 
+    int pivotIndex(vector<int>& nums) 
     {
-        int n = piles.size();
-
-        // suffix sums
-        vector<int> suffix(n + 1, 0);
-        for (int i = n - 1; i >= 0; i--)
-            suffix[i] = suffix[i + 1] + piles[i];
-
-        // dp[i][M] = max stones current player can get from piles[i..n-1] given current M
-        vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
-
-        for (int i = n - 1; i >= 0; i--) 
+        for(int i = 0; i < nums.size(); i++)
         {
-            for (int M = 1; M <= n; M++) 
+            int sumLeft = 0;
+            if(i == 0) sumLeft = 0;
+            else
             {
-                // If we can take all remaining piles, do it.
-                if (i + 2 * M >= n) 
+                int left = i - 1;
+                while(left >= 0)
                 {
-                    dp[i][M] = suffix[i];
-                    continue;
+                    sumLeft += nums[left];
+                    left--;
                 }
-
-                int best = 0;
-
-                for (int X = 1; X <= 2 * M; X++) 
-                {
-                    int nextM = max(M, X);
-
-                    int stones = suffix[i] - dp[i + X][nextM];
-
-                    best = max(best, stones);
-                }
-
-                dp[i][M] = best;
             }
+
+            int sumRight = 0;
+            if(i == nums.size()-1) sumRight = 0;
+            else
+            {
+                int right = i + 1;
+                while(right < nums.size())
+                {
+                    sumRight += nums[right];
+                    right++;
+                }
+            }
+
+            if(sumLeft == sumRight) return i;
         }
 
-        return dp[0][1];    
+        return -1;
     }
 };
