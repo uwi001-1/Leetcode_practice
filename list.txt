@@ -129,7 +129,8 @@
 129. EASY -> 3190. Find Minimum Operations to Make All Elements Divisible by Three
 130. MEDIUM -> 3302. Find the Lexicographically Smallest Valid Sequence
 131. EASY -> 3838. Weighted Word Mapping
-132. 
+132. MEDIUM -> 
+133. 
 
 
 
