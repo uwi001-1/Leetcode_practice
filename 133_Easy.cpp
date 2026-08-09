@@ -38,6 +38,44 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
 
 // this uses two array 
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) 
+    {
+        int total = 0;
+        
+        for(int i = 0; i < nums.size(); i++)
+        {
+            total += nums[i];
+        }
+
+        vector<int> sumLeft(nums.size());
+        vector<int> sumRight(nums.size());
+
+        int left = 0;
+        int right = total;
+
+        for(int i = 0; i < nums.size(); i++)
+        {
+            // Remove current element from the right side
+            right -= nums[i];
+
+            sumLeft[i] = left;
+            sumRight[i] = right;
+
+            // Add current element to the left side
+            left += nums[i];
+        }
+
+        for(int i = 0; i < nums.size(); i++)
+        {
+            if(sumLeft[i] == sumRight[i])
+                return i;
+        }
+
+        return -1;
+    }
+};
 
 
 // this is 900ms 💀
