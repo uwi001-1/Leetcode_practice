@@ -130,7 +130,8 @@
 130. MEDIUM -> 3302. Find the Lexicographically Smallest Valid Sequence
 131. EASY -> 3838. Weighted Word Mapping
 132. MEDIUM -> 1140. Stone Game II
-133. 
+133. EASY -> 
+134. 
 
 
 
