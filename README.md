@@ -16,10 +16,10 @@ Started: March 2026
 
 | Difficulty | Solved |
 |------------|---------|
-| Easy       | 67 |
+| Easy       | 68 |
 | Medium     | 59 |
 | Hard       | 6 |
-| Total      | 132 |
+| Total      | 133 |
 
 ---
 

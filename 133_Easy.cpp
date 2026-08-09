@@ -1,29 +1,39 @@
 #include<iostream>
 using namespace std;
 
-// 1140. Stone Game II
+// 724. Find Pivot Index
 
 /***************
-Alice and Bob continue their games with piles of stones. There are a number of piles arranged in a row, and each pile has a positive integer number of stones piles[i]. 
-The objective of the game is to end with the most stones.
+Given an array of integers nums, calculate the pivot index of this array.
 
-Alice and Bob take turns, with Alice starting first.
+The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
 
-On each player's turn, that player can take all the stones in the first X remaining piles, where 1 <= X <= 2M. Then, we set M = max(M, X). Initially, M = 1.The game continues until all the stones have been taken.
+If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. 
+This also applies to the right edge of the array.
 
-Assuming Alice and Bob play optimally, return the maximum number of stones Alice can get.
+Return the leftmost pivot index. If no such index exists, return -1.
 
 Example 1:
-Input: piles = [2,7,9,4,4]
-Output: 10
+Input: nums = [1,7,3,6,5,6]
+Output: 3
 Explanation:
-If Alice takes one pile at the beginning, Bob takes two piles, then Alice takes 2 piles again. Alice can get 2 + 4 + 4 = 10 stones in total.
-If Alice takes two piles at the beginning, then Bob can take all three piles left. In this case, Alice get 2 + 7 = 9 stones in total.
-So we return 10 since it's larger.
+The pivot index is 3.
+Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
+Right sum = nums[4] + nums[5] = 5 + 6 = 11
 
 Example 2:
-Input: piles = [1,2,3,4,5,100]
-Output: 104
+Input: nums = [1,2,3]
+Output: -1
+Explanation:
+There is no index that satisfies the conditions in the problem statement.
+
+Example 3:
+Input: nums = [2,1,-1]
+Output: 0
+Explanation:
+The pivot index is 0.
+Left sum = 0 (no elements to the left of index 0)
+Right sum = nums[1] + nums[2] = 1 + -1 = 0
 ***************/
 
 
