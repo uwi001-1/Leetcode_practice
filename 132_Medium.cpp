@@ -29,28 +29,44 @@ Output: 104
 
 class Solution {
 public:
-    string mapWordWeights(vector<string>& words, vector<int>& weights) 
+    int stoneGameII(vector<int>& piles) 
     {
-        string ans = "";
+        int n = piles.size();
 
-        for(int i = 0; i < words.size(); i++)
+        // suffix sums
+        vector<int> suffix(n + 1, 0);
+        for (int i = n - 1; i >= 0; i--)
+            suffix[i] = suffix[i + 1] + piles[i];
+
+        // dp[i][M] = max stones current player can get from piles[i..n-1] given current M
+        vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
+
+        for (int i = n - 1; i >= 0; i--) 
         {
-            int sum = 0;
-            
-            for(int j = 0; j < words[i].size(); j++)
+            for (int M = 1; M <= n; M++) 
             {
-                int index = words[i][j] - 'a';
+                // If we can take all remaining piles, do it.
+                if (i + 2 * M >= n) 
+                {
+                    dp[i][M] = suffix[i];
+                    continue;
+                }
 
-                sum += weights[index];
+                int best = 0;
+
+                for (int X = 1; X <= 2 * M; X++) 
+                {
+                    int nextM = max(M, X);
+
+                    int stones = suffix[i] - dp[i + X][nextM];
+
+                    best = max(best, stones);
+                }
+
+                dp[i][M] = best;
             }
-
-            int num = sum % 26;
-
-            char letter = 'z' - num;
-
-            ans += letter;
         }
 
-        return ans;
+        return dp[0][1];    
     }
 };
