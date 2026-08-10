@@ -18,8 +18,8 @@ Started: March 2026
 |------------|---------|
 | Easy       | 68 |
 | Medium     | 60 |
-| Hard       | 6 |
-| Total      | 134 |
+| Hard       | 7 |
+| Total      | 135 |
 
 ---
 
