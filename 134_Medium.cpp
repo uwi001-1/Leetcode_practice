@@ -21,82 +21,28 @@ Output: [1,1,0]
 ***************/
 
 
-// this uses two array 
 class Solution {
 public:
-    int pivotIndex(vector<int>& nums) 
+    vector<int> dailyTemperatures(vector<int>& temperatures) 
     {
-        int total = 0;
-        
-        for(int i = 0; i < nums.size(); i++)
+        vector<int> ans(temperatures.size(), 0);
+
+        stack<int> st;
+
+        for(int i = 0; i < temperatures.size(); i++)
         {
-            total += nums[i];
-        }
-
-        vector<int> sumLeft(nums.size());
-        vector<int> sumRight(nums.size());
-
-        int left = 0;
-        int right = total;
-
-        for(int i = 0; i < nums.size(); i++)
-        {
-            // Remove current element from the right side
-            right -= nums[i];
-
-            sumLeft[i] = left;
-            sumRight[i] = right;
-
-            // Add current element to the left side
-            left += nums[i];
-        }
-
-        for(int i = 0; i < nums.size(); i++)
-        {
-            if(sumLeft[i] == sumRight[i])
-                return i;
-        }
-
-        return -1;
-    }
-};
-
-
-// this is 900ms 💀
-// as we calculate each time 
-class Solution {
-public:
-    int pivotIndex(vector<int>& nums) 
-    {
-        for(int i = 0; i < nums.size(); i++)
-        {
-            int sumLeft = 0;
-            if(i == 0) sumLeft = 0;
-            else
+            while(!st.empty() && temperatures[i] > temperatures[st.top()])
             {
-                int left = i - 1;
-                while(left >= 0)
-                {
-                    sumLeft += nums[left];
-                    left--;
-                }
+                int prev = st.top();
+                st.pop();
+
+                // current index - index of prev
+                ans[prev] = i - prev;
             }
 
-            int sumRight = 0;
-            if(i == nums.size()-1) sumRight = 0;
-            else
-            {
-                int right = i + 1;
-                while(right < nums.size())
-                {
-                    sumRight += nums[right];
-                    right++;
-                }
-            }
-
-            if(sumLeft == sumRight) return i;
+            st.push(i);
         }
 
-        return -1;
+        return ans;
     }
 };
