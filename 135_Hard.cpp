@@ -31,26 +31,25 @@ Explanation: n is already a perfect square, Alice can win with one move, removin
 
 class Solution {
 public:
-    vector<int> dailyTemperatures(vector<int>& temperatures) 
+    // try by dynamic programming 
+    bool winnerSquareGame(int n) 
     {
-        vector<int> ans(temperatures.size(), 0);
+        // remove 1's or a perfect square 
 
-        stack<int> st;
-
-        for(int i = 0; i < temperatures.size(); i++)
+        vector<bool> dp(n + 1, false);
+        
+        for (int i = 1; i <= n; ++i)
         {
-            while(!st.empty() && temperatures[i] > temperatures[st.top()])
+            for (int k = 1; k * k <= i; k++) 
             {
-                int prev = st.top();
-                st.pop();
-
-                // current index - index of prev
-                ans[prev] = i - prev;
+                if (!dp[i - k * k])
+                {
+                    dp[i] = true;
+                    break;
+                }
             }
-
-            st.push(i);
         }
 
-        return ans;
+        return dp[n];
     }
 };
