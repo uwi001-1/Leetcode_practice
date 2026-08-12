@@ -27,25 +27,30 @@ Therefore 15 is the smallest missing integer greater than or equal to the sum of
 
 class Solution {
 public:
-    // try by dynamic programming 
-    bool winnerSquareGame(int n) 
+    int missingInteger(vector<int>& nums) 
     {
-        // remove 1's or a perfect square 
+        // base case
+        if(nums.size() == 1) return nums[0]+1;
 
-        vector<bool> dp(n + 1, false);
-        
-        for (int i = 1; i <= n; ++i)
+        // prefix 
+        int sum = nums[0];
+
+        for(int i = 1; i < nums.size(); i++)
         {
-            for (int k = 1; k * k <= i; k++) 
+            if(nums[i] == nums[i-1] + 1)
             {
-                if (!dp[i - k * k])
-                {
-                    dp[i] = true;
-                    break;
-                }
+                sum += nums[i];
             }
+            else break;
         }
 
-        return dp[n];
+        std::sort(nums.begin(), nums.end());
+
+        for(int j = 0; j < nums.size(); j++)
+        {
+            if(sum == nums[j]) sum++;
+        }   
+
+        return sum;
     }
 };
