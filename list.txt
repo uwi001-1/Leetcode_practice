@@ -133,7 +133,7 @@
 133. EASY -> 724. Find Pivot Index
 134. MEDIUM -> 739. Daily Temperatures
 135. HARD -> 1510. Stone Game IV
-136. EASY -> 
+136. EASY -> 2996. Smallest Missing Integer Greater Than Sequential Prefix Sum
 137. 
 
 
