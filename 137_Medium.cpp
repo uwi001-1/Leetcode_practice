@@ -34,30 +34,24 @@ It can be shown that there are no good subarrays with length more than 4.
 
 class Solution {
 public:
-    int missingInteger(vector<int>& nums) 
-    {
-        // base case
-        if(nums.size() == 1) return nums[0]+1;
+    int maxSubarrayLength(vector<int>& nums, int k) {
+        unordered_map<int, int> freq;
 
-        // prefix 
-        int sum = nums[0];
+        int left = 0;
+        int ans = 0;
 
-        for(int i = 1; i < nums.size(); i++)
-        {
-            if(nums[i] == nums[i-1] + 1)
-            {
-                sum += nums[i];
+        for (int right = 0; right < nums.size(); right++) {
+
+            freq[nums[right]]++;
+
+            while (freq[nums[right]] > k) {
+                freq[nums[left]]--;
+                left++;
             }
-            else break;
+
+            ans = max(ans, right - left + 1);
         }
 
-        std::sort(nums.begin(), nums.end());
-
-        for(int j = 0; j < nums.size(); j++)
-        {
-            if(sum == nums[j]) sum++;
-        }   
-
-        return sum;
+        return ans;
     }
 };
