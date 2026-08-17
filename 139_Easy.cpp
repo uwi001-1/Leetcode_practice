@@ -25,23 +25,18 @@ Output: [1,2,1,2]
 
 class Solution {
 public:
-    int maxSubarrayLength(vector<int>& nums, int k) {
-        unordered_map<int, int> freq;
+    vector<int> shuffle(vector<int>& nums, int n) 
+    {
+        vector<int> ans(nums.size(), 0);
+        int index = 0;
 
-        int left = 0;
-        int ans = 0;
-
-        for (int right = 0; right < nums.size(); right++) {
-
-            freq[nums[right]]++;
-
-            while (freq[nums[right]] > k) {
-                freq[nums[left]]--;
-                left++;
-            }
-
-            ans = max(ans, right - left + 1);
-        }
+        for(int i = 0; i < n; i++)
+        {
+            ans[index] = nums[i];
+            index++;
+            ans[index] = nums[n+i];
+            index++; 
+        }   
 
         return ans;
     }
