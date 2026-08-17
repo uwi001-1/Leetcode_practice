@@ -27,23 +27,15 @@ Explanation: The array ans is formed as follows:
 
 class Solution {
 public:
-    int maxSubarrayLength(vector<int>& nums, int k) {
-        unordered_map<int, int> freq;
+    vector<int> getConcatenation(vector<int>& nums) 
+    {
+        vector<int> ans(nums.size()*2, 0);
 
-        int left = 0;
-        int ans = 0;
-
-        for (int right = 0; right < nums.size(); right++) {
-
-            freq[nums[right]]++;
-
-            while (freq[nums[right]] > k) {
-                freq[nums[left]]--;
-                left++;
-            }
-
-            ans = max(ans, right - left + 1);
-        }
+        for(int i = 0; i < nums.size(); i++)
+        {
+            ans[i] = nums[i];
+            ans[i + nums.size()] = nums[i];
+        }    
 
         return ans;
     }
