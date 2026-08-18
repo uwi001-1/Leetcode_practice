@@ -135,10 +135,10 @@
 135. HARD -> 1510. Stone Game IV
 136. EASY -> 2996. Smallest Missing Integer Greater Than Sequential Prefix Sum
 137. MEDIUM -> 2958. Length of Longest Subarray With at Most K Frequency
-138. EASY -> Q1. Concatenation of Array
-139. EASY -> Q2. Shuffle the Array
-140. EASY -> Q3. Max Consecutive Ones
-141. EASY -> 
+138. EASY -> (Array I) Q1. Concatenation of Array
+139. EASY -> (Array I) Q2. Shuffle the Array
+140. EASY -> (Array I) Q3. Max Consecutive Ones
+141. EASY -> (Array II) Q1. Set Mismatch
 142. 
 
 
