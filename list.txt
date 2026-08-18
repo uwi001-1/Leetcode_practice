@@ -138,7 +138,8 @@
 138. EASY -> Q1. Concatenation of Array
 139. EASY -> Q2. Shuffle the Array
 140. EASY -> Q3. Max Consecutive Ones
-141. 
+141. EASY -> 
+142. 
 
 
 
