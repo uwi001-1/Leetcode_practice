@@ -22,22 +22,34 @@ Output: [1,2]
 
 class Solution {
 public:
-    int findMaxConsecutiveOnes(vector<int>& nums) 
+    vector<int> findErrorNums(vector<int>& nums) 
     {
-        int ans = 0; 
-        int sum = 0;
+        std::sort(nums.begin(), nums.end());
+        vector<int> ans(2);
 
-        for(int i = 0; i < nums.size(); i++)
-        {
-            if(nums[i] == 1) 
-            {
-                sum++;
+        
+        int index = 1;
+        bool once = false;
+
+        for (int i = 0; i < nums.size() - 1; i++) {
+            
+            // Duplicate
+            if (nums[i] == nums[i + 1]) {
+                ans[0] = nums[i];
             }
-            else sum = 0;
+            
+            // Missing number
+            else if (nums[i + 1] - nums[i] > 1) {
+                ans[1] = nums[i] + 1;
+            }
+        } 
 
-            ans = max(ans, sum);
-        }    
+        // missing in the beginning
+        if(nums[0] != 1) ans[1] = 1;
 
+        // missing in the end
+        if (nums[nums.size() - 1] != nums.size()) ans[1] = nums.size();
+        
         return ans;
     }
 };
