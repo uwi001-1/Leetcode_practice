@@ -139,7 +139,7 @@
 139. EASY -> (Array I) Q2. Shuffle the Array
 140. EASY -> (Array I) Q3. Max Consecutive Ones
 141. EASY -> (Array II) Q1. Set Mismatch
-142. EASY -> 
+142. EASY -> 3069. Distribute Elements Into Two Arrays I
 143. 
 
 
