@@ -35,34 +35,34 @@ Hence, the array result formed by concatenation is [5,3,4,8].
 
 class Solution {
 public:
-    vector<int> findErrorNums(vector<int>& nums) 
+    vector<int> resultArray(vector<int>& nums) 
     {
-        std::sort(nums.begin(), nums.end());
-        vector<int> ans(2);
+        vector<int> arr1;
+        vector<int> arr2;
 
-        
-        int index = 1;
-        bool once = false;
+        arr1.push_back(nums[0]);
+        arr2.push_back(nums[1]);
+        int i1 = 0;
+        int i2 = 0;
 
-        for (int i = 0; i < nums.size() - 1; i++) {
-            
-            // Duplicate
-            if (nums[i] == nums[i + 1]) {
-                ans[0] = nums[i];
+        for(int i = 2; i < nums.size(); i++)
+        {
+            if(arr1[i1] > arr2[i2]) 
+            {
+                arr1.push_back(nums[i]);
+                i1++;
             }
-            
-            // Missing number
-            else if (nums[i + 1] - nums[i] > 1) {
-                ans[1] = nums[i] + 1;
+            else
+            {
+                arr2.push_back(nums[i]);
+                i2++;
             }
-        } 
+        }
 
-        // missing in the beginning
-        if(nums[0] != 1) ans[1] = 1;
+        nums = arr1;
 
-        // missing in the end
-        if (nums[nums.size() - 1] != nums.size()) ans[1] = nums.size();
-        
-        return ans;
+        nums.insert(nums.end(), arr2.begin(), arr2.end());
+
+        return nums;
     }
 };
