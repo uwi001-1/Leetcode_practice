@@ -141,7 +141,7 @@
 141. EASY -> (Array II) Q1. Set Mismatch
 142. EASY -> 3069. Distribute Elements Into Two Arrays I
 143. EASY -> 3622. Check Divisibility by Digit Sum and Product
-144. EASY -> (Array II) 
+144. EASY -> (Array II) Q2. How Many Numbers Are Smaller Than the Current Number
 145. 
 
 
