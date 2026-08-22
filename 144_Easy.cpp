@@ -29,31 +29,29 @@ Output: [0,0,0,0]
 ***************/
 
 
+// Brute Force O(n^2)
 class Solution {
 public:
-    bool checkDivisibility(int n) 
+    // Brute Force
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) 
     {
-        int num = n;
-        int sum = 0;
-        int pro = 1;
+        vector<int> arr;
 
-        while(n >= 10)
+        for(int i = 0; i < nums.size(); i++)
         {
-            //get the last digit 
-            int one = n % 10;
+            int count = 0;
 
-            sum += one;
-            pro *= one;
+            for(int j = 0; j < nums.size(); j++)
+            {
+                if(j != i)
+                {
+                    if(nums[i] > nums[j]) count++;
+                }
+            }
 
-            // reduce it 
-            n = n/10;
+            arr.push_back(count);
         }
-        sum += n;
-        pro *= n;
 
-        int total = sum + pro;
-
-        if(num % total == 0) return true;
-        return false;
+        return arr;
     }
 };
