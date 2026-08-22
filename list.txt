@@ -142,7 +142,8 @@
 142. EASY -> 3069. Distribute Elements Into Two Arrays I
 143. EASY -> 3622. Check Divisibility by Digit Sum and Product
 144. EASY -> (Array II) Q2. How Many Numbers Are Smaller Than the Current Number
-145. 
+145. EASY -> (Array II) 
+146. 
 
 
 
@@ -176,6 +177,8 @@ string to integer:      int n = stoi(s);
 gcd of two numbers      std::gcd(num1, num2);
 
 Hash table 
+----> could try with Frequency table (if needed cumilative frequency)
+
 // stores number -> rank
     unordered_map<int, int> rankMap;
 rankMap[40] = 4
