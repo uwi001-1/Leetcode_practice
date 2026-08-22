@@ -142,7 +142,7 @@
 142. EASY -> 3069. Distribute Elements Into Two Arrays I
 143. EASY -> 3622. Check Divisibility by Digit Sum and Product
 144. EASY -> (Array II) Q2. How Many Numbers Are Smaller Than the Current Number
-145. EASY -> (Array II) 
+145. EASY -> (Array II) Q3. Find All Numbers Disappeared in an Array
 146. 
 
 
