@@ -17,64 +17,23 @@ Output: [2]
 ***************/
 
 
-// Hash Table O(n + K) --> 0ms
+// Hash Table --> 0ms
 class Solution {
 public:
-    // Hash Table 
-    vector<int> smallerNumbersThanCurrent(vector<int>& nums) 
+    // Hash table 
+    vector<int> findDisappearedNumbers(vector<int>& nums) 
     {
-        // frequency array 
-        vector<int> freq(101, 0);
-
-        // make the frequency array
-        for(int i = 0; i < nums.size(); i++)
-        {
-            freq[nums[i]]++;
-        }
-
-        // cumilative frequency array
-        int count = 0;
-        for(int j = 0; j < 101; j++)
-        {
-            int temp = freq[j];
-
-            freq[j] = count;
-
-            count += temp;
-        }
-
-        vector<int> arr;
-        for(int k = 0; k < nums.size(); k++)
-        {
-            arr.push_back(freq[nums[k]]);
-        }
-
-        return arr;
-    }
-};
-
-
-// Brute Force O(n^2) --> 15ms
-class Solution {
-public:
-    // Brute Force
-    vector<int> smallerNumbersThanCurrent(vector<int>& nums) 
-    {
+        vector<int> freq(nums.size() + 1, 0);
         vector<int> arr;
 
-        for(int i = 0; i < nums.size(); i++)
+        for(int n: nums)
         {
-            int count = 0;
+            freq[n]++;
+        }  
 
-            for(int j = 0; j < nums.size(); j++)
-            {
-                if(j != i)
-                {
-                    if(nums[i] > nums[j]) count++;
-                }
-            }
-
-            arr.push_back(count);
+        for(int i = 1; i <= nums.size(); i++)
+        {
+            if(freq[i] == 0) arr.push_back(i);
         }
 
         return arr;
