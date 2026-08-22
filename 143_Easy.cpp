@@ -25,34 +25,29 @@ Since 23 is not divisible by the sum (2 + 3 = 5) plus product (2 * 3 = 6) of its
 
 class Solution {
 public:
-    vector<int> resultArray(vector<int>& nums) 
+    bool checkDivisibility(int n) 
     {
-        vector<int> arr1;
-        vector<int> arr2;
+        int num = n;
+        int sum = 0;
+        int pro = 1;
 
-        arr1.push_back(nums[0]);
-        arr2.push_back(nums[1]);
-        int i1 = 0;
-        int i2 = 0;
-
-        for(int i = 2; i < nums.size(); i++)
+        while(n >= 10)
         {
-            if(arr1[i1] > arr2[i2]) 
-            {
-                arr1.push_back(nums[i]);
-                i1++;
-            }
-            else
-            {
-                arr2.push_back(nums[i]);
-                i2++;
-            }
+            //get the last digit 
+            int one = n % 10;
+
+            sum += one;
+            pro *= one;
+
+            // reduce it 
+            n = n/10;
         }
+        sum += n;
+        pro *= n;
 
-        nums = arr1;
+        int total = sum + pro;
 
-        nums.insert(nums.end(), arr2.begin(), arr2.end());
-
-        return nums;
+        if(num % total == 0) return true;
+        return false;
     }
 };
