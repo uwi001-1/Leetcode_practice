@@ -29,7 +29,44 @@ Output: [0,0,0,0]
 ***************/
 
 
-// Brute Force O(n^2)
+// Hash Table O(n + K) --> 0ms
+class Solution {
+public:
+    // Hash Table 
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) 
+    {
+        // frequency array 
+        vector<int> freq(101, 0);
+
+        // make the frequency array
+        for(int i = 0; i < nums.size(); i++)
+        {
+            freq[nums[i]]++;
+        }
+
+        // cumilative frequency array
+        int count = 0;
+        for(int j = 0; j < 101; j++)
+        {
+            int temp = freq[j];
+
+            freq[j] = count;
+
+            count += temp;
+        }
+
+        vector<int> arr;
+        for(int k = 0; k < nums.size(); k++)
+        {
+            arr.push_back(freq[nums[k]]);
+        }
+
+        return arr;
+    }
+};
+
+
+// Brute Force O(n^2) --> 15ms
 class Solution {
 public:
     // Brute Force
