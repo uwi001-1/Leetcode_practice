@@ -47,25 +47,30 @@ The answers that read integer 3 from the stream are not accepted.
 ***************/
 
 
-// Hash Table --> 0ms
 class Solution {
 public:
-    // Hash table 
-    vector<int> findDisappearedNumbers(vector<int>& nums) 
+    vector<string> buildArray(vector<int>& target, int n) 
     {
-        vector<int> freq(nums.size() + 1, 0);
-        vector<int> arr;
+        vector<string> ope;
 
-        for(int n: nums)
-        {
-            freq[n]++;
-        }  
+        int index = 0;
 
-        for(int i = 1; i <= nums.size(); i++)
+        // stops when we reach the end of the target array
+        for(int i = 1; i <= n && index < target.size(); i++)
         {
-            if(freq[i] == 0) arr.push_back(i);
+            if(target[index] == i)
+            {
+                ope.push_back("Push");
+                index++;
+            }            
+            // when we don't need the number in the target array, we push and pop it
+            else
+            {
+                ope.push_back("Push");
+                ope.push_back("Pop");
+            }
         }
 
-        return arr;
+        return ope;
     }
 };
