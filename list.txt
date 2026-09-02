@@ -144,7 +144,7 @@
 144. EASY -> (Array II) Q2. How Many Numbers Are Smaller Than the Current Number
 145. EASY -> (Array II) Q3. Find All Numbers Disappeared in an Array
 146. MEDIUM -> (Stack) Q1. Build an Array With Stack Operations
-147. EASY ->
+147. EASY -> 3718. Smallest Missing Multiple of K
 148. 
 
 

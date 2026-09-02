@@ -1,49 +1,24 @@
 #include<iostream>
 using namespace std;
 
-// Q1. Build an Array With Stack Operations
+// 3718. Smallest Missing Multiple of K
 
 /***************
-You are given an integer array target and an integer n.
+Given an integer array nums and an integer k, return the smallest positive multiple of k that is missing from nums.
 
-You have an empty stack with the two following operations:
-
-"Push": pushes an integer to the top of the stack.
-"Pop": removes the integer on the top of the stack.
-You also have a stream of the integers in the range [1, n].
-
-Use the two stack operations to make the numbers in the stack (from the bottom to the top) equal to target. You should follow the following rules:
-
-If the stream of the integers is not empty, pick the next integer from the stream and push it to the top of the stack.
-If the stack is not empty, pop the integer at the top of the stack.
-If, at any moment, the elements in the stack (from the bottom to the top) are equal to target, do not read new integers from the stream and do not do more operations on the stack.
-Return the stack operations needed to build target following the mentioned rules. If there are multiple valid answers, return any of them.
+A multiple of k is any positive integer divisible by k.
 
 Example 1:
-Input: target = [1,3], n = 3
-Output: ["Push","Push","Pop","Push"]
-Explanation: Initially the stack s is empty. The last element is the top of the stack.
-Read 1 from the stream and push it to the stack. s = [1].
-Read 2 from the stream and push it to the stack. s = [1,2].
-Pop the integer on the top of the stack. s = [1].
-Read 3 from the stream and push it to the stack. s = [1,3].
+Input: nums = [8,2,3,4,6], k = 2
+Output: 10
+Explanation:
+The multiples of k = 2 are 2, 4, 6, 8, 10, 12... and the smallest multiple missing from nums is 10.
 
 Example 2:
-Input: target = [1,2,3], n = 3
-Output: ["Push","Push","Push"]
-Explanation: Initially the stack s is empty. The last element is the top of the stack.
-Read 1 from the stream and push it to the stack. s = [1].
-Read 2 from the stream and push it to the stack. s = [1,2].
-Read 3 from the stream and push it to the stack. s = [1,2,3].
-
-Example 3:
-Input: target = [1,2], n = 4
-Output: ["Push","Push"]
-Explanation: Initially the stack s is empty. The last element is the top of the stack.
-Read 1 from the stream and push it to the stack. s = [1].
-Read 2 from the stream and push it to the stack. s = [1,2].
-Since the stack (from the bottom to the top) is equal to target, we stop the stack operations.
-The answers that read integer 3 from the stream are not accepted.
+Input: nums = [1,4,7,10,15], k = 5
+Output: 5
+Explanation:
+The multiples of k = 5 are 5, 10, 15, 20... and the smallest multiple missing from nums is 5.
 ***************/
 
 
