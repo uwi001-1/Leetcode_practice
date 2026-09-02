@@ -24,28 +24,19 @@ The multiples of k = 5 are 5, 10, 15, 20... and the smallest multiple missing fr
 
 class Solution {
 public:
-    vector<string> buildArray(vector<int>& target, int n) 
+    int missingMultiple(vector<int>& nums, int k) 
     {
-        vector<string> ope;
+        int mult = k;
 
-        int index = 0;
+        sort(nums.begin(), nums.end());
 
-        // stops when we reach the end of the target array
-        for(int i = 1; i <= n && index < target.size(); i++)
+        for(int i = 0; i < nums.size(); i++)
         {
-            if(target[index] == i)
-            {
-                ope.push_back("Push");
-                index++;
-            }            
-            // when we don't need the number in the target array, we push and pop it
-            else
-            {
-                ope.push_back("Push");
-                ope.push_back("Pop");
-            }
+            if(nums[i] > mult) return mult;
+
+            if(nums[i] == mult) mult += k;
         }
 
-        return ope;
+        return mult;
     }
 };
