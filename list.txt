@@ -145,7 +145,8 @@
 145. EASY -> (Array II) Q3. Find All Numbers Disappeared in an Array
 146. MEDIUM -> (Stack) Q1. Build an Array With Stack Operations
 147. EASY -> 3718. Smallest Missing Multiple of K
-148. 
+148. MEDIUM -> 
+149. 
 
 
 
