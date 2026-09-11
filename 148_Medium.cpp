@@ -1,24 +1,42 @@
 #include<iostream>
 using namespace std;
 
-// 3718. Smallest Missing Multiple of K
+// Q2. Evaluate Reverse Polish Notation
 
 /***************
-Given an integer array nums and an integer k, return the smallest positive multiple of k that is missing from nums.
+You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
 
-A multiple of k is any positive integer divisible by k.
+Evaluate the expression. Return an integer that represents the value of the expression.
+
+Note that:
+The valid operators are '+', '-', '*', and '/'.
+Each operand may be an integer or another expression.
+The division between two integers always truncates toward zero.
+There will not be any division by zero.
+The input represents a valid arithmetic expression in a reverse polish notation.
+The answer and all the intermediate calculations can be represented in a 32-bit integer.
+ 
 
 Example 1:
-Input: nums = [8,2,3,4,6], k = 2
-Output: 10
-Explanation:
-The multiples of k = 2 are 2, 4, 6, 8, 10, 12... and the smallest multiple missing from nums is 10.
+Input: tokens = ["2","1","+","3","*"]
+Output: 9
+Explanation: ((2 + 1) * 3) = 9
 
 Example 2:
-Input: nums = [1,4,7,10,15], k = 5
-Output: 5
-Explanation:
-The multiples of k = 5 are 5, 10, 15, 20... and the smallest multiple missing from nums is 5.
+Input: tokens = ["4","13","5","/","+"]
+Output: 6
+Explanation: (4 + (13 / 5)) = 6
+
+Example 3:
+Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+Output: 22
+Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+= ((10 * (6 / (12 * -11))) + 17) + 5
+= ((10 * (6 / -132)) + 17) + 5
+= ((10 * 0) + 17) + 5
+= (0 + 17) + 5
+= 17 + 5
+= 22
 ***************/
 
 
