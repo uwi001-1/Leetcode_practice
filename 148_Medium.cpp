@@ -42,19 +42,44 @@ Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
 
 class Solution {
 public:
-    int missingMultiple(vector<int>& nums, int k) 
+    int evalRPN(vector<string>& tokens) 
     {
-        int mult = k;
+        stack<int> st;
 
-        sort(nums.begin(), nums.end());
-
-        for(int i = 0; i < nums.size(); i++)
+        // take the string, make it int and use the pop and push to do the equation
+        for(int i = 0; i < tokens.size(); i++)
         {
-            if(nums[i] > mult) return mult;
+            string c = tokens[i];
+            if(c != "+" && c != "-" && c != "*" && c !=  "/")
+            {
+                st.push(stoi(c));
+            }
+            else
+            {
+                int a = st.top();
+                st.pop();
+                int b = st.top();
+                st.pop();
 
-            if(nums[i] == mult) mult += k;
+                if(c == "+")
+                {
+                    st.push(a + b);
+                }
+                if(c == "-")
+                {
+                    st.push(b - a);
+                }
+                if(c == "*")
+                {
+                    st.push(a * b);
+                }
+                if(c == "/")
+                {
+                    st.push(b / a);
+                }
+            }
         }
 
-        return mult;
+        return st.top();
     }
 };
