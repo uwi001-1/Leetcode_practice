@@ -40,44 +40,19 @@ The reverse degree is 1 + 52 + 3 + 104 = 160.
 
 class Solution {
 public:
-    int evalRPN(vector<string>& tokens) 
+    int reverseDegree(string s) 
     {
-        stack<int> st;
+        int sum = 0;
+        int ind = 1; 
 
-        // take the string, make it int and use the pop and push to do the equation
-        for(int i = 0; i < tokens.size(); i++)
+        for(char ss : s)
         {
-            string c = tokens[i];
-            if(c != "+" && c != "-" && c != "*" && c !=  "/")
-            {
-                st.push(stoi(c));
-            }
-            else
-            {
-                int a = st.top();
-                st.pop();
-                int b = st.top();
-                st.pop();
+            int pos = 'z' - ss + 1;
 
-                if(c == "+")
-                {
-                    st.push(a + b);
-                }
-                if(c == "-")
-                {
-                    st.push(b - a);
-                }
-                if(c == "*")
-                {
-                    st.push(a * b);
-                }
-                if(c == "/")
-                {
-                    st.push(b / a);
-                }
-            }
-        }
+            sum += pos * ind;
+            ind++;
+        }    
 
-        return st.top();
+        return sum;
     }
 };
