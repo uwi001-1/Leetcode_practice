@@ -1,42 +1,40 @@
 #include<iostream>
 using namespace std;
 
-// Q2. Evaluate Reverse Polish Notation
+// 3498. Reverse Degree of a String
 
 /***************
-You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
+Given a string s, calculate its reverse degree.
 
-Evaluate the expression. Return an integer that represents the value of the expression.
+The reverse degree is calculated as follows:
 
-Note that:
-The valid operators are '+', '-', '*', and '/'.
-Each operand may be an integer or another expression.
-The division between two integers always truncates toward zero.
-There will not be any division by zero.
-The input represents a valid arithmetic expression in a reverse polish notation.
-The answer and all the intermediate calculations can be represented in a 32-bit integer.
- 
+For each character, multiply its position in the reversed alphabet ('a' = 26, 'b' = 25, ..., 'z' = 1) with its position in the string (1-indexed).
+Sum these products for all characters in the string.
+Return the reverse degree of s.
+
 
 Example 1:
-Input: tokens = ["2","1","+","3","*"]
-Output: 9
-Explanation: ((2 + 1) * 3) = 9
+Input: s = "abc"
+Output: 148
+Explanation:
+
+Letter	Index in Reversed Alphabet	Index in String	Product
+'a'	26	1	26
+'b'	25	2	50
+'c'	24	3	72
+The reversed degree is 26 + 50 + 72 = 148.
 
 Example 2:
-Input: tokens = ["4","13","5","/","+"]
-Output: 6
-Explanation: (4 + (13 / 5)) = 6
+Input: s = "zaza"
+Output: 160
+Explanation:
 
-Example 3:
-Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
-Output: 22
-Explanation: ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
-= ((10 * (6 / (12 * -11))) + 17) + 5
-= ((10 * (6 / -132)) + 17) + 5
-= ((10 * 0) + 17) + 5
-= (0 + 17) + 5
-= 17 + 5
-= 22
+Letter	Index in Reversed Alphabet	Index in String	Product
+'z'	1	1	1
+'a'	26	2	52
+'z'	1	3	3
+'a'	26	4	104
+The reverse degree is 1 + 52 + 3 + 104 = 160.
 ***************/
 
 
