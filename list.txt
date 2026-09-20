@@ -146,7 +146,8 @@
 146. MEDIUM -> (Stack) Q1. Build an Array With Stack Operations
 147. EASY -> 3718. Smallest Missing Multiple of K
 148. MEDIUM -> (Stack) Q2. Evaluate Reverse Polish Notation
-149. 
+149. EASY -> 
+150. 
 
 
 
