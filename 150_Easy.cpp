@@ -32,19 +32,22 @@ Since no index satisfies the condition, the output is -1.
 
 class Solution {
 public:
-    int reverseDegree(string s) 
+    int smallestIndex(vector<int>& nums) 
     {
-        int sum = 0;
-        int ind = 1; 
-
-        for(char ss : s)
+        for(int i = 0; i < nums.size(); i++)
         {
-            int pos = 'z' - ss + 1;
+            int n = nums[i];
+            int sum = 0;
 
-            sum += pos * ind;
-            ind++;
-        }    
+            while(n > 0)
+            {
+                sum += (n % 10);
+                n = n / 10;
+            }
 
-        return sum;
+            if(i == sum) return i;
+        } 
+
+        return -1;   
     }
 };
