@@ -25,22 +25,20 @@ Hence, the sum of the squares of all special elements of nums is nums[1] * nums[
 
 class Solution {
 public:
-    int smallestIndex(vector<int>& nums) 
+    int sumOfSquares(vector<int>& nums) 
     {
-        for(int i = 0; i < nums.size(); i++)
+        int n = nums.size();
+
+        int sum = 0 ;
+
+        for(int i = 1; i < nums.size()+1; i++)
         {
-            int n = nums[i];
-            int sum = 0;
+            int j = i -1;
 
-            while(n > 0)
-            {
-                sum += (n % 10);
-                n = n / 10;
-            }
+            if(n % i == 0)
+                sum += (nums[j] * nums[j]);
+        }
 
-            if(i == sum) return i;
-        } 
-
-        return -1;   
+        return sum;
     }
 };
