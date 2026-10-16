@@ -31,6 +31,32 @@ Output: [9,0,1,6]
 ***************/
 
 
+// Monotonic Stack
+// O(n)
+class Solution {
+public:
+    vector<int> finalPrices(vector<int>& prices) {
+        vector<int> answer = prices;
+        stack<int> st;
+
+        for (int i = prices.size() - 1; i >= 0; i--) {
+
+            while (!st.empty() && st.top() > prices[i]) {
+                st.pop();
+            }
+
+            if (!st.empty()) {
+                answer[i] -= st.top();
+            }
+
+            st.push(prices[i]);
+        }
+
+        return answer;
+    }
+};
+
+
 // O(n^2) solution
 class Solution {
 public:
