@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-// 2778. Sum of Squares of Special Elements 
+// Q1. Final Prices With a Special Discount in a Shop
 
 /***************
 You are given a 1-indexed integer array nums of length n.
