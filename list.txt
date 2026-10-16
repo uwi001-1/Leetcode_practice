@@ -149,7 +149,8 @@
 149. EASY -> 3498. Reverse Degree of a String
 150. EASY -> 3550. Smallest Index With Digit Sum Equal to Index
 151. EASY -> 2778. Sum of Squares of Special Elements 
-152. 
+152. EAST -> (Monotonic Stack) 
+153. 
 
 
 
