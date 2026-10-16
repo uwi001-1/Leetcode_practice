@@ -31,22 +31,31 @@ Output: [9,0,1,6]
 ***************/
 
 
+// O(n^2) solution
 class Solution {
 public:
-    int sumOfSquares(vector<int>& nums) 
+    vector<int> finalPrices(vector<int>& prices) 
     {
-        int n = nums.size();
+        vector<int> answer;
+        int val;
+        bool maybe;
 
-        int sum = 0 ;
-
-        for(int i = 1; i < nums.size()+1; i++)
+        for(int i = 0; i < prices.size(); i++)
         {
-            int j = i -1;
-
-            if(n % i == 0)
-                sum += (nums[j] * nums[j]);
+            maybe = false;
+            for(int j = i+1; j < prices.size(); j++)
+            {
+                if(prices[j] <= prices[i])
+                {
+                    maybe = true;
+                    val = prices[i] - prices[j];
+                    answer.push_back(val);
+                    break;
+                }
+            }
+            if(!maybe) answer.push_back(prices[i]);
         }
 
-        return sum;
+        return answer;   
     }
 };
