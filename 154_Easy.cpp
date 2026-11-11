@@ -27,38 +27,13 @@ All numbers from 1 to 998 have fewer than four digits. Therefore, no commas are 
 
 class Solution {
 public:
-    long long minimumCost(int cost1, int cost2, int costBoth, int need1, int need2) 
+    int countCommas(int n) 
     {
-        long long total = 0;
+        int val = n - 999;
 
-        while(true)
-        {
-            if(need1 != 0 && need2 !=0)
-            {
-                long long val = min(need1, need2);
-                total += val * min(costBoth, cost1 + cost2);
-                need1 -= val;
-                need2 -= val;
-            }
-
-            else if(need1 == 0 && need2 != 0)
-            {
-                long long val2 = need2;
-                total += val2 * min(costBoth, cost2);
-                need2 -= val2;
-            }
-
-            else if(need2 == 0 && need1 != 0)
-            {
-                long long val1 = need1;
-                total += val1 * min(costBoth, cost1);
-                need1 -= val1;
-            }
-            
-            else
-                break;
-        }
-
-        return total;
+        if(val > 0)
+            return val;
+        else
+            return 0; 
     }
 };
