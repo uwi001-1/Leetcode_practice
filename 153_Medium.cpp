@@ -1,33 +1,39 @@
 #include<iostream>
 using namespace std;
 
-// Q1. Final Prices With a Special Discount in a Shop
+// 3789. Minimum Cost to Acquire Required Items
 
 /***************
-You are given an integer array prices where prices[i] is the price of the ith item in a shop.
+You are given five integers cost1, cost2, costBoth, need1, and need2.
 
-There is a special discount for items in the shop. If you buy the ith item, then you will receive a discount equivalent to prices[j] where j is the minimum index such that j > i and prices[j] <= prices[i]. 
-Otherwise, you will not receive any discount at all.
+There are three types of items available:
+- An item of type 1 costs cost1 and contributes 1 unit to the type 1 requirement only.
+- An item of type 2 costs cost2 and contributes 1 unit to the type 2 requirement only.
+- An item of type 3 costs costBoth and contributes 1 unit to both type 1 and type 2 requirements.
 
-Return an integer array answer where answer[i] is the final price you will pay for the ith item of the shop, considering the special discount.
+You must collect enough items so that the total contribution toward type 1 is at least need1 and the total contribution toward type 2 is at least need2.
+
+Return an integer representing the minimum possible total cost to achieve these requirements.
 
 Example 1:
-Input: prices = [8,4,6,2,3]
-Output: [4,2,4,2,3]
-Explanation: 
-For item 0 with price[0]=8 you will receive a discount equivalent to prices[1]=4, therefore, the final price you will pay is 8 - 4 = 4.
-For item 1 with price[1]=4 you will receive a discount equivalent to prices[3]=2, therefore, the final price you will pay is 4 - 2 = 2.
-For item 2 with price[2]=6 you will receive a discount equivalent to prices[3]=2, therefore, the final price you will pay is 6 - 2 = 4.
-For items 3 and 4 you will not receive any discount at all.
+Input: cost1 = 3, cost2 = 2, costBoth = 1, need1 = 3, need2 = 2
+Output: 3
+Explanation:
+After buying three type 3 items, which cost 3 * 1 = 3, the total contribution to type 1 is 3 (>= need1 = 3) and to type 2 is 3 (>= need2 = 2).
+Any other valid combination would cost more, so the minimum total cost is 3.
 
 Example 2:
-Input: prices = [1,2,3,4,5]
-Output: [1,2,3,4,5]
-Explanation: In this case, for all items, you will not receive any discount at all.
+Input: cost1 = 5, cost2 = 4, costBoth = 15, need1 = 2, need2 = 3
+Output: 22
+Explanation:
+We buy need1 = 2 items of type 1 and need2 = 3 items of type 2: 2 * 5 + 3 * 4 = 10 + 12 = 22.
+Any other valid combination would cost more, so the minimum total cost is 22.
 
 Example 3:
-Input: prices = [10,1,1,6]
-Output: [9,0,1,6] 
+Input: cost1 = 5, cost2 = 4, costBoth = 15, need1 = 0, need2 = 0
+Output: 0
+Explanation:
+Since no items are required (need1 = need2 = 0), we buy nothing and pay 0.
 ***************/
 
 
@@ -53,35 +59,5 @@ public:
         }
 
         return answer;
-    }
-};
-
-
-// O(n^2) solution
-class Solution {
-public:
-    vector<int> finalPrices(vector<int>& prices) 
-    {
-        vector<int> answer;
-        int val;
-        bool maybe;
-
-        for(int i = 0; i < prices.size(); i++)
-        {
-            maybe = false;
-            for(int j = i+1; j < prices.size(); j++)
-            {
-                if(prices[j] <= prices[i])
-                {
-                    maybe = true;
-                    val = prices[i] - prices[j];
-                    answer.push_back(val);
-                    break;
-                }
-            }
-            if(!maybe) answer.push_back(prices[i]);
-        }
-
-        return answer;   
     }
 };
