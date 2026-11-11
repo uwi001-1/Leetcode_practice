@@ -37,27 +37,40 @@ Since no items are required (need1 = need2 = 0), we buy nothing and pay 0.
 ***************/
 
 
-// Monotonic Stack
-// O(n)
 class Solution {
 public:
-    vector<int> finalPrices(vector<int>& prices) {
-        vector<int> answer = prices;
-        stack<int> st;
+    long long minimumCost(int cost1, int cost2, int costBoth, int need1, int need2) 
+    {
+        long long total = 0;
 
-        for (int i = prices.size() - 1; i >= 0; i--) {
-
-            while (!st.empty() && st.top() > prices[i]) {
-                st.pop();
+        while(true)
+        {
+            if(need1 != 0 && need2 !=0)
+            {
+                long long val = min(need1, need2);
+                total += val * min(costBoth, cost1 + cost2);
+                need1 -= val;
+                need2 -= val;
             }
 
-            if (!st.empty()) {
-                answer[i] -= st.top();
+            else if(need1 == 0 && need2 != 0)
+            {
+                long long val2 = need2;
+                total += val2 * min(costBoth, cost2);
+                need2 -= val2;
             }
 
-            st.push(prices[i]);
+            else if(need2 == 0 && need1 != 0)
+            {
+                long long val1 = need1;
+                total += val1 * min(costBoth, cost1);
+                need1 -= val1;
+            }
+            
+            else
+                break;
         }
 
-        return answer;
+        return total;
     }
 };
