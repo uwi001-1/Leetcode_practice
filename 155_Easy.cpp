@@ -35,13 +35,41 @@ Hence, we return 3.
 
 class Solution {
 public:
-    int countCommas(int n) 
+    int longestMonotonicSubarray(vector<int>& nums) 
     {
-        int val = n - 999;
+        int dec = 0;
+        int inc = 0; 
 
-        if(val > 0)
-            return val;
-        else
-            return 0; 
+        int decCount = 0;
+        int incCount = 0;
+
+        for(int i = 1; i < nums.size(); i++)
+        {
+            if(nums[i-1] > nums[i])
+            {
+                decCount++;
+                if(inc < incCount) inc = incCount;
+                incCount = 0;
+            }
+            else if(nums[i -1] < nums[i])
+            {
+                incCount++;
+                if(dec < decCount) dec = decCount;
+                decCount = 0;
+            }
+            else
+            {
+                if(inc < incCount) inc = incCount;
+                incCount = 0;
+
+                if(dec < decCount) dec = decCount;
+                decCount = 0;
+            }
+        }
+
+        if(inc < incCount) inc = incCount;
+        if(dec < decCount) dec = decCount;
+
+        return max(inc, dec) + 1;
     }
 };
