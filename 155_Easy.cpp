@@ -1,27 +1,35 @@
 #include<iostream>
 using namespace std;
 
-// 3870. Count Commas in Range
+// 3105. Longest Strictly Increasing or Strictly Decreasing Subarray
 
 /***************
-You are given an integer n.
-Return the total number of commas used when writing all integers from [1, n] (inclusive) in standard number formatting.
-
-In standard formatting:
-A comma is inserted after every three digits from the right.
-Numbers with fewer than 4 digits contain no commas.
+You are given an array of integers nums. 
+Return the length of the longest subarray of nums which is either strictly increasing or strictly decreasing.
 
 Example 1:
-Input: n = 1002
-Output: 3
+Input: nums = [1,4,3,3,2]
+Output: 2
 Explanation:
-The numbers "1,000", "1,001", and "1,002" each contain one comma, giving a total of 3.
+The strictly increasing subarrays of nums are [1], [2], [3], [3], [4], and [1,4].
+The strictly decreasing subarrays of nums are [1], [2], [3], [3], [4], [3,2], and [4,3].
+Hence, we return 2.
 
 Example 2:
-Input: n = 998
-Output: 0
+Input: nums = [3,3,3,3]
+Output: 1
 Explanation:
-All numbers from 1 to 998 have fewer than four digits. Therefore, no commas are used.
+The strictly increasing subarrays of nums are [3], [3], [3], and [3].
+The strictly decreasing subarrays of nums are [3], [3], [3], and [3].
+Hence, we return 1.
+
+Example 3:
+Input: nums = [3,2,1]
+Output: 3
+Explanation:
+The strictly increasing subarrays of nums are [3], [2], and [1].
+The strictly decreasing subarrays of nums are [3], [2], [1], [3,2], [2,1], and [3,2,1].
+Hence, we return 3.
 ***************/
 
 
