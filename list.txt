@@ -153,7 +153,8 @@
 153. ❤️ MEDIUM -> 3789. Minimum Cost to Acquire Required Items
 154. EASY -> 3870. Count Commas in Range
 155. EASY -> 3105. Longest Strictly Increasing or Strictly Decreasing Subarray
-156. 
+156. EASY ->
+157. 
 
 
 
