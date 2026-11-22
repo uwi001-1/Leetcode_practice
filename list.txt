@@ -154,7 +154,7 @@
 154. EASY -> 3870. Count Commas in Range
 155. EASY -> 3105. Longest Strictly Increasing or Strictly Decreasing Subarray
 156. EASY -> 2243. Calculate Digit Sum of a String
-157. EASY -> 
+157. EASY -> 2124. Check if All A's Appears Before All B's
 158. 
 
 

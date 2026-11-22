@@ -1,35 +1,31 @@
 #include<iostream>
 using namespace std;
 
-// 3105. Longest Strictly Increasing or Strictly Decreasing Subarray
+// 2124. Check if All A's Appears Before All B's
 
 /***************
-You are given an array of integers nums. 
-Return the length of the longest subarray of nums which is either strictly increasing or strictly decreasing.
+Given a string s consisting of only the characters 'a' and 'b', return true if every 'a' appears before every 'b' in the string. 
+Otherwise, return false.
 
 Example 1:
-Input: nums = [1,4,3,3,2]
-Output: 2
+Input: s = "aaabbb"
+Output: true
 Explanation:
-The strictly increasing subarrays of nums are [1], [2], [3], [3], [4], and [1,4].
-The strictly decreasing subarrays of nums are [1], [2], [3], [3], [4], [3,2], and [4,3].
-Hence, we return 2.
+The 'a's are at indices 0, 1, and 2, while the 'b's are at indices 3, 4, and 5.
+Hence, every 'a' appears before every 'b' and we return true.
 
 Example 2:
-Input: nums = [3,3,3,3]
-Output: 1
+Input: s = "abab"
+Output: false
 Explanation:
-The strictly increasing subarrays of nums are [3], [3], [3], and [3].
-The strictly decreasing subarrays of nums are [3], [3], [3], and [3].
-Hence, we return 1.
+There is an 'a' at index 2 and a 'b' at index 1.
+Hence, not every 'a' appears before every 'b' and we return false.
 
 Example 3:
-Input: nums = [3,2,1]
-Output: 3
+Input: s = "bbb"
+Output: true
 Explanation:
-The strictly increasing subarrays of nums are [3], [2], and [1].
-The strictly decreasing subarrays of nums are [3], [2], [1], [3,2], [2,1], and [3,2,1].
-Hence, we return 3.
+There are no 'a's, hence, every 'a' appears before every 'b' and we return true.
 ***************/
 
 
