@@ -31,41 +31,16 @@ There are no 'a's, hence, every 'a' appears before every 'b' and we return true.
 
 class Solution {
 public:
-    int longestMonotonicSubarray(vector<int>& nums) 
+    bool checkString(string s) 
     {
-        int dec = 0;
-        int inc = 0; 
-
-        int decCount = 0;
-        int incCount = 0;
-
-        for(int i = 1; i < nums.size(); i++)
+        for(int i = 0; i < s.size()-1; i++)
         {
-            if(nums[i-1] > nums[i])
+            if(s[i] == 'b')
             {
-                decCount++;
-                if(inc < incCount) inc = incCount;
-                incCount = 0;
+                if(s[i+1] == 'a') return false;
             }
-            else if(nums[i -1] < nums[i])
-            {
-                incCount++;
-                if(dec < decCount) dec = decCount;
-                decCount = 0;
-            }
-            else
-            {
-                if(inc < incCount) inc = incCount;
-                incCount = 0;
+        }    
 
-                if(dec < decCount) dec = decCount;
-                decCount = 0;
-            }
-        }
-
-        if(inc < incCount) inc = incCount;
-        if(dec < decCount) dec = decCount;
-
-        return max(inc, dec) + 1;
+        return true;
     }
 };
