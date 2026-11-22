@@ -38,41 +38,25 @@ s becomes "0" + "0" + "0" = "000", whose length is equal to k, so we return "000
 
 class Solution {
 public:
-    int longestMonotonicSubarray(vector<int>& nums) 
+    string digitSum(string s, int k) 
     {
-        int dec = 0;
-        int inc = 0; 
-
-        int decCount = 0;
-        int incCount = 0;
-
-        for(int i = 1; i < nums.size(); i++)
+        while(s.size() > k)
         {
-            if(nums[i-1] > nums[i])
-            {
-                decCount++;
-                if(inc < incCount) inc = incCount;
-                incCount = 0;
-            }
-            else if(nums[i -1] < nums[i])
-            {
-                incCount++;
-                if(dec < decCount) dec = decCount;
-                decCount = 0;
-            }
-            else
-            {
-                if(inc < incCount) inc = incCount;
-                incCount = 0;
+            string temp = "";
 
-                if(dec < decCount) dec = decCount;
-                decCount = 0;
+            for(int i = 0; i < s.size(); i += k)
+            {
+                int sum = 0;
+                for(int j = 0; j < k && i + j < s.size(); j++)
+                {
+                    int num = s[j + i] - '0';
+                    sum += num;
+                }
+                temp = temp + std::to_string(sum);
             }
+
+            s = temp;
         }
-
-        if(inc < incCount) inc = incCount;
-        if(dec < decCount) dec = decCount;
-
-        return max(inc, dec) + 1;
+        return s;
     }
 };
